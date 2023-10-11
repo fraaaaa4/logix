@@ -1,0 +1,12 @@
+﻿October 10th Version
+
+- Added a new Start Page: quick actions, changelog, recent files
+- Fixed About window: added all app infos (loaded directly from properties)
+- Converted FATextbox to work with TabStrip (tabbed interface)
+- Added tabbing editing - you can work with tabs
+- Added navigating backwards or forward
+- Added Bookmarks support
+- Added Document Map
+- Added zoom for textboxes
+- Fixed fonts
+- Added word wrap options

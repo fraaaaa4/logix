@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="PrologParsec.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="descriptionFileDirectory" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\Asain\Downloads\FastColoredTextBoxDemo\prolog.xml</Value>
+    </Setting>
+    <Setting Name="defaultFontSize" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">12</Value>
+    </Setting>
+    <Setting Name="defaultFont" Type="System.Drawing.Font" Scope="User">
+      <Value Profile="(Default)">ProggyCleanTT, 15.75pt</Value>
+    </Setting>
+    <Setting Name="headerText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">% -*- Mode: Prolog -*-</Value>
+    </Setting>
+    <Setting Name="footerText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">% -*- End of file -- </Value>
+    </Setting>
+    <Setting Name="documentMap" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="auroraFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">aurora.xaml</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
