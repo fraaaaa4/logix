@@ -147,9 +147,9 @@
     <value>Built using Visual Studio 2005 and C#. Credits to Pavel Torgashov for "Fast Colored Textbox" and "Autocomplete Menu". Prolog is a logic-based programming language. Built by fraaa3</value>
   </data>
   <data name="AppVersion" xml:space="preserve">
-    <value>0.2.215.0.tf/p-231010</value>
+    <value>0.2.220.0.tf/p-231014</value>
   </data>
   <data name="AppDate" xml:space="preserve">
-    <value>October 10th, 2023</value>
+    <value>October 14th, 2023</value>
   </data>
 </root>

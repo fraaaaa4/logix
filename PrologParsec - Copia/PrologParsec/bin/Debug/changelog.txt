@@ -1,4 +1,17 @@
-﻿October 10th Version
+﻿October 14th Version
+- added Go To panel
+- added docking of panels with global methods
+- added Find/replace dialog - with Find Next and Replace All
+
+October 13th Version
+- slightly fixed Prolog syntax
+- fixed Parameters and ArgumentException
+- Implemented "Go To" panel
+
+October 11th Version
+- Added NT checks to disable XML rendering
+
+October 10th Version
 
 - Added a new Start Page: quick actions, changelog, recent files
 - Fixed About window: added all app infos (loaded directly from properties)

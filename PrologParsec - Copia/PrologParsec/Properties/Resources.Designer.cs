@@ -61,7 +61,7 @@ namespace PrologParsec.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to October 10th, 2023.
+        ///   Looks up a localized string similar to October 14th, 2023.
         /// </summary>
         internal static string AppDate {
             get {
@@ -106,7 +106,7 @@ namespace PrologParsec.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 0.2.215.0.tf/p-231010.
+        ///   Looks up a localized string similar to 0.2.220.0.tf/p-231014.
         /// </summary>
         internal static string AppVersion {
             get {

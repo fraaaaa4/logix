@@ -11,6 +11,8 @@ using System.Xml;
 using AutocompleteMenuNS;
 using System.Text.RegularExpressions;
 using System.Reflection;
+using Microsoft.Win32;
+using System.Drawing.Drawing2D;
 
 
 namespace PrologParsec
@@ -19,6 +21,26 @@ namespace PrologParsec
     {
         AutocompleteMenu popupMenu; 
         private int childFormNumber = 0;
+
+        static string GetWindowsVersion()
+        {
+            using (RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion"))
+            {
+                if (key != null)
+                {
+                     string productName = key.GetValue("ProductName") as string;
+                    string currentVersion = key.GetValue("CurrentVersion") as string;
+                    string buildLab = key.GetValue("BuildLab") as string;
+
+                    return currentVersion;
+                }
+                else
+                {
+                    return "No.";
+                }
+            }
+        }
+        
         public MDIParent1()
            
         {
@@ -36,6 +58,15 @@ namespace PrologParsec
             //create new autocomplete
             //popupMenu = new AutocompleteMenu();
             //popupMenu.SetAutocompleteItems(new DynamicCollection(popupMenu, Fastcolored1));
+
+            //Windows version check
+            string version = GetWindowsVersion();
+            Console.WriteLine("Windows version: " + version);
+            if (version == "4.0" || version == "5.0" || version == "5.1" || version == "6.0")
+                webBrowser1.Visible = false;
+
+            centerPanel(roundedPanel1);
+
         }
 
         private void ShowNewForm(object sender, EventArgs e)
@@ -1298,6 +1329,7 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
 
         private void MDIParent1_Load(object sender, EventArgs e)
         {
+            check();
             this.Text = this.Text.Substring(0, this.Text.Length - 1);
             faTabStripItem1.Title = "Untitled";
             faTabStrip1.RemoveTab(faTabStripItem1);
@@ -1490,22 +1522,22 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
 
             if (toolStrip1.Visible)
             {
-                toolbarToolStripMenuItem.Checked = false;
+                toolbarToolStripMenuItem.Checked = true;
             }
             else
             {
-                toolbarToolStripMenuItem.Checked = true;
+                toolbarToolStripMenuItem.Checked = false;
             }
 
             if (Fastcolored1.WordWrap)
-                wordWrapToolStripMenuItem.Checked = false;
-            else
                 wordWrapToolStripMenuItem.Checked = true;
+            else
+                wordWrapToolStripMenuItem.Checked = false;
 
             if (Fastcolored1.WordWrapIndent > 0)
-                wordWrapIndentToolStripMenuItem.Checked = false;
-            else
                 wordWrapIndentToolStripMenuItem.Checked = true;
+            else
+                wordWrapIndentToolStripMenuItem.Checked = false;
 
             if (Fastcolored1.DescriptionFile == null)
                 checkForSyntaxToolStripMenuItem.Checked = false;
@@ -1517,13 +1549,25 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
                 documentMapToolStripMenuItem.Checked = true;
                 Properties.Settings.Default.documentMap = true;
                 Properties.Settings.Default.Save();
+                splitter1.Visible = true;
             }
             else
             {
                 documentMapToolStripMenuItem.Checked = false;
                 Properties.Settings.Default.documentMap = false;
                 Properties.Settings.Default.Save();
+                splitter1.Visible = false;
             }
+
+            if (roundedPanel1.Visible)
+            {
+                goToToolStripMenuItem.Checked = true;
+            }
+            else
+            {
+                goToToolStripMenuItem.Checked = false;
+            }
+            
         }
 
         private void toolbarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1532,16 +1576,18 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
             if (toolStrip1.Visible)
             {
                 toolStrip1.Visible = false;
+                toolbarToolStripMenuItem.Checked = false;
             }
             else
             {
                 toolStrip1.Visible = true;
+                toolbarToolStripMenuItem.Checked = true;
             } 
         }
 
         private void addHeaderToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CurrentTB.InsertText(Properties.Settings.Default.headerText);
+            CurrentTB.Text = Properties.Settings.Default.headerText + "\n" + CurrentTB.Text;
         }
 
         private void addFooterToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1556,9 +1602,7 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
 
         private void addHeaderToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            CurrentTB.InsertText(Properties.Settings.Default.headerText);
-            CurrentTB.Refresh();
-            CurrentTB.Invalidate();
+            CurrentTB.Text = Properties.Settings.Default.headerText + "\n" + CurrentTB.Text;
 
         }
 
@@ -1583,7 +1627,14 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            if (System.Text.RegularExpressions.Regex.IsMatch(textBox1.Text, "[^0-9]"))
+            {
+                roundedPanel1.Height = 56;
+                label15.Text = "Please enter only numbers";
+                label15.Left = (this.roundedPanel1.Width - label15.Width) / 2;
+                textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 1);
+            } else
+            GoToLine(int.Parse(textBox1.Text));
         }
 
         private void wordWrapToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1858,14 +1909,467 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
 
         }
 
+        public bool moveGoToPanel = false;
+
         private void MDIParent1_Resize(object sender, EventArgs e)
         {
             panel2.Left = faTabStrip1.Width - panel2.Width - 20;
+
+            if (!moveGoToPanel && goToDockTop || !moveGoToPanel && goToDockBottom)
+            {
+                centerPanel(roundedPanel1);
+            }
         }
 
+
+
+        private void toolStripTextBox4_Click(object sender, EventArgs e)
+{
+            
+}
+
+        private void faTabStripItem1_Changed(object sender, EventArgs e)
+        {
+
+        }
+
+        private void faTabStripItem1_Changed_1(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void addFunctionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void SelectCurrentLine()
+        {
+            int currentLineIndex = CurrentTB.Selection.Start.iLine;
+
+            if (currentLineIndex >= 0 && currentLineIndex < CurrentTB.LinesCount)
+            {
+                int lineStartIndex = 0;
+                for (int i = 0; i < currentLineIndex; i++)
+                {
+                    lineStartIndex += CurrentTB[i].Count + Environment.NewLine.Length;
+                }
+                int lineEndIndex = lineStartIndex + CurrentTB[currentLineIndex].Count;
+
+                CurrentTB.Selection.Start = new FastColoredTextBoxNS.Place(lineStartIndex, currentLineIndex);
+                CurrentTB.Selection.End = new FastColoredTextBoxNS.Place(lineEndIndex, currentLineIndex);
+            }
+        }
+
+
+
+
+
+
+        // Select the current function
+        private void SelectCurrentFunction()
+        {
+            int position = CurrentTB.SelectionStart;
+            int openParenthesisIndex = CurrentTB.Text.LastIndexOf('(', position);
+
+            if (openParenthesisIndex != -1)
+            {
+                int functionNameStart = CurrentTB.Text.LastIndexOf(' ', openParenthesisIndex);
+                if (functionNameStart == -1)
+                {
+                    functionNameStart = 0;
+                }
+
+                
+            }
+        }
+
+        // Select all text inside CurrentTB
+        private void SelectAllText()
+        {
+            CurrentTB.SelectAll();
+        }
+
+        private void selectCurrentLineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SelectCurrentLine();
+        }
+
+        private void selectCurrentWordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void selectCurrentFunctionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SelectCurrentFunction();
+        }
+
+        private void selectAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SelectAllText();
+        }
+
+        private void selectCurrentLineToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            SelectCurrentLine();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            roundedPanel1.Visible = false;
+            roundedPanel1.Height = 36;
+        }
+
+        private void goToToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            check();
+            centerPanel(roundedPanel1);
+            if (!roundedPanel1.Visible)
+            {
+                roundedPanel1.Visible = true;
+                goToToolStripMenuItem.Checked = true;
+            }
+            else
+            {
+                roundedPanel1.Visible = false;
+                goToToolStripMenuItem.Checked = false;
+            }
+
+        }
+
+        private void centerPanel(Panel panel)
+        {
+            // Calcola la posizione orizzontale per centrare il pannello
+            int centerX = (this.ClientSize.Width - panel.Width) / 2;
+
+            // Imposta la posizione del pannello
+            panel.Location = new Point(centerX, panel.Location.Y);
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            GoToLine(int.Parse(textBox1.Text));
+        }
+
+
+        private void GoToLine(int lineNumber)
+        {
+            lineNumber = lineNumber - 1;
+            if (lineNumber >= 0 && lineNumber < CurrentTB.LinesCount)
+            {
+                FastColoredTextBoxNS.Place startPlace = new FastColoredTextBoxNS.Place(0, lineNumber);
+                FastColoredTextBoxNS.Place endPlace = new FastColoredTextBoxNS.Place(0, lineNumber);
+
+                CurrentTB.Selection.Start = startPlace;
+                CurrentTB.Selection.End = endPlace;
+
+                CurrentTB.DoSelectionVisible();
+                CurrentTB.Focus(); CurrentTB.Select();
+                roundedPanel1.Height = 36;
+            }
+            else
+            {
+                roundedPanel1.Height = 56;
+                label15.Text = "Enter a number between 1 and " + CurrentTB.LinesCount;
+                label15.Left = (this.roundedPanel1.Width - label15.Width) / 2;
+            }
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            GoToLine(int.Parse(textBox1.Text));
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_Click(object sender, EventArgs e)
+        {
+            roundedPanel1.Height = 36;
+        }
+
+        private void roundedPanel1_VisibleChanged(object sender, EventArgs e)
+        {
+            roundedPanel1.Height = 36;
+        }
+
+        private Point _Offset = Point.Empty;
+        private bool goToDockTop = false;
+        private bool goToDockBottom = false;
+
+        private void mouseMovePanelTopBottom(object sender, MouseEventArgs e, Panel roundedPanel1)
+        {
+            if (_Offset != Point.Empty)
+            {
+                Point newlocation = roundedPanel1.Location;
+                newlocation.X += e.X - _Offset.X;
+                newlocation.Y += e.Y - _Offset.Y;
+                if (newlocation.Y > toolStrip1.Height + (panel4.Height + 2))
+                {
+                    roundedPanel1.Location = newlocation;
+                    goToDockTop = false;
+                }
+
+                if (newlocation.Y < panel5.Height - statusStrip.Height)
+                {
+                    roundedPanel1.Location = newlocation;
+                    goToDockBottom = false;
+                }
+
+                if (roundedPanel1.Top < panel4.Top)
+                {
+                    roundedPanel1.Top = panel4.Top;
+                    if (e.Y > toolStrip1.Height + (panel4.Height - 10))
+                    {
+                        moveGoToPanel = true;
+                        panel4.Visible = false;
+                        // Allow the panel to move again when the mouse is in the lower area.
+                        roundedPanel1.Invalidate();
+                        goToDockTop = false;
+                        panel5.Visible = false;
+                    }
+                    else
+                    {
+                        moveGoToPanel = false;
+                        panel4.Visible = true;
+                        if (goToDockTop)
+                            centerPanel(roundedPanel1);
+                        // Block the top position, center the panel, and show the dock panel.
+                        roundedPanel1.Invalidate();
+                        goToDockTop = true;
+                        panel5.Visible = false;
+                    }
+                }
+                else
+                {
+                    roundedPanel1.Enabled = true;
+                }
+
+                if (roundedPanel1.Top + roundedPanel1.Height > panel5.Top)
+                {
+                    roundedPanel1.Top = panel5.Top - roundedPanel1.Height + 10;
+                    if (e.Y < statusStrip.Height - (panel5.Height + 10) - statusStrip.Height)
+                    {
+                        moveGoToPanel = true;
+                        panel5.Visible = false;
+                        roundedPanel1.Invalidate();
+                        goToDockBottom = false;
+                        panel4.Visible = false;
+                    }
+                    else
+                    {
+                        moveGoToPanel = false;
+                        panel5.Visible = true;
+                        if (goToDockBottom)
+                            centerPanel(roundedPanel1);
+                        roundedPanel1.Invalidate();
+                        goToDockBottom = true;
+                        panel4.Visible = false;
+                    }
+                }
+            }
+        }
+        private void roundedPanel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            mouseMovePanelTopBottom(sender, e, roundedPanel1);
+        }
+
+        private void mouseDownPanelTopBottom(object sender, MouseEventArgs e, Panel roundedPanel1)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                _Offset = new Point(e.X, e.Y);
+                if (e.Y > toolStrip1.Height + (panel4.Height + 2) || e.Y < this.ClientSize.Height - (panel5.Height + 2) - statusStrip.Height)
+                    moveGoToPanel = true;
+            }
+        }
+        private void roundedPanel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDownPanelTopBottom(sender, e, roundedPanel1);
+        }
+
+        private void mouseUpPanelTopBottom(object sender, MouseEventArgs e, Panel roundedPanel1)
+        {
+            _Offset = Point.Empty;
+            panel4.Visible = false;
+            roundedPanel1.Enabled = true;
+            if (!moveGoToPanel && goToDockTop || !moveGoToPanel && goToDockBottom)
+            {
+                centerPanel(roundedPanel1);
+                panel5.Visible = false;
+            }
+        }
+
+        private void roundedPanel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseUpPanelTopBottom(sender, e, roundedPanel1);
+        }
+
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           
+        }
+
+        private void panel4_MouseMove(object sender, MouseEventArgs e)
+        {
+            moveGoToPanel = false;
+        }
+
+        private void fIndAndReplaceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            check();
+            centerPanel(panel6);
+            if (!panel6.Visible)
+            {
+                panel6.Visible = true;
+                fIndAndReplaceToolStripMenuItem.Checked = true;
+            }
+            else
+            {
+                panel6.Visible = false;
+                fIndAndReplaceToolStripMenuItem.Checked = false;
+            }
+        }
+
+        private void tabControl1_MouseMove(object sender, MouseEventArgs e)
+        {
+            mouseMovePanelTopBottom(sender, e, panel6);
+        }
+
+        private void tabControl1_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseUpPanelTopBottom(sender, e, panel6);
+        }
+
+        private void tabControl1_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDownPanelTopBottom(sender, e, panel6);
+        }
+
+        private bool  findTextEdit = false;
+        private void comboBox1_Enter(object sender, EventArgs e)
+        {
+            if (!findTextEdit)
+            {
+                findTextEdit = true;
+                comboBox1.Text = "";
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            FindNext(comboBox1.Text);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string searchText = comboBox1.Text;
+            string replaceText = comboBox3.Text;
+
+            // Imposta le opzioni per la ricerca
+            RegexOptions options = RegexOptions.None;
+
+            // Crea un'espressione regolare con le opzioni
+            Regex regex = new Regex(searchText, options);
+
+            // Esegui la ricerca nel testo
+            foreach (Match result in regex.Matches(CurrentTB.Text))
+            {
+                // Effettua la sostituzione nel testo
+                CurrentTB.Text = CurrentTB.Text.Remove(result.Index, result.Length).Insert(result.Index, replaceText);
+            }
         
-}
-}
+        }
+
+        private void comboBox1_Leave(object sender, EventArgs e)
+        {
+            if (comboBox1.Text == "")
+            {
+                comboBox1.Text = "Find...";
+                findTextEdit = false;
+            }
+        }
+
+        private void panel6_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDownPanelTopBottom(sender, e, panel6);
+        }
+
+        private void panel6_MouseMove(object sender, MouseEventArgs e)
+        {
+            mouseMovePanelTopBottom(sender, e, panel6);
+        }
+
+        private void panel6_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseUpPanelTopBottom(sender, e, panel6);
+        }
+
+        private bool replaceEditText = false;
+        private void comboBox3_Enter(object sender, EventArgs e)
+        {
+            if (!replaceEditText)
+            {
+                replaceEditText = true;
+                comboBox2.Text = "";
+            }
+        }
+
+        private void comboBox3_Leave(object sender, EventArgs e)
+        {
+            if (comboBox2.Text == "")
+            {
+                comboBox2.Text = "Replace...";
+                replaceEditText = false;
+            }
+        }
+
+
+        private int nextSearchStartIndex;
+
+        private void FindNext(string searchText)
+        {
+            int foundAt = CurrentTB.Text.IndexOf(searchText,
+    this.nextSearchStartIndex);
+
+            if (foundAt == -1)
+            {
+                this.nextSearchStartIndex = 0;
+                MessageBox.Show("Not Found");
+            }
+            else
+            {
+                this.nextSearchStartIndex = foundAt + searchText.Length;
+                CurrentTB.SelectionStart = foundAt;
+                CurrentTB.SelectionLength = searchText.Length;
+                CurrentTB.Focus();
+
+            }
+        }
+
+       
+
+
+        }
+
+
+
+
+
+    }
+
+
+
+
 
 /// <summary>
 /// Builds list of methods and properties for current class name was typed in the textbox
@@ -1954,5 +2458,97 @@ internal class DynamicCollection : IEnumerable<AutocompleteItem>
     System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
     {
         return GetEnumerator();
+    }
+}
+
+public class RoundedPanel : Panel {
+    private float _thickness = 5;
+    public float Thickness {
+        get {
+            return _thickness;
+        }
+        set {
+            _thickness = value;
+            _pen = new Pen(_borderColor,Thickness);
+            Invalidate();
+        }
+    }
+
+    private Color _borderColor = Color.White;
+    public Color BorderColor {
+        get {
+            return _borderColor;
+        }
+        set {
+            _borderColor = value;
+            _pen = new Pen(_borderColor,Thickness);
+            Invalidate();
+        }
+    }
+
+    private int _radius = 20;
+    public int Radius {
+        get {
+            return _radius;
+        }
+        set {
+            _radius = value;
+            Invalidate();
+        }
+    }
+
+    private Pen _pen;
+
+    public RoundedPanel() : base() {
+        _pen = new Pen(BorderColor,Thickness);
+        DoubleBuffered = true;            
+    }
+
+    private Rectangle GetLeftUpper(int e) {
+        return new Rectangle(0,0,e,e);
+    }
+
+    private Rectangle GetRightUpper(int e) {
+        return new Rectangle(Width - e,0,e,e);
+    }
+    private Rectangle GetRightLower(int e) {
+        return new Rectangle(Width - e,Height - e,e,e);
+    }
+    private Rectangle GetLeftLower(int e) {
+        return new Rectangle(0,Height - e,e,e);
+    }
+
+    private void ExtendedDraw(PaintEventArgs e) {
+        e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+        GraphicsPath path = new GraphicsPath();
+        path.StartFigure();
+        path.AddArc(GetLeftUpper(Radius),180,90);
+        path.AddLine(Radius,0,Width - Radius,0);
+        path.AddArc(GetRightUpper(Radius),270,90);
+        path.AddLine(Width,Radius,Width,Height - Radius);
+        path.AddArc(GetRightLower(Radius),0,90);
+        path.AddLine(Width - Radius,Height,Radius,Height);
+        path.AddArc(GetLeftLower(Radius),90,90);
+        path.AddLine(0,Height - Radius,0,Radius);
+        path.CloseFigure();
+        Region = new Region(path);
+    }
+    private void DrawSingleBorder(Graphics graphics) {
+        graphics.DrawArc(_pen,new Rectangle(0,0,Radius,Radius),180,90);
+        graphics.DrawArc(_pen,new Rectangle(Width - Radius - 1,-1,Radius,Radius),270,90);
+        graphics.DrawArc(_pen,new Rectangle(Width - Radius - 1,Height - Radius - 1,Radius,Radius),0,90);
+        graphics.DrawArc(_pen,new Rectangle(0,Height - Radius - 1,Radius,Radius),90,90);
+        graphics.DrawRectangle(_pen,0.0f,0.0f,(float)Width - 1.0f,(float)Height - 1.0f);
+    }
+    private void Draw3DBorder(Graphics graphics) {
+        DrawSingleBorder(graphics);
+    }
+    private void DrawBorder(Graphics graphics) {
+        DrawSingleBorder(graphics);
+    }
+    protected override void OnPaint(PaintEventArgs e) {
+        base.OnPaint(e);
+        ExtendedDraw(e);
+        DrawBorder(e.Graphics);
     }
 }

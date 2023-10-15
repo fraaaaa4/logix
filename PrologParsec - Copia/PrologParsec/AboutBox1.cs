@@ -5,12 +5,32 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Reflection;
 using System.IO;
+using Microsoft.Win32;
 
 
 namespace PrologParsec
 {
     partial class AboutBox1 : Form
     {
+        static string GetWindowsVersion()
+        {
+            using (RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion"))
+            {
+                if (key != null)
+                {
+                    string productName = key.GetValue("ProductName") as string;
+                    string currentVersion = key.GetValue("CurrentVersion") as string;
+                    string buildLab = key.GetValue("BuildLab") as string;
+
+                    return currentVersion;
+                }
+                else
+                {
+                    return "No.";
+                }
+            }
+        }
+
         public AboutBox1()
         {
             InitializeComponent();
@@ -20,7 +40,11 @@ namespace PrologParsec
             //  - Project->Properties->Application->Assembly Information
             //  - AssemblyInfo.cs
             this.Text = String.Format("About {0}", Properties.Resources.AppName + " " + Properties.Resources.AppEdition);
-            
+
+            //check windows version
+            string version = GetWindowsVersion();
+            if (version == "4.0" || version == "5.0" || version == "5.1" || version == "6.0")
+                webBrowser1.Visible = false;
         }
 
         #region Assembly Attribute Accessors

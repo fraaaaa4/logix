@@ -18,9 +18,11 @@ namespace PrologParsec
             try
             {
                 Application.Run(new MDIParent1());
+                
             }
-            catch (IndexOutOfRangeException ex)
+            catch (ArgumentException ex)
             {
+                
             }
 
 
