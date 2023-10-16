@@ -1502,10 +1502,15 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
             if (menuStrip1.Visible)
             {
                 menuStrip1.Visible = false;
+                menuBarToolStripMenuItem.Checked = false;
+                menuBarToolStripMenuItem1.Checked = false;
+
             }
             else
             {
                 menuStrip1.Visible = true;
+                menuBarToolStripMenuItem1.Checked = true;
+                menuBarToolStripMenuItem.Checked = true;
             } 
         }
 
@@ -1514,25 +1519,35 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
             if (menuStrip1.Visible)
             {
                 menuBarToolStripMenuItem.Checked = true;
+                menuBarToolStripMenuItem1.Checked = true;
             }
             else
             {
                 menuBarToolStripMenuItem.Checked = false;
+                menuBarToolStripMenuItem1.Checked = false;
             }
 
             if (toolStrip1.Visible)
             {
                 toolbarToolStripMenuItem.Checked = true;
+                toolbarToolStripMenuItem1.Checked = true;
             }
             else
             {
                 toolbarToolStripMenuItem.Checked = false;
+                toolbarToolStripMenuItem1.Checked = false;
             }
 
             if (Fastcolored1.WordWrap)
+            {
                 wordWrapToolStripMenuItem.Checked = true;
+                wordWrapToolStripMenuItem1.Checked = true;
+            }
             else
+            {
                 wordWrapToolStripMenuItem.Checked = false;
+                wordWrapToolStripMenuItem1.Checked = false;
+            }
 
             if (Fastcolored1.WordWrapIndent > 0)
                 wordWrapIndentToolStripMenuItem.Checked = true;
@@ -1547,6 +1562,7 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
             if (documentMap1.Visible == true)
             {
                 documentMapToolStripMenuItem.Checked = true;
+                documentMapToolStripMenuItem1.Checked = true;
                 Properties.Settings.Default.documentMap = true;
                 Properties.Settings.Default.Save();
                 splitter1.Visible = true;
@@ -1554,6 +1570,7 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
             else
             {
                 documentMapToolStripMenuItem.Checked = false;
+                documentMapToolStripMenuItem1.Checked = false;
                 Properties.Settings.Default.documentMap = false;
                 Properties.Settings.Default.Save();
                 splitter1.Visible = false;
@@ -1562,10 +1579,23 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
             if (roundedPanel1.Visible)
             {
                 goToToolStripMenuItem.Checked = true;
+                goToToolStripMenuItem1.Checked = true;
             }
             else
             {
                 goToToolStripMenuItem.Checked = false;
+                goToToolStripMenuItem1.Checked = false;
+            }
+
+            if (panel6.Visible)
+            {
+                findreplaceToolStripMenuItem.Checked = true;
+                fIndAndReplaceToolStripMenuItem.Checked = true;
+            }
+            else
+            {
+                findreplaceToolStripMenuItem.Checked = false;
+                fIndAndReplaceToolStripMenuItem.Checked = false;
             }
             
         }
@@ -1629,9 +1659,15 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
         {
             if (System.Text.RegularExpressions.Regex.IsMatch(textBox1.Text, "[^0-9]"))
             {
-                roundedPanel1.Height = 56;
-                label15.Text = "Please enter only numbers";
-                label15.Left = (this.roundedPanel1.Width - label15.Width) / 2;
+                //roundedPanel1.Height = 56;
+                ToolTip hint = new ToolTip();
+                hint.IsBalloon = true;
+                hint.ToolTipTitle = "Please enter only numbers";
+                hint.ToolTipIcon = ToolTipIcon.Error;
+                hint.Show(string.Empty, textBox1, 0);
+                hint.Show("Letters and symbols are not allowed.", textBox1);
+                //label15.Text = "Please enter only numbers";
+                //label15.Left = (this.roundedPanel1.Width - label15.Width) / 2;
                 textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 1);
             } else
             GoToLine(int.Parse(textBox1.Text));
@@ -1641,9 +1677,17 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
         {
             check();
             if (CurrentTB.WordWrap)
+            {
                 CurrentTB.WordWrap = false;
+                wordWrapToolStripMenuItem.Checked = false;
+                wordWrapToolStripMenuItem1.Checked = false;
+            }
             else
+            {
                 CurrentTB.WordWrap = true;
+                wordWrapToolStripMenuItem.Checked = true;
+                wordWrapToolStripMenuItem1.Checked = true;
+            }
         }
 
         private void toolStripLabel10_Click(object sender, EventArgs e)
@@ -1711,8 +1755,11 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
             foreach (FastColoredTextBoxNS.Bookmark bookmark in Fastcolored1.Bookmarks)
             {
                 ToolStripItem item = dataToolStripMenuItem.DropDownItems.Add(bookmark.Name);
+                ToolStripItem item2 = bookmarksToolStripMenuItem.DropDownItems.Add(bookmark.Name);
                 item.Tag = bookmark;
                 item.Click += new EventHandler(item_Click);
+                item2.Tag = bookmark;
+                item2.Click += new EventHandler(item_Click);
             }
         }
 
@@ -1741,6 +1788,14 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
                 }
             }
 
+            foreach (ToolStripItem item in bookmarksToolStripMenuItem.DropDownItems)
+            {
+                if (item.Tag is FastColoredTextBoxNS.Bookmark)
+                {
+                    itemsToRemove.Add(item);
+                }
+            }
+
             foreach (ToolStripItem item in itemsToRemove)
             {
                 dataToolStripMenuItem.DropDownItems.Remove(item);
@@ -1751,6 +1806,12 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
         {
             CurrentTB.Bookmarks.Add(CurrentTB.Selection.Start.iLine, toolStripTextBox2.Text);
             toolStripTextBox2.Text = "";
+        }
+
+        private void addToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            CurrentTB.Bookmarks.Add(CurrentTB.Selection.Start.iLine, toolStripTextBox3.Text);
+            toolStripTextBox3.Text = "";
         }
 
         private void toolStripTextBox2_Click(object sender, EventArgs e)
@@ -1784,10 +1845,14 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
             if (documentMapToolStripMenuItem.Checked == true)
             {
                 documentMap1.Visible = false;
+                documentMapToolStripMenuItem1.Checked = false;
+                documentMapToolStripMenuItem.Checked = false;
             }
             else
             {
                 documentMap1.Visible = true;
+                documentMapToolStripMenuItem1.Checked = true;
+                documentMapToolStripMenuItem.Checked = true;
             }
             check();
         }
@@ -1844,6 +1909,8 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
                 tb.RightBracket = Fastcolored1.RightBracket;
                 tb.RightBracket2 = Fastcolored1.RightBracket2;
                 tb.AutoCompleteBrackets = Fastcolored1.AutoCompleteBrackets;
+                tb.ContextMenuStrip = Fastcolored1.ContextMenuStrip;
+                tb.LineNumberColor = Fastcolored1.LineNumberColor;
                 AutocompleteMenu popupMenu = new AutocompleteMenu();
                 popupMenu.SetAutocompleteMenu(CurrentTB, autocompleteMenu1);
                 popupMenu = autocompleteMenu1;
@@ -2029,11 +2096,13 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
             {
                 roundedPanel1.Visible = true;
                 goToToolStripMenuItem.Checked = true;
+                goToToolStripMenuItem1.Checked = true;
             }
             else
             {
                 roundedPanel1.Visible = false;
                 goToToolStripMenuItem.Checked = false;
+                goToToolStripMenuItem1.Checked = false;
             }
 
         }
@@ -2070,9 +2139,15 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
             }
             else
             {
-                roundedPanel1.Height = 56;
-                label15.Text = "Enter a number between 1 and " + CurrentTB.LinesCount;
-                label15.Left = (this.roundedPanel1.Width - label15.Width) / 2;
+                ToolTip hint = new ToolTip();
+                hint.IsBalloon = true;
+                hint.ToolTipTitle = "Not a valid line number";
+                hint.ToolTipIcon = ToolTipIcon.Error;
+                hint.Show(string.Empty, textBox1, 0);
+                if (CurrentTB.LinesCount > 1)
+                hint.Show("Enter a number between 1 and " + CurrentTB.LinesCount + ".", textBox1, 15, 17);
+                else
+                hint.Show("You have only one line.", textBox1, 15, 17);
             }
         }
 
@@ -2232,11 +2307,13 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
             {
                 panel6.Visible = true;
                 fIndAndReplaceToolStripMenuItem.Checked = true;
+                findreplaceToolStripMenuItem.Checked = true;
             }
             else
             {
                 panel6.Visible = false;
                 fIndAndReplaceToolStripMenuItem.Checked = false;
+                findreplaceToolStripMenuItem.Checked = false;
             }
         }
 
@@ -2272,23 +2349,44 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string searchText = comboBox1.Text;
-            string replaceText = comboBox3.Text;
-
-            // Imposta le opzioni per la ricerca
-            RegexOptions options = RegexOptions.None;
-
-            // Crea un'espressione regolare con le opzioni
-            Regex regex = new Regex(searchText, options);
-
-            // Esegui la ricerca nel testo
-            foreach (Match result in regex.Matches(CurrentTB.Text))
-            {
-                // Effettua la sostituzione nel testo
-                CurrentTB.Text = CurrentTB.Text.Remove(result.Index, result.Length).Insert(result.Index, replaceText);
-            }
+            replaceAll(comboBox1.Text, comboBox3.Text);
         
         }
+
+        private void replaceAll(string searchText, string replaceText)
+        {
+            //string searchText = text1;
+            //string replaceText = text2;
+
+            RegexOptions options = RegexOptions.None;
+
+            Regex regex = new Regex(searchText, options);
+
+            foreach (Match result in regex.Matches(CurrentTB.Text))
+            {
+                CurrentTB.Text = CurrentTB.Text.Remove(result.Index, result.Length).Insert(result.Index, replaceText);
+            }
+
+
+        }
+
+        private string ReplaceFirst(string searchText, string replaceText)
+        {
+            RegexOptions options = RegexOptions.None;
+            Regex regex = new Regex(searchText, options);
+
+            Match match = regex.Match(CurrentTB.Text);
+
+            if (match.Success)
+            {
+                string updatedText = regex.Replace(CurrentTB.Text, replaceText, 1);
+
+                CurrentTB.Text = updatedText;
+            }
+
+            return CurrentTB.Text;
+        }
+
 
         private void comboBox1_Leave(object sender, EventArgs e)
         {
@@ -2338,32 +2436,82 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
 
         private void FindNext(string searchText)
         {
-            int foundAt = CurrentTB.Text.IndexOf(searchText,
-    this.nextSearchStartIndex);
+            string pattern = wholeWordsFind ? "\\b" + searchText + "\\b" : searchText;
 
-            if (foundAt == -1)
+            RegexOptions options = caseSensitive ? RegexOptions.None : RegexOptions.IgnoreCase;
+            Regex regex = new Regex(pattern, options);
+
+            Match match = regex.Match(CurrentTB.Text, this.nextSearchStartIndex);
+
+            if (!match.Success)
             {
                 this.nextSearchStartIndex = 0;
                 MessageBox.Show("Not Found");
             }
             else
             {
-                this.nextSearchStartIndex = foundAt + searchText.Length;
-                CurrentTB.SelectionStart = foundAt;
-                CurrentTB.SelectionLength = searchText.Length;
+                this.nextSearchStartIndex = match.Index + match.Length;
+                CurrentTB.SelectionStart = match.Index;
+                CurrentTB.SelectionLength = match.Length;
                 CurrentTB.Focus();
-
             }
         }
 
-       
+        private void button6_Click(object sender, EventArgs e)
+        {
+            ReplaceFirst(comboBox1.Text, comboBox2.Text);
+        }
 
+        private void menuStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            contextMenuStrip1.Show(button5, 15, 15);
+        }
+
+        private bool caseSensitive;
+        private bool wholeWordsFind;
+
+        private void caseSensitiveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (caseSensitive)
+            {
+                caseSensitiveToolStripMenuItem.Checked = false;
+                caseSensitive = false;
+            }
+            else
+            {
+                caseSensitiveToolStripMenuItem.Checked = true;
+                caseSensitive = true;
+            }
+
+        }
+
+        private void findWholeWordsOnlyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (wholeWordsFind)
+            {
+                findWholeWordsOnlyToolStripMenuItem.Checked = false;
+                wholeWordsFind = false;
+            }
+            else
+            {
+                findWholeWordsOnlyToolStripMenuItem.Checked = true;
+                wholeWordsFind = true;
+            }
+        }
+
+        private void deleteToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            CurrentTB.SelectedText = "";
         }
 
 
 
-
+        }
 
     }
 
