@@ -13,6 +13,8 @@ using System.Text.RegularExpressions;
 using System.Reflection;
 using Microsoft.Win32;
 using System.Drawing.Drawing2D;
+using System.Threading;
+
 
 
 namespace PrologParsec
@@ -49,6 +51,7 @@ namespace PrologParsec
 
            CreateTab(null);
             faTabStrip1.RemoveTab(faTabStripItem1);
+            
 
 
             if (Properties.Settings.Default.documentMap)
@@ -66,6 +69,7 @@ namespace PrologParsec
                 webBrowser1.Visible = false;
 
             centerPanel(roundedPanel1);
+            centerPanel(panel6);
 
         }
 
@@ -200,6 +204,7 @@ namespace PrologParsec
 
         FastColoredTextBoxNS.FastColoredTextBox CurrentTB
         {
+
             get
             {
                 if (faTabStrip1.SelectedItem != null && faTabStrip1.SelectedItem.Controls.Count > 0)
@@ -238,7 +243,7 @@ namespace PrologParsec
                 
             
 
-            
+            if (CurrentTB != null)
             fontDialog.Font = CurrentTB.Font;
 
             //font dialog
@@ -1169,29 +1174,28 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
 
         private void openFile()
         {
-            if (isTextModified)
-            {
-                SaveQuestion();
-            }
+            //if (isTextModified)
+           // {
+            //    SaveQuestion();
+           // }
             //open prolog files
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Prolog source files (*.pl)|*.pl|All files (*.*)|*.*";
             openFileDialog.FilterIndex = 1;
             openFileDialog.RestoreDirectory = true;
-
+            string filePath; string fileContent;
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 //read file
-                string filePath = openFileDialog.FileName;
-                string fileContent = File.ReadAllText(filePath);
+                filePath = openFileDialog.FileName;
+                fileContent = File.ReadAllText(filePath);
                 currentFilePath = openFileDialog.FileName;
                 currentFilePath = Path.GetFileName(currentFilePath);
-                CreateTab(openFileDialog.FileName);
-                faTabStrip1.RemoveTab(faTabStripItem1);
+                FarsiLibrary.Win.FATabStripItem tabCreated = CreateTab1(openFileDialog.FileName);
                 try
                 {
-                    MDIParent1.ActiveForm.Text = "Logix Testfire - " + openFileDialog.FileName; //put the window title
-                    faTabStripItem1.Title = openFileDialog.FileName;
+                    MDIParent1.ActiveForm.Text = "Logix Testfire - " + filePath; //put the window title
+                    tabCreated.Title = filePath;
                     isTextModified = false;
                 }
                 catch (NullReferenceException e)
@@ -1301,10 +1305,12 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
         private void CurrentTB_TextChanged(object sender, FastColoredTextBoxNS.TextChangedEventArgs e)
         {
             isTextModified = true;
+            
             toolStripStatusLabel.Text = "Ready";
             if (this.InvokeRequired)
             {
                 this.BeginInvoke(new MethodInvoker(Asterisk)); //add an asterisk if you modify the textbox
+                SaveFile(currentFilePath);
             }
             else
             {
@@ -1365,13 +1371,15 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
             //start page
             label1.Text = Properties.Resources.AppName + " " + Properties.Resources.AppEdition + " " + Properties.Resources.AppVersion;
             label4.Text = Properties.Resources.AppName; label2.Text = Properties.Resources.AppEdition + " Edition" ; label3.Text = Properties.Resources.AppDescription;
-            
+            faTabStrip1.SelectedItem = faTabStripItem2;
+
+      
         }
 
         private void Fastcolored1_Load(object sender, EventArgs e)
         {
             
-            isTextModified = false;
+            //isTextModified = false;
 
             CurrentTB.DescriptionFile = Properties.Settings.Default.descriptionFileDirectory;
 
@@ -1865,12 +1873,13 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
         }
 
 
-        private void CreateTab(string fileName)
+       private void CreateTab(string fileName)
         {
             try
             {
                 FastColoredTextBoxNS.FastColoredTextBox tb = new FastColoredTextBoxNS.FastColoredTextBox();
-                tb.Font = Fastcolored1.Font;
+                //tb.Font = Properties.Settings.Default.defaultFont;
+                
                 tb.Dock = DockStyle.Fill;
                 //tb.VirtualSpace = true;
                
@@ -1888,8 +1897,8 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
                     tab.Title = "Untitled";
                 else
                 tab.Title = fileName;
-
-                tab.Controls.Add(tb);
+            tab.Controls.Add(tb);
+       
 
                 //clona
                 tb.BackColor = Fastcolored1.BackColor;
@@ -1914,23 +1923,110 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
                 AutocompleteMenu popupMenu = new AutocompleteMenu();
                 popupMenu.SetAutocompleteMenu(CurrentTB, autocompleteMenu1);
                 popupMenu = autocompleteMenu1;
+                tb.Font = new Font (Fastcolored1.Font.Name, Fastcolored1.Font.Size, Fastcolored1.Font.Style);
+                tb.ZoomChanged += new EventHandler(CurrentTB_ZoomChanged);
+                tb.TextChanged += new EventHandler<FastColoredTextBoxNS.TextChangedEventArgs>(this.CurrentTB_TextChanged);
+
+
+
+                
 
             }
             catch (Exception ex)
             {
-                if (MessageBox.Show(ex.Message, "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) == System.Windows.Forms.DialogResult.Retry)
-                    CreateTab(fileName);
+                
+                    MessageBox.Show("Exception: " + ex.ToString());
             }
         }
 
+       private FarsiLibrary.Win.FATabStripItem CreateTab1(string fileName)
+        {
+            try
+            {
+                FastColoredTextBoxNS.FastColoredTextBox tb = new FastColoredTextBoxNS.FastColoredTextBox();
+                //tb.Font = Fastcolored1.Font;
+                tb.Dock = DockStyle.Fill;
+                //tb.VirtualSpace = true;
+               
+                tb.Language = Fastcolored1.Language;
+                FarsiLibrary.Win.FATabStripItem tab = new FarsiLibrary.Win.FATabStripItem();
+                tab.Tag = fileName;
+                if (fileName != null)
+                    tb.OpenFile(fileName);
+                faTabStrip1.AddTab(tab);
+                faTabStrip1.SelectedItem = tab;
+                tb.Focus();
+                tb.DelayedTextChangedInterval = 1000;
+                tb.DelayedEventsInterval = 500;
+                if (fileName == null)
+                    tab.Title = "Untitled";
+                else
+                tab.Title = fileName;
+
+            tab.Controls.Add(tb);
+
+                //clona
+                tb.BackColor = Fastcolored1.BackColor;
+                tb.ForeColor = Fastcolored1.ForeColor;
+                tb.SelectionColor = Fastcolored1.SelectionColor;
+                tb.TextAreaBorderColor = Fastcolored1.TextAreaBorderColor;
+                tb.CaretColor = Fastcolored1.CaretColor;
+                tb.DisabledColor = Fastcolored1.DisabledColor;
+                tb.BookmarkColor = Fastcolored1.BookmarkColor;
+                tb.CurrentLineColor = Fastcolored1.CurrentLineColor;
+                tb.IndentBackColor = Fastcolored1.IndentBackColor;
+                tb.FoldingIndicatorColor = Fastcolored1.FoldingIndicatorColor;
+                tb.PaddingBackColor = Fastcolored1.PaddingBackColor;
+                tb.ServiceLinesColor = Fastcolored1.ServiceLinesColor;
+                tb.LeftBracket = Fastcolored1.LeftBracket;
+                tb.LeftBracket2 = Fastcolored1.LeftBracket2;
+                tb.RightBracket = Fastcolored1.RightBracket;
+                tb.RightBracket2 = Fastcolored1.RightBracket2;
+                tb.AutoCompleteBrackets = Fastcolored1.AutoCompleteBrackets;
+                tb.ContextMenuStrip = Fastcolored1.ContextMenuStrip;
+                tb.LineNumberColor = Fastcolored1.LineNumberColor;
+                AutocompleteMenu popupMenu = new AutocompleteMenu();
+                popupMenu.SetAutocompleteMenu(CurrentTB, autocompleteMenu1);
+                popupMenu = autocompleteMenu1;
+                tb.Font = new Font(Fastcolored1.Font.Name, Fastcolored1.Font.Size, Fastcolored1.Font.Style);
+                
+
+                return tab;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exception: " + ex.ToString());
+                }
+                return null;
+            }
+
         private void faTabStrip1_TabStripItemSelectionChanged(FarsiLibrary.Win.TabStripItemChangedEventArgs e)
         {
+            try {
+                if (CurrentTB != null)
+                {
             documentMap1.Target = CurrentTB;
-            if (CurrentTB != null)
-            {
-                CurrentTB.DescriptionFile = Properties.Settings.Default.descriptionFileDirectory; //modify description file of the fastcolored textbox
-               
+            
+                toolStripStatusLabel1.Text = "Syntax: " + CurrentTB.Language.ToString();
+                string text = CurrentTB.Text;
+                CurrentTB.Zoom = Fastcolored1.Zoom;
+
+
+                if (faTabStrip1.SelectedItem == faTabStripItem2)
+                {
+                    toolStripStatusLabel1.Visible = false;
+                }
+                else
+                {
+                    toolStripStatusLabel1.Visible = true;
+                }
+
+            } 
+            }catch (Exception ex2){
             }
+
+            
+            
         }
 
         private void toolStripLabel12_Click(object sender, EventArgs e)
@@ -1982,9 +2078,11 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
         {
             panel2.Left = faTabStrip1.Width - panel2.Width - 20;
 
+
             if (!moveGoToPanel && goToDockTop || !moveGoToPanel && goToDockBottom)
             {
                 centerPanel(roundedPanel1);
+                centerPanel(panel6);
             }
         }
 
@@ -2453,13 +2551,25 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
                 this.nextSearchStartIndex = match.Index + match.Length;
                 CurrentTB.SelectionStart = match.Index;
                 CurrentTB.SelectionLength = match.Length;
+                int lineIndex = 0;
+                for (int i = 0; i < match.Index; i++)
+                {
+                    if (CurrentTB.Text[i] == '\n')
+                    {
+                        lineIndex++;
+                    }
+                }
+
+                // Sposta la selezione per renderla visibile
+                CurrentTB.Navigate(lineIndex);
+                CurrentTB.DoSelectionVisible();
                 CurrentTB.Focus();
             }
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            ReplaceFirst(comboBox1.Text, comboBox2.Text);
+            ReplaceFirst(comboBox1.Text, comboBox3.Text);
         }
 
         private void menuStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -2509,7 +2619,103 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
             CurrentTB.SelectedText = "";
         }
 
+        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
 
+        }
+
+        private void prologToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            CurrentTB.Language = FastColoredTextBoxNS.Language.Custom;
+            CurrentTB.DescriptionFile = Properties.Settings.Default.descriptionFileDirectory;
+            toolStripStatusLabel1.Text = "Syntax: Prolog";
+            CurrentTB.Invalidate();
+            CurrentTB.Refresh();
+        }
+
+        private void xMLToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            CurrentTB.Language = FastColoredTextBoxNS.Language.XML;
+            toolStripStatusLabel1.Text = "Syntax: " + CurrentTB.Language.ToString();
+            CurrentTB.Invalidate();
+            CurrentTB.Refresh();
+        }
+
+        private void cToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CurrentTB.Language = FastColoredTextBoxNS.Language.CSharp;
+            toolStripStatusLabel1.Text = "Syntax: " + CurrentTB.Language.ToString();
+            CurrentTB.Invalidate();
+            CurrentTB.Refresh();
+        }
+
+        private void visualBasicToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CurrentTB.Language = FastColoredTextBoxNS.Language.VB;
+            toolStripStatusLabel1.Text = "Syntax: " + CurrentTB.Language.ToString();
+            CurrentTB.Invalidate();
+            CurrentTB.Refresh();
+        }
+
+        private void hTMLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CurrentTB.Language = FastColoredTextBoxNS.Language.HTML;
+            toolStripStatusLabel1.Text = "Syntax: " + CurrentTB.Language.ToString();
+            CurrentTB.Invalidate();
+            CurrentTB.Refresh();
+        }
+
+        private void sQLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CurrentTB.Language = FastColoredTextBoxNS.Language.SQL;
+            toolStripStatusLabel1.Text = "Syntax: " + CurrentTB.Language.ToString();
+            CurrentTB.Invalidate();
+            CurrentTB.Refresh();
+        }
+
+        private void pHPToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CurrentTB.Language = FastColoredTextBoxNS.Language.PHP;
+            toolStripStatusLabel1.Text = "Syntax: " + CurrentTB.Language.ToString();
+            CurrentTB.Invalidate();
+            CurrentTB.Refresh();
+        }
+
+        private void jsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CurrentTB.Language = FastColoredTextBoxNS.Language.JS;
+            toolStripStatusLabel1.Text = "Syntax: " + CurrentTB.Language.ToString();
+            CurrentTB.Invalidate();
+            CurrentTB.Refresh();
+        }
+
+        private void luaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CurrentTB.Language = FastColoredTextBoxNS.Language.Lua;
+            toolStripStatusLabel1.Text = "Syntax: " + CurrentTB.Language.ToString();
+            CurrentTB.Invalidate();
+            CurrentTB.Refresh();
+        }
+
+        private void Fastcolored1_ZoomChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CurrentTB_ZoomChanged(object sender, EventArgs e)
+        {
+            int zoom = 0;
+            zoom = int.Parse(CurrentTB.Zoom.ToString());
+            btZoom.Text = "Zoom: " + zoom + "%";
+            btZoom.Invalidate();
+
+        }
+
+        private void label20_Click(object sender, EventArgs e)
+        {
+            panel6.Visible = false;
+            fIndAndReplaceToolStripMenuItem.Checked = false;
+        }
 
         }
 

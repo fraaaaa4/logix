@@ -61,7 +61,7 @@ namespace PrologParsec.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to October 16th, 2023.
+        ///   Looks up a localized string similar to October 18th, 2023.
         /// </summary>
         internal static string AppDate {
             get {
@@ -106,7 +106,7 @@ namespace PrologParsec.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 0.2.221.0.tf/p-231016.
+        ///   Looks up a localized string similar to 0.2.223.0.tf/p-231018.
         /// </summary>
         internal static string AppVersion {
             get {
@@ -121,9 +121,65 @@ namespace PrologParsec.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap bookmark {
+            get {
+                object obj = ResourceManager.GetObject("bookmark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap clear {
+            get {
+                object obj = ResourceManager.GetObject("clear", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap copy {
+            get {
+                object obj = ResourceManager.GetObject("copy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap cut {
+            get {
+                object obj = ResourceManager.GetObject("cut", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap delete {
+            get {
+                object obj = ResourceManager.GetObject("delete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap find {
+            get {
+                object obj = ResourceManager.GetObject("find", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap go_to {
+            get {
+                object obj = ResourceManager.GetObject("go_to", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Immagine1 {
             get {
                 object obj = ResourceManager.GetObject("Immagine1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap paste {
+            get {
+                object obj = ResourceManager.GetObject("paste", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -135,12 +191,33 @@ namespace PrologParsec.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap select {
+            get {
+                object obj = ResourceManager.GetObject("select", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to C:\Program Files\Swipl.
         /// </summary>
         internal static string SwiHomeDirectory {
             get {
                 return ResourceManager.GetString("SwiHomeDirectory", resourceCulture);
+            }
+        }
+        
+        internal static System.Drawing.Bitmap undo {
+            get {
+                object obj = ResourceManager.GetObject("undo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap word {
+            get {
+                object obj = ResourceManager.GetObject("word", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

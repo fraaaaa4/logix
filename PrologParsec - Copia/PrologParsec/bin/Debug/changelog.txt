@@ -1,8 +1,22 @@
-﻿October 16th Version
+﻿October 18th Version
+- introduced correct Colors and Syntax window - now it shows your XML description file with also XML highlighting 
+- changed a few properties - moved from hardcoded to resource file
+- fixed a few things in code
+- changed startup screen to have a splitter layout - so you can see all the Aurora in its absolute majesty
+- fixed find/replace: now it scrolls automatically to the line in which there's the match. added also a titlebar to better move it and close it with more ease.
+- fixed ArgumentException
+- linked two unused methods to CurrentTB - textChanged and zoomChanged
+- now when changing zoom, it says it to your status bar
+- now it accurately tells you when you've edited a text inside a CurrentTB
+- improved right click menu look - introduced icons
+- fixed Prolog comment syntax
+
+October 16th Version
 - added Replace only one in Find/Replace
 - added case sensitive and match whole words in find/replace
 - updated panel design
 - added context menu (right click menu) to textbox
+- fixed startup tab - now it starts from Start Page
 
 October 14th Version
 - added Go To panel

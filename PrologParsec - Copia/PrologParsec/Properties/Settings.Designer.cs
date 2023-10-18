@@ -25,7 +25,8 @@ namespace PrologParsec.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\Asain\\Downloads\\FastColoredTextBoxDemo\\prolog.xml")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\Asain\\Documents\\linguaggi\\prolog\\PrologParsec - Copia\\PrologParsec\\bin\\D" +
+            "ebug\\prolog.xml")]
         public string descriptionFileDirectory {
             get {
                 return ((string)(this["descriptionFileDirectory"]));
@@ -101,6 +102,19 @@ namespace PrologParsec.Properties {
             }
             set {
                 this["auroraFile"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\Asain\\Documents\\linguaggi\\prolog\\PrologParsec - Copia\\PrologParsec\\bin\\D" +
+            "ebug\\xml.xml")]
+        public string xmlFile {
+            get {
+                return ((string)(this["xmlFile"]));
+            }
+            set {
+                this["xmlFile"] = value;
             }
         }
     }
