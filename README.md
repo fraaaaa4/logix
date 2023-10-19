@@ -14,27 +14,7 @@ It features the following (but not only) features:
 - **Document map**
 
   ## Roadmap
-  For Logix Testfire, the following things will be added/fixed before the next development phase:
-  - Printing
-  - Find/Replace directly from a dialog
-  - Fixes to the Prolog syntax
-  - Selecting and highlighting words/functions/rows/columns
-  - Recent files
-  - Context menu
- 
-  ## Roadmap for future releases
-  For the next phases of Logix, the following features are planned:
-  - LISP/C#/VB/HTML/XML/SQL/PHP/JS/lua/Julia/Ruby/Haskell/Python/R/C++ syntax highlighting and Intellisense menus
-  - Side-by-side "show differences"
-  - Split view/MDI multi-windowing
-  - (experimental) Prolog and LISP C# implementation
-  - Dynamic Intellisense menu (autopopulates based on the functions you've written in your source file)
-  - Command Palette, Tasks Pane, Object Browsing
-  - .NET Compact Framework version (for WM2003 to WM6.5)
-  - Custom toolbar editing
-  - Hotkeys editing
-  - Autoindent, tooltips and hints
-  - Non-theme dependent light/dark mode (for all the Aero users out there)
+  Check out the wiki for more information.
 
  # Development notes and credits
  This project has been built using Visual Studio 2005, built against .NET Framework 2.0. Credits to Pavel Torgashov for 'Fast Colored Textbox' and "Autocomplete Menu'.
