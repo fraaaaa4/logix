@@ -25,7 +25,8 @@ For the best experience, it's better to run it on Windows 11 running Rectify11 (
 
 ## Compatibility
 Theoretically, it should be able to run on Windows XP SP2/3 or newer. Currently, it has been tested only on 10/11, and it works. Thanks to the theme-aware focused development, no matter what theme you use, the app will automatically adapt to the style of the Windows you're running (as seen here in this screenshot).
-![immagine](https://github.com/fraaaaa4/logix/assets/87281326/f2bf4b20-34d5-428d-87d0-5ed88c4649ca)
+
+Check the wiki for more notes about compatibility.
 
 It's mandatory to have .NET Framework 1.1 and 2.0 installed.
 
