@@ -28,3 +28,6 @@ Theoretically, it should be able to run on Windows XP SP2/3 or newer. Currently,
 ![immagine](https://github.com/fraaaaa4/logix/assets/87281326/f2bf4b20-34d5-428d-87d0-5ed88c4649ca)
 
 It's mandatory to have .NET Framework 1.1 and 2.0 installed.
+
+## Wiki
+To access the wiki from the Github app, use this link: https://github.com/fraaaaa4/logix/wiki#roadmap: 
