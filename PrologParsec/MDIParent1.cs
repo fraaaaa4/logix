@@ -21,22 +21,33 @@ namespace PrologParsec
 {
     public partial class MDIParent1 : Form
     {
-        AutocompleteMenu popupMenu; 
-        private int childFormNumber = 0;
-        
+        AutocompleteMenu popupMenu; //popup menu for when you type in
+        private int childFormNumber = 0; //mdi window childs
 
+        //prolog styles
+        FastColoredTextBoxNS.Style keyword = new FastColoredTextBoxNS.TextStyle(new SolidBrush(Properties.Settings.Default.keywordForeColor), new SolidBrush(Properties.Settings.Default.keywordBackColor), Properties.Settings.Default.keywordFontStyle);
+        FastColoredTextBoxNS.Style comma = new FastColoredTextBoxNS.TextStyle(new SolidBrush(Properties.Settings.Default.commaForeColor), new SolidBrush(Properties.Settings.Default.commaBackColor), Properties.Settings.Default.commaFontStyle);
+        FastColoredTextBoxNS.Style point = new FastColoredTextBoxNS.TextStyle(new SolidBrush(Properties.Settings.Default.pointForeColor), new SolidBrush(Properties.Settings.Default.pointBackColor), Properties.Settings.Default.pointFontStyle);
+        FastColoredTextBoxNS.Style question = new FastColoredTextBoxNS.TextStyle(new SolidBrush(Properties.Settings.Default.questionForeColor), new SolidBrush(Properties.Settings.Default.questionBackColor), Properties.Settings.Default.questionFontStyle);
+        FastColoredTextBoxNS.Style systemPar = new FastColoredTextBoxNS.TextStyle(new SolidBrush(Properties.Settings.Default.systemParForeColor), new SolidBrush(Properties.Settings.Default.systemParBackColor), Properties.Settings.Default.systemParFontStyle);
+        FastColoredTextBoxNS.Style equals = new FastColoredTextBoxNS.TextStyle(new SolidBrush(Properties.Settings.Default.equalsForeColor), new SolidBrush(Properties.Settings.Default.equalsBackColor), Properties.Settings.Default.equalsFontStyle);
+        FastColoredTextBoxNS.Style anon = new FastColoredTextBoxNS.TextStyle(new SolidBrush(Properties.Settings.Default.anonForeColor), new SolidBrush(Properties.Settings.Default.anonBackColor), Properties.Settings.Default.anonFontStyle);
+        FastColoredTextBoxNS.Style comment = new FastColoredTextBoxNS.TextStyle(new SolidBrush(Properties.Settings.Default.commentForeColor), new SolidBrush(Properties.Settings.Default.commentBackColor), Properties.Settings.Default.commentFontStyle);
+        FastColoredTextBoxNS.Style parentesi = new FastColoredTextBoxNS.TextStyle(new SolidBrush(Properties.Settings.Default.parentesiForeColor), new SolidBrush(Properties.Settings.Default.parentesiBackColor), Properties.Settings.Default.parentesiFontStyle);
+
+        
         //toolbar
         int leftNew; int rightNew; int leftTab; int rightTab; int leftOpen; int rightOpen; int leftCut; int rightCut; int leftCopy; int rightCopy; int leftUndo; int rightUndo; int leftFont; int rightFont; int leftNav; int rightNav; int leftSave; int rightSave; int leftPaste; int rightPaste; int leftNavNav; int rightNavNav;
 
         static string GetWindowsVersion()
         {
-            using (RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion"))
+            using (RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion")) //using the registry key
             {
                 if (key != null)
                 {
-                     string productName = key.GetValue("ProductName") as string;
-                    string currentVersion = key.GetValue("CurrentVersion") as string;
-                    string buildLab = key.GetValue("BuildLab") as string;
+                     string productName = key.GetValue("ProductName") as string; //windows product name
+                    string currentVersion = key.GetValue("CurrentVersion") as string; //current version
+                    string buildLab = key.GetValue("BuildLab") as string; //build number
 
                     return currentVersion;
                 }
@@ -51,18 +62,21 @@ namespace PrologParsec
            
         {
             InitializeComponent();
-            check();
+            check(); //check for checked properties and all
+            
+            if (Properties.Settings.Default.untitledFileStartup)
+           CreateTab(null); //create a new untitled tab - optional
+
+            faTabStrip1.RemoveTab(faTabStripItem1); //remove the tab with fastcontrol1 - old code
             
 
-           CreateTab(null);
-            faTabStrip1.RemoveTab(faTabStripItem1);
-            
 
-
-            if (Properties.Settings.Default.documentMap)
+            if (Properties.Settings.Default.documentMap) //if you've set the document map to be visible, show it
                 documentMap1.Visible = true;
             else
                 documentMap1.Visible = false;
+
+
             //create new autocomplete
             //popupMenu = new AutocompleteMenu();
             //popupMenu.SetAutocompleteItems(new DynamicCollection(popupMenu, Fastcolored1));
@@ -70,15 +84,16 @@ namespace PrologParsec
             //Windows version check
             string version = GetWindowsVersion();
             Console.WriteLine("Windows version: " + version);
-            if (version == "4.0" || version == "5.0" || version == "5.1" || version == "6.0")
+            if (version == "4.0" || version == "5.0" || version == "5.1" || version == "6.0") //if you're running this on NT 4, 2000, XP or Vista don't show XAML - might be deprecated
                 webBrowser1.Visible = false;
 
-            centerPanel(roundedPanel1);
+            centerPanel(roundedPanel1); //center the panels 
             centerPanel(panel6);
-            tabChangeCheck();
+            tabChangeCheck(); //check on which tab you currently are
 
         }
 
+        //system methods
         private void ShowNewForm(object sender, EventArgs e)
         {
             // Create a new instance of the child form.
@@ -167,76 +182,57 @@ namespace PrologParsec
 
         
 
-        private void toolStripLabel7_Click_1(object sender, EventArgs e)
-        {
-            Fastcolored1.Cut();
-        }
-
-        private void toolStripLabel6_Click_1(object sender, EventArgs e)
-        {
-            Fastcolored1.Copy();
-        }
-
-        private void toolStripLabel5_Click_1(object sender, EventArgs e)
-        {
-            Fastcolored1.Paste();
-        }
-
-        private void toolStripLabel4_Click_1(object sender, EventArgs e)
-        {
-            Fastcolored1.Undo();
-        }
+       
 
         private void toolStripLabel9_Click_1(object sender, EventArgs e)
         {
-            CurrentTB.Redo();
+            CurrentTB.Redo(); //redo
         }
 
         private void toolStripLabel3_Click_1(object sender, EventArgs e)
         {
-            openFile();
+            openFile(); //open a new file
 
         }
 
         private void toolStripLabel8_Click_1(object sender, EventArgs e)
         {
-            SaveQuestion();
+            SaveQuestion(); //ask if you want to save the current unsaved file
         }
 
         private void toolStripLabel1_Click_1(object sender, EventArgs e)
         {
-            CurrentTB.NavigateBackward();
+            CurrentTB.NavigateBackward(); //navigate backwards
         }
 
-        FastColoredTextBoxNS.FastColoredTextBox CurrentTB
+        FastColoredTextBoxNS.FastColoredTextBox CurrentTB //get the current textbox
         {
 
             get
             {
-                if (faTabStrip1.SelectedItem != null && faTabStrip1.SelectedItem.Controls.Count > 0)
+                if (faTabStrip1.SelectedItem != null && faTabStrip1.SelectedItem.Controls.Count > 0) //if the selected item isn't null and there exists something in the tab
                 {
-                    return (faTabStrip1.SelectedItem.Controls[0] as FastColoredTextBoxNS.FastColoredTextBox);
+                    return (faTabStrip1.SelectedItem.Controls[0] as FastColoredTextBoxNS.FastColoredTextBox); //return the first item that is a fastcoloredtextbox
                 }
 
-                return null; // Nessun controllo presente o nessuna scheda selezionata
+                return null; // No control is present or no tab is selected
             }
 
             set
             {
-                if (value != null)
+                if (value != null) //if there's something 
                 {
-                    FarsiLibrary.Win.FATabStripItem tabItem = value.Parent as FarsiLibrary.Win.FATabStripItem;
-                    if (tabItem != null)
+                    FarsiLibrary.Win.FATabStripItem tabItem = value.Parent as FarsiLibrary.Win.FATabStripItem; //set the tab item
+                    if (tabItem != null) //if the tab item isn't null
                     {
-                        faTabStrip1.SelectedItem = tabItem;
-                        value.Focus();
+                        faTabStrip1.SelectedItem = tabItem; //the selected item is the current tab
+                        value.Focus(); //focus on the tab
                     }
                 }
             }
         }
 
-
-        private void fontText()
+        private void fontText() //show the font idalog
         {
             FontDialog fontDialog = new FontDialog();
 
@@ -245,12 +241,8 @@ namespace PrologParsec
             fontDialog.MaxSize = 72;
             fontDialog.FontMustExist = true;
 
-           
-                
-            
-
             if (CurrentTB != null)
-            fontDialog.Font = CurrentTB.Font;
+            fontDialog.Font = CurrentTB.Font; //set the font dialog if there's a textbox
 
             //font dialog
             //fastcolored doesn't support all fonts
@@ -260,41 +252,28 @@ namespace PrologParsec
 
                // CurrentTB.Font = fontDialog.Font;
                 CurrentTB.Invalidate(); //refresh
-                
-
-
-
-               
-                    CurrentTB.Font = fontDialog.Font;
-                    CurrentTB.Invalidate();
-                    Properties.Settings.Default.defaultFont = newFont;
-                    Properties.Settings.Default.Save();
+                    CurrentTB.Font = fontDialog.Font; //set the font
+                    CurrentTB.Invalidate(); //refresh
+                    Properties.Settings.Default.defaultFont = newFont; //set the property
+                    Properties.Settings.Default.Save(); //save the properties
                 }
-
-
-
-              
-                
+  
             }
             
-        
-
-
-
-        internal class CustomCommandItem : AutocompleteItem
+        internal class CustomCommandItem : AutocompleteItem //custom items in autocompletemenu
         {
-            private string commandExplanation;
+            private string commandExplanation; //command explanation
 
-            public string CommandExplanation
+            public string CommandExplanation //get and set methods
             {
                 get { return commandExplanation; }
                 set { commandExplanation = value; }
             }
 
-            public CustomCommandItem(string commandText, string explanation)
+            public CustomCommandItem(string commandText, string explanation) //constructor
             {
-                Text = commandText;
-                CommandExplanation = explanation;
+                Text = commandText; //command title
+                CommandExplanation = explanation; //command explanation
             }
 
             public override string ToolTipTitle
@@ -311,7 +290,7 @@ namespace PrologParsec
         }
 
 
-       public void autoCompleteMenuPopulate()
+       public void autoCompleteMenuPopulate() //add prolog system functions
        {
            autocompleteMenu1.AddItem(new CustomCommandItem("@(", "2 - 2 - Call using calling context"));
 autocompleteMenu1.AddItem(new CustomCommandItem("!(", "0 - 0 - Cut (discard choicepoints)"));
@@ -1141,31 +1120,31 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
 
         private void toolStripLabel4_Click(object sender, EventArgs e)
         {
-            CurrentTB.Undo();
+            CurrentTB.Undo(); //undo text
         }
 
         private void toolStripLabel5_Click(object sender, EventArgs e)
         {
-            CurrentTB.Paste();
+            CurrentTB.Paste(); //paste text
         }
 
         private void toolStripLabel6_Click(object sender, EventArgs e)
         {
-            CurrentTB.Copy();
+            CurrentTB.Copy(); //copy text
         }
 
         private void toolStripLabel7_Click(object sender, EventArgs e)
         {
-            CurrentTB.Cut();
+            CurrentTB.Cut(); //cut text
         }
 
-        private string currentFilePath = string.Empty;
+        private string currentFilePath = string.Empty; //current file path
 
         private void toolStripLabel8_Click(object sender, EventArgs e)
         {
             try
             {
-                SaveFile(currentFilePath);
+                SaveFile(currentFilePath); //try to save the current file
             }
             catch (ArgumentException)
             {
@@ -1175,7 +1154,11 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
 
         private void toolStripLabel3_Click(object sender, EventArgs e)
         {
-            openFile(); 
+            openFile();  //open a file
+            MessageBox.Show(toolStripLabel3.Font.Size.ToString());
+            if (toolStripLabel3.Font.Size == 14.25)
+                clickToolbar(this.toolStripLabel3, leftNew, rightNew, Properties.Settings.Default.leftPaddingToolbar, Properties.Settings.Default.rightPaddingToolbar);
+            openClicked = false;
         }
 
         private void openFile()
@@ -1185,129 +1168,139 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
             //    SaveQuestion();
            // }
             //open prolog files
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Prolog source files (*.pl)|*.pl|All files (*.*)|*.*";
-            openFileDialog.FilterIndex = 1;
-            openFileDialog.RestoreDirectory = true;
-            string filePath; string fileContent;
+            OpenFileDialog openFileDialog = new OpenFileDialog(); //create a new dialog
+            openFileDialog.Filter = "Prolog source files (*.pl)|*.pl|Prolog source files (*.pro)|*.pro|Prolog consultable files (*.consult)|*.consult|XML files (*.xml)|*.xml|XAML files (*.xaml)|*.xaml|XML Document Type Definition files (*.dtd)|*.dtd|XML Schema Definition files (*.xsd)|*.xsd|XML Extensible Stylesheet Language files (*.xsl)|*.xsl|C# source files (*.cs)|*.cs|Visual Basic source files (*.vb)|*.vb|Visual Basic .NET files (*.vbnet)|*.vbnet|HTML files (*.html)|*.html|HTML files (*.htm)|*.htm|SQL files (*.sql)|*.sql|PHP files (*.php)|*.php|Javascript files (*.js)|*.js|Lua files (*.lua)|*.lua|Rich Text Document files (*.rtf)|*.rtf|Plain Text files (*.txt)|*.txt|All files (*.*)|*.*"; //set extensions for dialog
+            openFileDialog.FilterIndex = 1; 
+            openFileDialog.RestoreDirectory = true; //restore directory to the previous one you were in
+            string filePath; string fileContent; //file path and file content
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 //read file
-                filePath = openFileDialog.FileName;
-                fileContent = File.ReadAllText(filePath);
-                currentFilePath = openFileDialog.FileName;
-                currentFilePath = Path.GetFileName(currentFilePath);
-                FarsiLibrary.Win.FATabStripItem tabCreated = CreateTab1(openFileDialog.FileName);
+                filePath = openFileDialog.FileName; //file name
+                fileContent = File.ReadAllText(filePath); //read all the contents of a file
+                currentFilePath = openFileDialog.FileName; //current file path
+                currentFilePath = Path.GetFileName(currentFilePath); //Get the name of the file path
+                FarsiLibrary.Win.FATabStripItem tabCreated = CreateTab1(openFileDialog.FileName); //create a new tab with the 
+                openClicked = false;
                 try
                 {
                     MDIParent1.ActiveForm.Text = "Logix Testfire - " + filePath; //put the window title
-                    tabCreated.Title = filePath;
-                    isTextModified = false;
+                    tabCreated.Title = filePath; //set the tab title as the file path
+                    isTextModified = false; //obsoleted - set the file as not edited yet
                 }
                 catch (NullReferenceException e)
                 {
-                    toolStripStatusLabel.Text = ("Null reference error");
+                    toolStripStatusLabel.Text = ("Null reference error"); //null error
                 }
             }
-            if (!string.IsNullOrEmpty(currentFilePath) || !string.IsNullOrEmpty(currentFilePath))
+            if (!string.IsNullOrEmpty(currentFilePath) || !string.IsNullOrEmpty(currentFilePath)) //if there isn't a file opened then disable save
             {
                 saveToolStripMenuItem.Enabled = false;
             }
+            
+                //clickToolbarUndo(this.toolStripLabel3, leftNew, rightNew);
+            openClicked = false;
         }
 
         private void toolStripLabel2_Click(object sender, EventArgs e)
         {
-            newFile();
+            newFile(); //new file
         }
 
 
         private void newFile()
         {
-            SaveQuestion();
-            CurrentTB.Clear();
-            isTextModified = false;
-            currentFilePath = string.Empty;
-            MDIParent1.ActiveForm.Text = "Logix Testfire";
+            SaveQuestion(); //ask to save the current file or not
+            
+            CurrentTB.Clear(); //clear the current textbox content
+            isTextModified = false; //set the document as not modified
+            currentFilePath = string.Empty; //empty the current file path as it's nothing
+            MDIParent1.ActiveForm.Text = "Logix Testfire"; //reset the window titlebar
         }
-        private void SaveQuestion()
+
+        private void SaveQuestion() //ask to save a file or not
         {
-            if (isTextModified)
+            newClicked = false; //you haven't clicked the new button therefore it shouldn't enlarge it
+
+            if (isTextModified) //if you've modified a file
             {
-                DialogResult result = MessageBox.Show("Do you want to save the current file?", "Unsaved changes", MessageBoxButtons.YesNoCancel);
-                if (result == DialogResult.Yes)
+                DialogResult result = MessageBox.Show("Do you want to save the current file?", "Unsaved changes", MessageBoxButtons.YesNoCancel); //show a dialog box asking you if you want to save or not
+                if (result == DialogResult.Yes) //if you press yes
                 {
-                    if (!string.IsNullOrEmpty(currentFilePath))
+                    if (!string.IsNullOrEmpty(currentFilePath)) //if there's a file already opened
                     {
-                        SaveFile(currentFilePath);
+                        SaveFile(currentFilePath); //just save it
                     }
                     else
                     {
-                        SaveFileAsNew();
+                        SaveFileAsNew(); //else ask to save it as a new file
                     }
                 }
-                else if (result == DialogResult.Cancel)
+                else if (result == DialogResult.Cancel) //else if you press cancel, end it
                 {
                     return;
                 }
                 
             }
-            faTabStripItem1.Title = "Untitled";
+            
+            newClicked = false; //you haven't clicked the new button therefore it shouldn't enlarge it
         }
 
-        private void SaveFileAsNew()
+        private void SaveFileAsNew() //save as
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Prolog source files (*.pl)|*.pl|All files (*.*)|*.*";
-            saveFileDialog.FilterIndex = 1;
-            saveFileDialog.RestoreDirectory = true;
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            SaveFileDialog saveFileDialog = new SaveFileDialog(); //create a new save dialog
+            saveFileDialog.Filter = "Prolog source files (*.pl)|*.pl|Prolog source files (*.pro)|*.pro|Prolog consultable files (*.consult)|*.consult|XML files (*.xml)|*.xml|XAML files (*.xaml)|*.xaml|XML Document Type Definition files (*.dtd)|*.dtd|XML Schema Definition files (*.xsd)|*.xsd|XML Extensible Stylesheet Language files (*.xsl)|*.xsl|C# source files (*.cs)|*.cs|Visual Basic source files (*.vb)|*.vb|Visual Basic .NET files (*.vbnet)|*.vbnet|HTML files (*.html)|*.html|HTML files (*.htm)|*.htm|SQL files (*.sql)|*.sql|PHP files (*.php)|*.php|Javascript files (*.js)|*.js|Lua files (*.lua)|*.lua|Rich Text Document files (*.rtf)|*.rtf|Plain Text files (*.txt)|*.txt|All files (*.*)|*.*"; //set file extensions
+            saveFileDialog.FilterIndex = 1; //you can choose only one file
+            saveFileDialog.RestoreDirectory = true; //restory the directory to the precedent one you were in
+            if (saveFileDialog.ShowDialog() == DialogResult.OK) //if you press ok
             {
-                string filePath = saveFileDialog.FileName;
-                string textToSave = CurrentTB.Text;
-                File.WriteAllText(filePath, textToSave);
-                toolStripStatusLabel.Text = "Saved";
-                isTextModified = false;
-                currentFilePath = filePath;
-                faTabStripItem1.Title = filePath;
+                string filePath = saveFileDialog.FileName; //save the file path
+                string textToSave = CurrentTB.Text; //the current textbox text is the one to write to the file
+                File.WriteAllText(filePath, textToSave); //write the text to the file
+                toolStripStatusLabel.Text = "Saved"; //specify to the user that you've saved it
+                isTextModified = false; //deprecated - set the document as already saved
+                currentFilePath = filePath; //set the current file path as the one in which you've saved
+                faTabStripItem1.Title = filePath; //set again the tab title
                 
-                MDIParent1.ActiveForm.Text = MDIParent1.ActiveForm.Text.Replace("*", "");
+                MDIParent1.ActiveForm.Text = MDIParent1.ActiveForm.Text.Replace("*", ""); //remove the asterisk from the titlebar to simbolize you have saved the document
             }
         }
 
-        private void SaveFile(string filePath)
+        private void SaveFile(string filePath) //save file
         {
-            if (string.IsNullOrEmpty(currentFilePath)  || string.IsNullOrEmpty(filePath)){
-                SaveFileAsNew();
+            if (string.IsNullOrEmpty(currentFilePath)  || string.IsNullOrEmpty(filePath)){ //if there isn't any file open
+                SaveFileAsNew(); //save file as new
             }
-            String textToSave = CurrentTB.Text;
-            File.WriteAllText(filePath, textToSave);
-            toolStripStatusLabel.Text = "Saved";
-            isTextModified = false;
-            MDIParent1.ActiveForm.Text = MDIParent1.ActiveForm.Text.Replace("*", "");
+            String textToSave = CurrentTB.Text; //save the current text to a string
+            File.WriteAllText(filePath, textToSave); //write it to a file
+            toolStripStatusLabel.Text = "Saved"; //tell the user it's saved
+            isTextModified = false; //set the bool deprecated to false
+            MDIParent1.ActiveForm.Text = MDIParent1.ActiveForm.Text.Replace("*", ""); //replace the asterisk that tells the user that a file is modified
         }
 
        
-        private bool isTextModified = false;
+        private bool isTextModified = false; //deprecated
 
         private void Fastcolored1_TextChanged(object sender, FastColoredTextBoxNS.TextChangedEventArgs e)
         {
-            isTextModified = true;
-            toolStripStatusLabel.Text = "Ready";
+            isTextModified = true; //deprecated - the text is modified
+            toolStripStatusLabel.Text = "Ready"; //modify the status label to be ready rather than save
             if (this.InvokeRequired)
             {
                 this.BeginInvoke(new MethodInvoker(Asterisk)); //add an asterisk if you modify the textbox
             } else {
                 Asterisk();
             }
-            if (!string.IsNullOrEmpty(currentFilePath) || !string.IsNullOrEmpty(currentFilePath))
+            if (!string.IsNullOrEmpty(currentFilePath) || !string.IsNullOrEmpty(currentFilePath)) //if there exists a file
             {
-                saveToolStripMenuItem.Enabled = true;
+                saveToolStripMenuItem.Enabled = true; //make it so you can save it
             }
 
            // CurrentTB.CommentPrefix = "%";
             //autocompleteMenu1.SetAutocompleteItems(new DynamicCollection(CurrentTB));
         }
 
+        //Check fastcolored1
         private void CurrentTB_TextChanged(object sender, FastColoredTextBoxNS.TextChangedEventArgs e)
         {
             isTextModified = true;
@@ -1329,50 +1322,70 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
 
             //CurrentTB.CommentPrefix = "%";
             //autocompleteMenu1.SetAutocompleteItems(new DynamicCollection(CurrentTB));
+
+            applyPrologSyntax(e);
+        }
+
+        private void applyPrologSyntax(FastColoredTextBoxNS.TextChangedEventArgs e)
+        {
+            e.ChangedRange.SetStyle(comment, "((\\%[^\n\r]*))");
+            e.ChangedRange.SetStyle(keyword, "(?!<=%):-");
+            e.ChangedRange.SetStyle(comma, "(?!<=%),");
+            e.ChangedRange.SetStyle(point, "(?!<=%)\\.");
+            e.ChangedRange.SetStyle(question, "(?!<=%)\\?");
+            //e.ChangedRange.SetStyle(systemPar, "^(?!<=%)\b(abolish|abolish_all_tables|abolish_module_tables|abolish_montonic_tables|abolish_nonincremental_tables|abolish_private_tables|abolish_private_tables|abolish_shared_tables|abolish_table_subgoals|abort|absolute_file_name|answer_count_restraint|access_file|acyclic_term|add_import_module|add_nb_set|append|apple_current_locale_identifier|apply|apropos|arg|assoc_to_list|assert|asserta|assertion|assertz|attach_console|attach_packs|attribute_goals|attr_unify_hook|attr_portray_hook|attvar|at_end_of_stream|at_halt|atom|atom_chars|atom_codes|atom_concat|atom_length|atom_number|atom_prefix|atom_string|atom_to_term|atomic|atomic_concat|atomic_list_concat|atomics_to_string|autoload|autoload_all|autoload_path|await|b_getval|b_set_dict|b_setval|bagof|between|blob|bounded_number|break|break_hook|byte_count|call|call_cleanup|call_dcg|call_delays|call_residue_vars|call_residual_program|call_shared_object_function|call_with_depth_limit|call_with_inference_limit|callable|cancel_halt|catch|char_code|char_conversion|char_type|character_count|chdir|chr_constraint|chr_show_store|chr_trace|chr_type|chr_notrace|chr_leash|chr_option|clause|clause_property|close|close_dde_conversation|close_shared_object|collation_key|comment_hook|compare|compile_aux_clauses|compile_predicates|compiling|compound|compound_name_arity|compound_name_arguments|code_type|consult|context_module|convert_time|copy_stream_data|copy_predicate_clauses|copy_term|copy_term_nat|create_prolog_flag|current_arithmetic_function|current_atom|current_blob|current_char_conversion|current_char_conversion|current_engine|current_flag|current_foreign_library|current_format_predicate|current_functor|current_input|current_key|current_locale|current_module|current_op|current_output|current_predicate|current_signal|current_stream|current_table|current_transaction|current_trie|cyclic_term|day_of_the_week|date_time_stamp|dcg_translate_rule|dde_current_connection|dde_current_service|dde_execute|dde_register_service|dde_request|dde_poke|dde_unregister_service|debug|debug_control_hook|debugging|default_module|del_attr|del_attrs|del_dict|delays_residual_program|delete_directory|delete_file|delete_import_module|det|deterministic|dif|directory_files|discontiguous|divmod|downcase_atom|duplicate_term|dwim_match|dwim_predicate|dynamic|edit|elif|else|empty_assoc|empty_nb_set|encoding|endif|engine_create|engine_destroy|engine_fetch|engine_next|engine_next_reified|engine_post|engine_self|engine_yield|ensure_loaded|erase|exception|exists_directory|exists_file|exists_source|expand_answer|expand_file_name|expand_file_search_path|expand_goal|expand_query|expand_term|expects_dialect|explain|export|fail|false|fast_term_serialized|fast_read|fast_write|current_prolog_flag|file_base_name|file_name_extension|file_search_path|find_chr_constraint|findall|findnsols|fill_buffer|flag|float|float_class|float_parts|flush_output|forall|format|format_time|format_predicate|term_attvars|term_variables|text_to_string|freeze|frozen|functor|garbage_collect|garbage_collect_atoms|garbage_collect_clauses|gen_assoc|gen_nb_set|gensym|get|get_assoc|get_attr|get_attrs|get_byte|get_char|get_code|get_dict|get_flag|get_single_char|get_string_code|get_time|get0|getenv|goal_expansion|ground|gdebug|gspy|gtrace|guitracer|gxref|halt|term_hash|help|help_hook|if|ignore|import|import_module|in_pce_thread|in_pce_thread_sync|include|initialization|initialize|instance|integer|interactor|is|is_absolute_file_name|is_assoc|is_async|is_dict|is_engine|is_list|is_most_general_term|is_object|is_stream|is_trie|is_thread|join_threads|keysort|known_licenses|last|leash|length|library_directory|license|line_count|line_position|list_debug_topics|list_to_assoc|list_to_set|list_strings|load_files|load_foreign_library|locale_create|locale_destroy|locale_property|locale_sort|make|make_directory|make_library_index|map_assoc|dict_create|dict_pairs|max_assoc|memberchk|message_hook|message_line_element|message_property|message_queue_create|message_queue_destroy|message_queue_property|message_queue_set|message_to_string|meta_predicate|min_assoc|module|module_property|module_transparent|msort|multifile|mutex_create|mutex_destroy|mutex_lock|mutex_property|mutex_statistics|mutex_trylock|mutex_unlock|mutex_unlock_all|name|nb_current|nb_delete|nb_getval|nb_link_dict|nb_linkarg|nb_linkval|nb_set_to_list|nb_set_dict|nb_setarg|nb_setval|nl|nodebug|noguitracer|nonground|nonvar|nonterminal|noprofile|noprotocol|normalize_space|nospy|nospyall|not|not_exists|notrace|nth_clause|nth_integer_root_and_remainder|number|number_chars|number_codes|number_string|numbervars|on_signal|once|op|open|open_dde_conversation|open_null_stream|open_resource|open_shared_object|open_source_hook|open_string|ord_list_to_assoc|parse_time|pce_dispatch|pce_call|peek_byte|peek_char|peek_code|peek_string|phrase|phrase_from_quasi_quotation|please|plus|portray|predicate_property|predsort|print|print_message|print_message_lines|profile|profile_count|profiler|prolog|prolog_alert_signal|prolog_choice_attribute|prolog_current_choice|prolog_current_frame|prolog_cut_to|prolog_edit:locate|prolog_edit:edit_source|prolog_edit:edit_command|prolog_edit:load|prolog_exception_hook|prolog_file_type|prolog_frame_attribute|prolog_ide|prolog_interrupt|prolog_list_goal|prolog_listen|prolog_load_context|prolog_load_file|prolog_skip_level|prolog_skip_frame|prolog_stack_property|prolog_to_os_filename|prolog_trace_interception|prolog_unlisten|project_attributes|prompt|prompt1|protocol|protocola|protocolling|public|put|put_assoc|put_attr|put_attrs|put_byte|put_char|put_code|put_code|put_dict|qcompile|qsave_program|quasi_quotation_syntax|quasi_quotation_syntax_error|radial_restraint|random_property|rational|read|read_clause|read_link|read_pending_codes|read_pending_chars|read_string|read_term|read_term_from_atom|read_term_with_history|recorda|recorded|recordz|redefine_system_predicate|reexport|reload_foreign_libraries|reload_library_index|rename_file|repeat|require|reset|reset_gensym|reset_profiler|resource|retract|retractall|same_file|same_term|see|seeing|seek|seen|select_dict|set_end_of_stream|set_flag|set_input|set_locale|set_malloc|set_module|set_output|set_prolog_IO|set_prolog_flag|set_prolog_gc_thread|set_prolog_stack|set_random|set_stream|set_stream_position|set_system_IO|setup_call_cleanup|setup_call_catcher_cleanup|setarg|setenv|setlocale|setof|shell|shift|shift_for_copy|show_profile|sig_atomic|sig_block|sig_pending|sig_remov|sig_unblock|size_abstract_term|size_file|size_nb_set|skip|sleep|snapshot|sort|source_exports|source_file|source_file_property|source_location|split_string|spy|stamp_date_time|statistics|stream_pair|stream_position_data|stream_property|string|string_bytes|string_concat|string_length|string_chars|string_codes|string_code|string_lower|string_upper|string_predicate|strip_module|style_check|sub_atom|sub_atom_icasechk|sub_string|subsumes_term|succ|swritef|tab|table|tabled_call|tdebug|tell|telling|term_expansion|term_singletons|term_string|term_subsumer|term_to_atom|thread_affinity|thread_alias|thread_at_exit|thread_create|thread_detach|thread_exit|thread_get_message|thread_idle|thread_initialization|thread_join|thread_local|thread_message_hook|thread_peek_message|thread_property|thread_self|thread_send_message|thread_property|thread_self|thread_send_message|thread_setconcurrency|thread_signal|thread_statistics|thread_update|thread_wait|threads|throw|time|time_file|tmp_file|tmp_file_stream|tnodebug|tnot|told|tprofile|trace|tracing|transaction|transaction_updates|trie_delete|trie_destroy|trie_gen|trie_gen_compiled|trie_insert|trie_lookup|trie_new|trie_property|trie_update|trie_term|trim_heap|trim_stacks|tripwire|true|tspy|tty_get_capability|tty_goto|tty_put|tty_size|ttyflush|undefined|undo|unify_with_occurs_check|unifiable|unknown|unload_file|unload_foreign_library|unsetenv|untable|upcase_atom|use_foreign_library|use_module|valid_string_goal|var|var_number|var_property|variant_sha1|variant_hash|version|visible|volatile|wait_for_input|when|wildcard_match|win_add_dll_directory|win_remove_dll_directory|win_exec|win_has_menu|win_folder|win_insert_menu|win_insert_menu_item|win_process_modules|win_shell|win_registry_get_value|win_get_user_preferred_ui_languages|win_window_color|win_window_pos|window_title|with_mutex|with_output_to|with_quasi_quotation_input|with_tty_raw|working_directory|write|writeln|write_canonical|write_length|write_term|writef|writeq)\\(\\s*[^)]*\\s*\\)");
+            e.ChangedRange.SetStyle(equals, "(?!<=%)=");
+            e.ChangedRange.SetStyle(anon, "(?!<=%)_");
+            e.ChangedRange.SetStyle(parentesi, "(?!<=%)[\\[\\]()]|\\{\\}");
+           // e.ChangedRange.SetStyle(variables, "(?!<=%)\b[A-Z][A-Za-z0-9_]*(?![A-Za-z0-9_])\b");
+            //e.ChangedRange.SetStyle(functions, "(?!<=%)\b\\([^)]*\\)");
+            //e.ChangedRange.SetStyle(comment, "(?<!\\/)\\/\\*((?:(?!\\*\\/).|\\s)*)\\*\\/", RegexOptions.Multiline);
+
         }
 
         private void Asterisk()
         {
-            if (this.Text[this.Text.Length -1] != '*')
+            if (this.Text[this.Text.Length -1] != '*') //if there isn't an asterisk at the end
             {
-                this.Text = this.Text + "*";
+                this.Text = this.Text + "*"; //add one if it's modified
             }
         }
 
         private void MDIParent1_Load(object sender, EventArgs e)
         {
-            check();
-            checkPadding();
+            check(); //check for checked methods and all
+            checkPadding(); //check the padding in the toolbar
             
-            this.Text = this.Text.Substring(0, this.Text.Length - 1);
-            faTabStripItem1.Title = "Untitled";
-            faTabStrip1.RemoveTab(faTabStripItem1);
-            string curDir = Directory.GetCurrentDirectory();
-           if (CurrentTB != null)
+            this.Text = this.Text.Substring(0, this.Text.Length - 1); //remove the asterisk when it starts
+            faTabStripItem1.Title = "Untitled"; //deprecated - rename the new tab as Untitled
+            faTabStrip1.RemoveTab(faTabStripItem1); //remove the tab where there's fastcolored1 so all tabs have CurrentTB
+            string curDir = Directory.GetCurrentDirectory(); //get the current app directory
+            if (CurrentTB != null)
+            {
+                CurrentTB.AddStyle(comment);
                 CurrentTB.DescriptionFile = String.Format("file:///{0}/" + Properties.Settings.Default.descriptionFileDirectory, curDir); //modify description file of the fastcolored textbox
+            }
+            autoCompleteMenuPopulate(); //add all the system functions
             
-           
-            autoCompleteMenuPopulate();
-
-            if (Properties.Settings.Default.auroraCustom)
-                this.webBrowser1.Navigate(Properties.Settings.Default.auroraCustomURL);
+            if (Properties.Settings.Default.auroraCustom) //if there's a custom aurora enabled
+                this.webBrowser1.Navigate(Properties.Settings.Default.auroraCustomURL); //navigate to it
             else
-            this.webBrowser1.Url = new Uri(String.Format("file:///{0}/aurora/" + Properties.Settings.Default.auroraFile, curDir));
-            label13.Text = "Version " + Properties.Resources.AppVersion;
-            label11.Text = "Built on " + Properties.Resources.AppDate;
-            panel2.Left = faTabStrip1.Width - panel2.Width - 20;
-            string appPath = Path.GetDirectoryName(Application.ExecutablePath);
-            string filePath = Path.Combine(appPath, "changelog.txt");
+            this.webBrowser1.Url = new Uri(String.Format("file:///{0}/aurora/" + Properties.Settings.Default.auroraFile, curDir)); //else navigate to the aurora you selected
+            label13.Text = "Version " + Properties.Resources.AppVersion; //set start page text
+            label11.Text = "Built on " + Properties.Resources.AppDate; //set start page text
+            panel2.Left = faTabStrip1.Width - panel2.Width - 20; //set changelog panel location
+            string appPath = Path.GetDirectoryName(Application.ExecutablePath); //get the current app directory
+            string filePath = Path.Combine(appPath, "changelog.txt"); //load the changelog.txt file
             
             try
             {
-                if (File.Exists(filePath))
+                if (File.Exists(filePath)) //if the changelog.txt file exists
                 {
-                    richTextBox1.LoadFile(filePath, RichTextBoxStreamType.PlainText);
+                    richTextBox1.LoadFile(filePath, RichTextBoxStreamType.PlainText); //load the changelog
                 }
                 else
                 {
-                    richTextBox1.Text = "Changelog not found";
+                    richTextBox1.Text = "Changelog not found"; //show that the file hasn't been found
                 }
             }
             catch (ArgumentException eq)
@@ -1380,31 +1393,42 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
             }
 
             //start page
-            if (Properties.Settings.Default.startPageVisible)
-                faTabStripItem2.Visible = true;
+            if (Properties.Settings.Default.startPageVisible) //start page
+                faTabStrip1.AddTab(faTabStripItem2);
             else
-                faTabStripItem2.Visible = false;
+                faTabStrip1.RemoveTab(faTabStripItem2);
 
-            if (Properties.Settings.Default.startPageQuick)
+            if (Properties.Settings.Default.startPageQuick) //quick actions in start page
                 panel1.Visible = true;
             else
                 panel1.Visible = false;
 
-            if (Properties.Settings.Default.startPageChangelog)
+            if (Properties.Settings.Default.startPageChangelog) //changelog in start page
                 panel2.Visible = true;
             else
                 panel2.Visible = false;
 
-            label1.Text = Properties.Resources.AppName + " " + Properties.Resources.AppEdition + " " + Properties.Resources.AppVersion;
-            label4.Text = Properties.Resources.AppName; label2.Text = Properties.Resources.AppEdition + " Edition" ; label3.Text = Properties.Resources.AppDescription;
-            faTabStrip1.SelectedItem = faTabStripItem2;
+            if (Properties.Settings.Default.startPageStartup) //verify if the start page should start on startup
+            {
+                faTabStrip1.AddTab(faTabStripItem2);
+                Properties.Settings.Default.startPageVisible = true;
+            }
+            else
+            {
+                faTabStrip1.RemoveTab(faTabStripItem2);
+                Properties.Settings.Default.startPageVisible = false;
+            }
 
-            if (Properties.Settings.Default.auroraStartPage)
+            label1.Text = Properties.Resources.AppName + " " + Properties.Resources.AppEdition + " " + Properties.Resources.AppVersion; //app versions
+            label4.Text = Properties.Resources.AppName; label2.Text = Properties.Resources.AppEdition + " Edition" ; label3.Text = Properties.Resources.AppDescription; //app versions
+            faTabStrip1.SelectedItem = faTabStripItem2; //navigate to the start page
+
+            if (Properties.Settings.Default.auroraStartPage) //load the aurora on start page
                 webBrowser1.Visible = true;
             else
                 webBrowser1.Visible = false;
 
-            tabChangeCheck();
+            tabChangeCheck(); //check if oyu need to enable the toolbar or not
 
       
         }
@@ -1413,16 +1437,15 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
         {
             
             //isTextModified = false;
+            if (CurrentTB != null)
+            {
+                CurrentTB.DescriptionFile = Properties.Settings.Default.descriptionFileDirectory; //load the description file in CurrentTB
+                CurrentTB.AddStyle(comment);
+            }
 
-            CurrentTB.DescriptionFile = Properties.Settings.Default.descriptionFileDirectory;
+            CurrentTB.Font = Properties.Settings.Default.defaultFont; //load the default font - there's a problem in fastcolored1
 
-
-            CurrentTB.Font = Properties.Settings.Default.defaultFont;
-
-            check();
-            autoCompleteMenuPopulate();
-
-            
+            check(); //check method            
             //autocompleteMenu1.SetAutocompleteItems(new DynamicCollection(Fastcolored1));
         }
 
@@ -1434,33 +1457,33 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
 
         private void MDIParent1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(isTextModified)
+            if(isTextModified) //if the text is modified, upon closing the app, ask if you want to save it
             SaveQuestion();
         }
 
         private void newFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            newFile();
+            newFile(); //new file
         }
 
         private void openFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            openFile();
+            openFile(); //open file
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveFile(currentFilePath);
+            SaveFile(currentFilePath); //save current file
         }
 
         private void saveAsToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            SaveFileAsNew();
+            SaveFileAsNew(); //save as
         }
 
         private void printText()
         {
-
+            //printing - disabled for now
             System.Windows.Forms.PrintDialog dialogue = new System.Windows.Forms.PrintDialog();
             DialogResult dr = dialogue.ShowDialog();
             if (dr == DialogResult.OK)
@@ -1474,90 +1497,90 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
 
         private void PrintDocumentOnPrintPage(object sender, PrintPageEventArgs e)
         {
-            e.Graphics.DrawString(this.Fastcolored1.Text, this.Fastcolored1.Font, Brushes.Black, 10, 25);
+            e.Graphics.DrawString(this.Fastcolored1.Text, this.Fastcolored1.Font, Brushes.Black, 10, 25); //Drawing the document - disabled for now
         }
 
         private void printToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            printText();
+            printText();  //printing
         }
 
         private void openFileToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            openFile(); 
+            openFile();  //open the file
         }
 
         private void saveToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            SaveFile(currentFilePath);
+            SaveFile(currentFilePath); //save the current file
         }
 
         private void saveAsToolStripMenuItem_Click_2(object sender, EventArgs e)
         {
-            SaveFileAsNew();
+            SaveFileAsNew(); //save as a new file
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Application.Exit(); //exit from the mdi
         }
 
         private void undoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CurrentTB.Undo();
+            CurrentTB.Undo(); //undo
         }
 
         private void redoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CurrentTB.Redo();
+            CurrentTB.Redo(); //redo
         }
 
         private void cutToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            CurrentTB.Cut();
+            CurrentTB.Cut(); //cut
         }
 
         private void copyToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            CurrentTB.Copy();
+            CurrentTB.Copy(); //copy
         }
 
         private void pasteToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            CurrentTB.Paste();
+            CurrentTB.Paste(); //paste
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CurrentTB.SelectedText = "";
+            CurrentTB.SelectedText = ""; //delete the current selected tetx
         }
 
         private void clearToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CurrentTB.Text = "";
+            CurrentTB.Text = ""; //clear the current document
         }
 
         private void menuBarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            check();
-            if (menuStrip1.Visible)
+            check(); //check method
+            if (menuStrip1.Visible) //if the menu bar is visible
             {
-                menuStrip1.Visible = false;
-                menuBarToolStripMenuItem.Checked = false;
+                menuStrip1.Visible = false; //it shouldn't be visible
+                menuBarToolStripMenuItem.Checked = false; //it shouldn't be checked
                 menuBarToolStripMenuItem1.Checked = false;
 
             }
             else
             {
-                menuStrip1.Visible = true;
-                menuBarToolStripMenuItem1.Checked = true;
+                menuStrip1.Visible = true; //it should be visible
+                menuBarToolStripMenuItem1.Checked = true; //it should be checked
                 menuBarToolStripMenuItem.Checked = true;
             } 
         }
 
         private void check()
         {
-            if (menuStrip1.Visible)
+            if (menuStrip1.Visible) //menu bar check
             {
                 menuBarToolStripMenuItem.Checked = true;
                 menuBarToolStripMenuItem1.Checked = true;
@@ -1568,7 +1591,7 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
                 menuBarToolStripMenuItem1.Checked = false;
             }
 
-            if (toolStrip1.Visible)
+            if (toolStrip1.Visible) //toolbar check
             {
                 toolbarToolStripMenuItem.Checked = true;
                 toolbarToolStripMenuItem1.Checked = true;
@@ -1579,7 +1602,7 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
                 toolbarToolStripMenuItem1.Checked = false;
             }
 
-            if (Fastcolored1.WordWrap)
+            if (Fastcolored1.WordWrap) //eodr wrap check
             {
                 wordWrapToolStripMenuItem.Checked = true;
                 wordWrapToolStripMenuItem1.Checked = true;
@@ -1590,23 +1613,23 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
                 wordWrapToolStripMenuItem1.Checked = false;
             }
 
-            if (Fastcolored1.WordWrapIndent > 0)
+            if (Fastcolored1.WordWrapIndent > 0) //wird wroìao indent check
                 wordWrapIndentToolStripMenuItem.Checked = true;
             else
                 wordWrapIndentToolStripMenuItem.Checked = false;
 
-            if (Fastcolored1.DescriptionFile == null)
+            if (Fastcolored1.DescriptionFile == null) //description file check
                 checkForSyntaxToolStripMenuItem.Checked = false;
             else
                 checkForSyntaxToolStripMenuItem.Checked = true;
 
-            if (documentMap1.Visible == true)
+            if (documentMap1.Visible == true) //document map - is shown on the right
             {
                 documentMapToolStripMenuItem.Checked = true;
                 documentMapToolStripMenuItem1.Checked = true;
                 Properties.Settings.Default.documentMap = true;
                 Properties.Settings.Default.Save();
-                splitter1.Visible = true;
+                splitter1.Visible = true; //this activates or disables the thing which resises the document map
             }
             else
             {
@@ -1617,7 +1640,7 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
                 splitter1.Visible = false;
             }
 
-            if (roundedPanel1.Visible)
+            if (roundedPanel1.Visible) //if there's the go to line panel then check it
             {
                 goToToolStripMenuItem.Checked = true;
                 goToToolStripMenuItem1.Checked = true;
@@ -1628,7 +1651,7 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
                 goToToolStripMenuItem1.Checked = false;
             }
 
-            if (panel6.Visible)
+            if (panel6.Visible) //the same but for the find and replace panel
             {
                 findreplaceToolStripMenuItem.Checked = true;
                 fIndAndReplaceToolStripMenuItem.Checked = true;
@@ -1638,13 +1661,15 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
                 findreplaceToolStripMenuItem.Checked = false;
                 fIndAndReplaceToolStripMenuItem.Checked = false;
             }
+
+            
             
         }
 
         private void toolbarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             check();
-            if (toolStrip1.Visible)
+            if (toolStrip1.Visible) //toolbar check - make it visible or not
             {
                 toolStrip1.Visible = false;
                 toolbarToolStripMenuItem.Checked = false;
@@ -1658,46 +1683,49 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
 
         private void addHeaderToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CurrentTB.Text = Properties.Settings.Default.headerText + "\n" + CurrentTB.Text;
+            CurrentTB.Text = Properties.Settings.Default.headerText + "\n" + CurrentTB.Text; //add the default header text on top
+            //to modify later: make it so it changes based on the selected syntax
         }
 
         private void addFooterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CurrentTB.AppendText("\n" + Properties.Settings.Default.footerText + currentFilePath);
+            CurrentTB.AppendText("\n" + Properties.Settings.Default.footerText + currentFilePath); //add the default footer text on top
+            //to modify later: make it so it changes based on the selected syntax
         }
 
         private void addFooterToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            CurrentTB.AppendText("\n" + Properties.Settings.Default.footerText + currentFilePath);
+            CurrentTB.AppendText("\n" + Properties.Settings.Default.footerText + currentFilePath); //the same as the other
         }
 
         private void addHeaderToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            CurrentTB.Text = Properties.Settings.Default.headerText + "\n" + CurrentTB.Text;
+            CurrentTB.Text = Properties.Settings.Default.headerText + "\n" + CurrentTB.Text; //the same as the other
 
         }
 
         private void aboutLogixToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AboutBox1 form2 = new AboutBox1();
-            form2.ShowDialog();
+            AboutBox1 form2 = new AboutBox1(); //Create a new aboutBox
+            form2.ShowDialog(); //show it
         }
 
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CurrentTB.InsertText("\n%" + toolStripTextBox1.Text);
+            CurrentTB.InsertText("\n%" + toolStripTextBox1.Text); //insert a new comment
         }
         
 
         private void colorsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            xmlDetails form2 = new xmlDetails();
+            xmlDetails form2 = new xmlDetails();  //DEPRECATED - show XML config - to be removed
             form2.ShowDialog();
         }
 
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //go to line manager
             if (System.Text.RegularExpressions.Regex.IsMatch(textBox1.Text, "[^0-9]"))
             {
                 //roundedPanel1.Height = 56;
@@ -1710,6 +1738,7 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
                 //label15.Text = "Please enter only numbers";
                 //label15.Left = (this.roundedPanel1.Width - label15.Width) / 2;
                 textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 1);
+                //check if the number of lines inserted is right
             } else
             GoToLine(int.Parse(textBox1.Text));
         }
@@ -1960,7 +1989,7 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
                 tb.ZoomChanged += new EventHandler(CurrentTB_ZoomChanged);
                 tb.TextChanged += new EventHandler<FastColoredTextBoxNS.TextChangedEventArgs>(this.CurrentTB_TextChanged);
 
-
+                noFileOpenVisible();
 
                 
 
@@ -2022,7 +2051,8 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
                 popupMenu.SetAutocompleteMenu(CurrentTB, autocompleteMenu1);
                 popupMenu = autocompleteMenu1;
                 tb.Font = new Font(Fastcolored1.Font.Name, Fastcolored1.Font.Size, Fastcolored1.Font.Style);
-                
+
+                noFileOpenVisible();
 
                 return tab;
             }
@@ -2113,7 +2143,7 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
         private void MDIParent1_Resize(object sender, EventArgs e)
         {
             panel2.Left = faTabStrip1.Width - panel2.Width - 20;
-
+            centerElement(noOpenedFileGroup);
 
             if (!moveGoToPanel && goToDockTop || !moveGoToPanel && goToDockBottom)
             {
@@ -2241,6 +2271,13 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
 
         }
 
+        private void centerElement(Control control1)
+    {
+        int centerX = (this.ClientSize.Width - control1.Width) / 2;
+        int centerY = (this.ClientSize.Height - control1.Height) / 2;
+
+        control1.Location = new Point(centerX, centerY);
+    }
         private void centerPanel(Panel panel)
         {
             // Calcola la posizione orizzontale per centrare il pannello
@@ -2425,7 +2462,42 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-           
+            try {
+                if (e.KeyChar == (char)Keys.Enter)
+                {
+                    //go to line manager
+                    if (System.Text.RegularExpressions.Regex.IsMatch(textBox1.Text, "[^0-9]"))
+                    {
+                        //roundedPanel1.Height = 56;
+                        ToolTip hint = new ToolTip();
+                        hint.IsBalloon = true;
+                        hint.ToolTipTitle = "Please enter only numbers";
+                        hint.ToolTipIcon = ToolTipIcon.Error;
+                        hint.Show(string.Empty, textBox1, -10, -10, 0);
+                        hint.Show("Letters and symbols are not allowed.", textBox1);
+                        //label15.Text = "Please enter only numbers";
+                        //label15.Left = (this.roundedPanel1.Width - label15.Width) / 2;
+                        textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 1);
+                        //check if the number of lines inserted is right
+                    }
+                    else
+                        GoToLine(int.Parse(textBox1.Text));
+                }
+                } catch (Exception ea){
+                    
+                        ToolTip hint = new ToolTip();
+                        hint.IsBalloon = true;
+                        hint.ToolTipTitle = "Please enter only numbers";
+                        hint.ToolTipIcon = ToolTipIcon.Error;
+                        hint.Show(string.Empty, textBox1, 0);
+                        if (CurrentTB.LinesCount > 1)
+                            hint.Show("Letters and symbols are not allowed.", textBox1, 15, 17);
+                        else
+                            hint.Show("Letters and symbols are not allowed.", textBox1, 15, 17);
+                    
+                }
+
+            
         }
 
         private void panel4_MouseMove(object sender, MouseEventArgs e)
@@ -2755,7 +2827,7 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Settings form3 = new Settings(webBrowser1);
+            Settings form3 = new Settings(webBrowser1, faTabStrip1, faTabStripItem2) ;
             form3.ShowDialog();
         }
 
@@ -2789,11 +2861,14 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
             {
                 MessageBox.Show(ex2.ToString());
             }
+
+            noFileOpenVisible();
         }
 
         private void faTabStrip1_Click(object sender, EventArgs e)
         {
             tabChangeCheck();
+            noFileOpenVisible();
         }
 
         private void tabChangeCheck()
@@ -2894,61 +2969,73 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
         private void toolStripLabel2_MouseDown(object sender, MouseEventArgs e)
         {
             clickToolbar(toolStripLabel2, leftNew, rightNew, Properties.Settings.Default.leftPaddingToolbar, Properties.Settings.Default.rightPaddingToolbar);
+            newClicked = true;
         }
 
         private void toolStripLabel2_MouseUp(object sender, MouseEventArgs e)
         {
             clickToolbarUndo(toolStripLabel2, leftNew, rightNew);
+            newClicked = false;
         }
 
         private void toolStripLabel12_MouseDown(object sender, MouseEventArgs e)
         {
             clickToolbar(this.toolStripLabel12, leftNew, rightNew, Properties.Settings.Default.leftPaddingToolbar, Properties.Settings.Default.rightPaddingToolbar);
+            tabClicked = true;
         }
 
         private void toolStripLabel12_MouseUp(object sender, MouseEventArgs e)
         {
             clickToolbarUndo(this.toolStripLabel12, leftNew, rightNew);
+            tabClicked = false;
         }
 
         private void toolStripLabel3_MouseDown(object sender, MouseEventArgs e)
         {
             clickToolbar(this.toolStripLabel3, leftNew, rightNew, Properties.Settings.Default.leftPaddingToolbar, Properties.Settings.Default.rightPaddingToolbar);
+            openClicked = true;
         }
 
         private void toolStripLabel3_MouseUp(object sender, MouseEventArgs e)
         {
             clickToolbarUndo(this.toolStripLabel3, leftNew, rightNew);
+            openClicked = false;
         }
 
         private void toolStripLabel8_MouseDown(object sender, MouseEventArgs e)
         {
             clickToolbar(this.toolStripLabel8, leftNew, rightNew, Properties.Settings.Default.leftPaddingToolbar, Properties.Settings.Default.rightPaddingToolbar);
+            saveClicked = true;
         }
 
         private void toolStripLabel8_MouseUp(object sender, MouseEventArgs e)
         {
             clickToolbarUndo(this.toolStripLabel8, leftNew, rightNew);
+            saveClicked = false;
         }
 
         private void toolStripLabel7_MouseUp(object sender, MouseEventArgs e)
         {
           clickToolbarUndo(this.toolStripLabel7, leftNew, rightNew);
+          cutClicked = false;
         }
 
         private void toolStripLabel7_MouseDown(object sender, MouseEventArgs e)
         {
             clickToolbar(this.toolStripLabel7, leftNew, rightNew, Properties.Settings.Default.leftPaddingToolbar, Properties.Settings.Default.rightPaddingToolbar);
+            cutClicked = true;
         }
 
         private void toolStripLabel6_MouseDown(object sender, MouseEventArgs e)
         {
             clickToolbar(this.toolStripLabel6, leftNew, rightNew, Properties.Settings.Default.leftPaddingToolbar, Properties.Settings.Default.rightPaddingToolbar);
+            copyClicked = true;
         }
 
         private void toolStripLabel6_MouseUp(object sender, MouseEventArgs e)
         {
             clickToolbarUndo(this.toolStripLabel6, leftNew, rightNew);
+            copyClicked = false;
         }
 
         private void menuStrip1_MouseUp(object sender, MouseEventArgs e)
@@ -2959,66 +3046,215 @@ autocompleteMenu1.AddItem(new CustomCommandItem("writeq(", "2 - Write term, inse
         private void toolStripLabel5_MouseUp(object sender, MouseEventArgs e)
         {
             clickToolbarUndo(this.toolStripLabel5, leftNew, rightNew);
+            pasteClicked = false;
         }
 
         private void toolStripLabel5_MouseDown(object sender, MouseEventArgs e)
         {
             clickToolbar(this.toolStripLabel5, leftNew, rightNew, Properties.Settings.Default.leftPaddingToolbar, Properties.Settings.Default.rightPaddingToolbar);
+            pasteClicked = true;
         }
 
         private void toolStripLabel4_MouseDown(object sender, MouseEventArgs e)
         {
             clickToolbar(this.toolStripLabel4, leftNew, rightNew, Properties.Settings.Default.leftPaddingToolbar, Properties.Settings.Default.rightPaddingToolbar);
+            undoClicked = true;
         }
 
         private void toolStripLabel4_MouseUp(object sender, MouseEventArgs e)
         {
             clickToolbarUndo(this.toolStripLabel4, leftNew, rightNew);
+            undoClicked = false;
         }
 
         private void toolStripLabel9_MouseUp(object sender, MouseEventArgs e)
         {
             clickToolbarUndo(this.toolStripLabel9, leftNew, rightNew);
+            redoClicked = false;
         }
 
         private void toolStripLabel9_MouseDown(object sender, MouseEventArgs e)
         {
             clickToolbar(this.toolStripLabel9, leftNew, rightNew, Properties.Settings.Default.leftPaddingToolbar, Properties.Settings.Default.rightPaddingToolbar);
+            redoClicked = true;
         }
 
         private void toolStripLabel11_MouseDown(object sender, MouseEventArgs e)
         {
             clickToolbar(this.toolStripLabel11, leftNew, rightNew, Properties.Settings.Default.leftPaddingToolbar, Properties.Settings.Default.rightPaddingToolbar);
+            fontClicked = true;
         }
 
         private void toolStripLabel11_MouseUp(object sender, MouseEventArgs e)
         {
             clickToolbarUndo(this.toolStripLabel11, leftNew, rightNew);
+            fontClicked = false;
         }
 
         private void toolStripLabel1_MouseUp(object sender, MouseEventArgs e)
         {
             clickToolbarUndo(this.toolStripLabel1, leftNew, rightNew);
+            backClicked = false;
         }
 
         private void toolStripLabel1_MouseDown(object sender, MouseEventArgs e)
         {
             clickToolbar(this.toolStripLabel1, leftNew, rightNew, Properties.Settings.Default.leftPaddingToolbar, Properties.Settings.Default.rightPaddingToolbar);
+            backClicked = true;
         }
-
+        private bool newClicked; private bool tabClicked; private bool openClicked; private bool saveClicked; private bool cutClicked; private bool copyClicked; private bool pasteClicked; private bool undoClicked; private bool redoClicked; private bool fontClicked; private bool backClicked; private bool nextClicked;
         private void toolStripLabel10_MouseDown(object sender, MouseEventArgs e)
         {
             clickToolbar(this.toolStripLabel10, leftNew, rightNew, Properties.Settings.Default.leftPaddingToolbar, Properties.Settings.Default.rightPaddingToolbar);
+            nextClicked = true;
         }
 
         private void toolStripLabel10_MouseUp(object sender, MouseEventArgs e)
         {
             clickToolbarUndo(this.toolStripLabel10, leftNew, rightNew);
-        }
-        
+            nextClicked = false;
         }
 
-        
+        private void faTabStrip1_TabStripItemClosing(FarsiLibrary.Win.TabStripItemClosingEventArgs e)
+        {
+            noFileOpenVisible();
+        }
+
+        private void noFileOpenVisible()
+        {
+            if (faTabStrip1.Items.Count == 0)
+                noOpenedFileGroup.Visible = true;
+            else
+                noOpenedFileGroup.Visible = false;
+        }
+
+        private void faTabStrip1_TabStripItemClosed(object sender, EventArgs e)
+        {
+            noFileOpenVisible();
+        }
+
+        private void toolStripLabel2_MouseUp(object sender, EventArgs e)
+        {
+            if (newClicked)
+            {
+                clickToolbarUndo(toolStripLabel2, leftNew, rightNew);
+                newClicked = false;
+            }
+        }
+
+        private void toolStripLabel12_MouseLeave(object sender, EventArgs e)
+        {
+            if (tabClicked)
+            {
+                clickToolbarUndo(this.toolStripLabel12, leftNew, rightNew);
+                tabClicked = false;
+            }
+        }
+
+        private void toolStripLabel3_MouseLeave(object sender, EventArgs e)
+        {
+            if (openClicked)
+            {
+                clickToolbarUndo(this.toolStripLabel3, leftNew, rightNew);
+                openClicked = false;
+            }
+        }
+
+        private void toolStripLabel8_MouseLeave(object sender, EventArgs e)
+        {
+            if (saveClicked)
+            {
+                clickToolbarUndo(this.toolStripLabel8, leftNew, rightNew);
+                saveClicked = false;
+            }
+        }
+
+        private void toolStripLabel7_MouseLeave(object sender, EventArgs e)
+        {
+            if (cutClicked)
+            {
+                clickToolbarUndo(this.toolStripLabel7, leftNew, rightNew);
+                cutClicked = false;
+            }
+        }
+
+        private void toolStripLabel6_MouseLeave(object sender, EventArgs e)
+        {
+            if (copyClicked)
+            {
+                clickToolbarUndo(this.toolStripLabel6, leftNew, rightNew);
+                copyClicked = false;
+            }
+        }
+
+        private void toolStripLabel5_MouseLeave(object sender, EventArgs e)
+        {
+            if (pasteClicked)
+            {
+                clickToolbarUndo(this.toolStripLabel5, leftNew, rightNew);
+                pasteClicked = false;
+            }
+        }
+
+        private void toolStripLabel4_MouseLeave(object sender, EventArgs e)
+        {
+            if (undoClicked)
+            {
+                clickToolbarUndo(this.toolStripLabel4, leftNew, rightNew);
+                undoClicked = false;
+            }
+        }
+
+        private void toolStripLabel9_MouseLeave(object sender, EventArgs e)
+        {
+            if (redoClicked)
+            {
+                clickToolbarUndo(this.toolStripLabel9, leftNew, rightNew);
+                redoClicked = false;
+            }
+        }
+
+        private void toolStripLabel11_MouseLeave(object sender, EventArgs e)
+        {
+            if (fontClicked)
+            {
+                clickToolbarUndo(this.toolStripLabel11, leftNew, rightNew);
+                fontClicked = false;
+            }
+        }
+
+        private void toolStripLabel1_MouseLeave(object sender, EventArgs e)
+        {
+            if (backClicked)
+            {
+                clickToolbarUndo(this.toolStripLabel1, leftNew, rightNew);
+                backClicked = false;
+            }
+        }
+
+        private void toolStripLabel10_MouseLeave(object sender, EventArgs e)
+        {
+            if (nextClicked)
+            {
+                clickToolbarUndo(this.toolStripLabel10, leftNew, rightNew);
+                nextClicked = false;
+            }
+        }
+
+        private void comboBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+                FindNext(comboBox1.Text);
+        }
+
+        private void comboBox3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+                ReplaceFirst(comboBox1.Text, comboBox3.Text);
+        }
+
+      
+        }
 
     }
 
