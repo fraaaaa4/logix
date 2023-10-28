@@ -61,7 +61,7 @@ namespace PrologParsec.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to October 21th, 2023.
+        ///   Looks up a localized string similar to October 27th, 2023.
         /// </summary>
         internal static string AppDate {
             get {
@@ -106,18 +106,11 @@ namespace PrologParsec.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 0.2.227.0.tf/p-231021.
+        ///   Looks up a localized string similar to 0.2.230.1.tf/p-231027.
         /// </summary>
         internal static string AppVersion {
             get {
                 return ResourceManager.GetString("AppVersion", resourceCulture);
-            }
-        }
-        
-        internal static byte[] Aurora_Original {
-            get {
-                object obj = ResourceManager.GetObject("Aurora_Original", resourceCulture);
-                return ((byte[])(obj));
             }
         }
         

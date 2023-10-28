@@ -284,5 +284,353 @@ namespace PrologParsec.Properties {
                 this["startPageDesc"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool startPageStartup {
+            get {
+                return ((bool)(this["startPageStartup"]));
+            }
+            set {
+                this["startPageStartup"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool untitledFileStartup {
+            get {
+                return ((bool)(this["untitledFileStartup"]));
+            }
+            set {
+                this["untitledFileStartup"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Bold")]
+        public global::System.Drawing.FontStyle keywordFontStyle {
+            get {
+                return ((global::System.Drawing.FontStyle)(this["keywordFontStyle"]));
+            }
+            set {
+                this["keywordFontStyle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Bold")]
+        public global::System.Drawing.FontStyle commaFontStyle {
+            get {
+                return ((global::System.Drawing.FontStyle)(this["commaFontStyle"]));
+            }
+            set {
+                this["commaFontStyle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Bold")]
+        public global::System.Drawing.FontStyle pointFontStyle {
+            get {
+                return ((global::System.Drawing.FontStyle)(this["pointFontStyle"]));
+            }
+            set {
+                this["pointFontStyle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Regular")]
+        public global::System.Drawing.FontStyle questionFontStyle {
+            get {
+                return ((global::System.Drawing.FontStyle)(this["questionFontStyle"]));
+            }
+            set {
+                this["questionFontStyle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Regular")]
+        public global::System.Drawing.FontStyle systemParFontStyle {
+            get {
+                return ((global::System.Drawing.FontStyle)(this["systemParFontStyle"]));
+            }
+            set {
+                this["systemParFontStyle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Regular")]
+        public global::System.Drawing.FontStyle equalsFontStyle {
+            get {
+                return ((global::System.Drawing.FontStyle)(this["equalsFontStyle"]));
+            }
+            set {
+                this["equalsFontStyle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Regular")]
+        public global::System.Drawing.FontStyle anonFontStyle {
+            get {
+                return ((global::System.Drawing.FontStyle)(this["anonFontStyle"]));
+            }
+            set {
+                this["anonFontStyle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Italic")]
+        public global::System.Drawing.FontStyle commentFontStyle {
+            get {
+                return ((global::System.Drawing.FontStyle)(this["commentFontStyle"]));
+            }
+            set {
+                this["commentFontStyle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Bold")]
+        public global::System.Drawing.FontStyle parentesiFontStyle {
+            get {
+                return ((global::System.Drawing.FontStyle)(this["parentesiFontStyle"]));
+            }
+            set {
+                this["parentesiFontStyle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Teal")]
+        public global::System.Drawing.Color keywordForeColor {
+            get {
+                return ((global::System.Drawing.Color)(this["keywordForeColor"]));
+            }
+            set {
+                this["keywordForeColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Transparent")]
+        public global::System.Drawing.Color keywordBackColor {
+            get {
+                return ((global::System.Drawing.Color)(this["keywordBackColor"]));
+            }
+            set {
+                this["keywordBackColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Gold")]
+        public global::System.Drawing.Color commaForeColor {
+            get {
+                return ((global::System.Drawing.Color)(this["commaForeColor"]));
+            }
+            set {
+                this["commaForeColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Transparent")]
+        public global::System.Drawing.Color commaBackColor {
+            get {
+                return ((global::System.Drawing.Color)(this["commaBackColor"]));
+            }
+            set {
+                this["commaBackColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Goldenrod")]
+        public global::System.Drawing.Color pointForeColor {
+            get {
+                return ((global::System.Drawing.Color)(this["pointForeColor"]));
+            }
+            set {
+                this["pointForeColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Transparent")]
+        public global::System.Drawing.Color pointBackColor {
+            get {
+                return ((global::System.Drawing.Color)(this["pointBackColor"]));
+            }
+            set {
+                this["pointBackColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("LimeGreen")]
+        public global::System.Drawing.Color questionForeColor {
+            get {
+                return ((global::System.Drawing.Color)(this["questionForeColor"]));
+            }
+            set {
+                this["questionForeColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Transparent")]
+        public global::System.Drawing.Color questionBackColor {
+            get {
+                return ((global::System.Drawing.Color)(this["questionBackColor"]));
+            }
+            set {
+                this["questionBackColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Coral")]
+        public global::System.Drawing.Color systemParForeColor {
+            get {
+                return ((global::System.Drawing.Color)(this["systemParForeColor"]));
+            }
+            set {
+                this["systemParForeColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Transparent")]
+        public global::System.Drawing.Color systemParBackColor {
+            get {
+                return ((global::System.Drawing.Color)(this["systemParBackColor"]));
+            }
+            set {
+                this["systemParBackColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("SteelBlue")]
+        public global::System.Drawing.Color equalsForeColor {
+            get {
+                return ((global::System.Drawing.Color)(this["equalsForeColor"]));
+            }
+            set {
+                this["equalsForeColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Transparent")]
+        public global::System.Drawing.Color equalsBackColor {
+            get {
+                return ((global::System.Drawing.Color)(this["equalsBackColor"]));
+            }
+            set {
+                this["equalsBackColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("DarkOrchid")]
+        public global::System.Drawing.Color anonForeColor {
+            get {
+                return ((global::System.Drawing.Color)(this["anonForeColor"]));
+            }
+            set {
+                this["anonForeColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Transparent")]
+        public global::System.Drawing.Color anonBackColor {
+            get {
+                return ((global::System.Drawing.Color)(this["anonBackColor"]));
+            }
+            set {
+                this["anonBackColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Gray")]
+        public global::System.Drawing.Color commentForeColor {
+            get {
+                return ((global::System.Drawing.Color)(this["commentForeColor"]));
+            }
+            set {
+                this["commentForeColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Transparent")]
+        public global::System.Drawing.Color commentBackColor {
+            get {
+                return ((global::System.Drawing.Color)(this["commentBackColor"]));
+            }
+            set {
+                this["commentBackColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Red")]
+        public global::System.Drawing.Color parentesiForeColor {
+            get {
+                return ((global::System.Drawing.Color)(this["parentesiForeColor"]));
+            }
+            set {
+                this["parentesiForeColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Transparent")]
+        public global::System.Drawing.Color parentesiBackColor {
+            get {
+                return ((global::System.Drawing.Color)(this["parentesiBackColor"]));
+            }
+            set {
+                this["parentesiBackColor"] = value;
+            }
+        }
     }
 }
