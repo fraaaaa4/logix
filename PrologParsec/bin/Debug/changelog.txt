@@ -1,5 +1,17 @@
-﻿October 21st Version
+﻿October 27th Version
+- moved syntax highlighting directly into code rather than in XML - now it uses a mix between the two (multi-character regex doesn't work and I don't know why)
+- introduced going to a line by pressing enter on the keyboard when in teh Go To textbox
+- now when pressing enter, you can find and replace by just pressing enter when in the textbox (remember to make it so it's evident when it's in focus or not)
+- custom color syntax and font style syntax
+- added brackets syntax for all types of brackets
+
+October 21st Version
 - few Settings fixed: introduced custom loading for start page, new Dual Tabs design, better interfaced properties, experimental Start Page options
+- it now maintains more properties saved between sessions (e.g. which file you've loaded as Aurora, which widgets you enabled or not in start page).
+- added new Startup settings in Editor
+- added a new "Nothing opened yet" dialog for when you don't have any tabs open.
+- added more filters in the Open File and Save File dialog
+- started working on cleaning/commenting the code
 
 October 19th Version
 - **Custom Auroras**! Customise the look of the Aurora animated pane in the start page by choosing from a various selection of colours (including custom made ones, thanks to Aydrix and Dominic Hayes). try to make custom color variables.
