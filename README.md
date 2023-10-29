@@ -24,7 +24,7 @@ It features the following (but not only) features:
 For the best experience, it's better to run it on Windows 11 running Rectify11 (for full theming support, which includes built-in accent colorization and built-in light/dark mode).
 
 ## Compatibility
-Theoretically, it should be able to run on Windows XP SP2/3 or newer. Currently, it has been tested only on 10/11, and it works. Thanks to the theme-aware focused development, no matter what theme you use, the app will automatically adapt to the style of the Windows you're running (as seen here in this screenshot).
+Works on **Windows 98 or newer**, and you must have .NET Framework 2.0 installed. Thanks to the theme-aware focused development, no matter what theme you use, the app will automatically adapt to the style of the Windows you're running (as seen here in this screenshot).
 
 Check the wiki for more notes about compatibility.
 
