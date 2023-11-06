@@ -20,6 +20,8 @@ It features the following (but not only) features:
  This project has been built using Visual Studio 2005, built against .NET Framework 2.0. Credits to Pavel Torgashov for 'Fast Colored Textbox' and "Autocomplete Menu'.
  - Fastcolored: https://www.codeproject.com/Articles/161871/Fast-Colored-TextBox-for-syntax-highlighting-2
  - AutocompleteMenu: https://www.codeproject.com/Articles/365974/Autocomplete-Menu
+ - nineiconsredux for OS 9/Gnome theme: https://www.gnome-look.org/p/1960539
+ - Rectify11 shell32 icons (thanks @ojask and @WinExperiments!)
 
 For the best experience, it's better to run it on Windows 11 running Rectify11 (for full theming support, which includes built-in accent colorization and built-in light/dark mode).
 
