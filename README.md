@@ -1,14 +1,15 @@
-![immagine](https://github.com/fraaaaa4/logix/assets/87281326/e8f651f7-9d9d-4013-bc89-9892083a16cb)
+
+![testfire1](https://github.com/fraaaaa4/logix/assets/87281326/2f8e67ec-76cd-4c54-a39d-20ea1e7a6bf0)
 
 Logix is a simple and easy to use Prolog/LISP/etc. text editor with syntax highlighting and many other features.
 
 # Current version
-Current version of Logix is **Testfire**. This version aims at having all the basic features done and implementing only Prolog syntax highlighting.
-![testfire1](https://github.com/fraaaaa4/logix/assets/87281326/00b75ac0-1c84-4f57-9057-354002bcf043)
+Current version of Logix is **Testfire**. This version aims at having all the basic features done, so Logix can be used as still a basic code editor, albeit a very carefully developed one.![testfire1](https://github.com/fraaaaa4/logix/assets/87281326/a0fe45b0-b595-417d-ae3f-73de637a9c97)
+
 
 It features the following (but not only) features:
 - **Tabbed browsing**
-- **Prolog syntax** with function highlighting, variable highlighting, and Intellisense-like autocomplete menu for system functions
+- **Prolog, LISP, ByaccJ, JFlex syntax** with function highlighting, variable highlighting, and Intellisense-like autocomplete menu for system functions
 - **Bookmarks**
 - **AutoComplete**: automatically add header, footer of the source file, or automatically add comments
 - **Document map**
@@ -22,6 +23,7 @@ It features the following (but not only) features:
  - AutocompleteMenu: https://www.codeproject.com/Articles/365974/Autocomplete-Menu
  - nineiconsredux for OS 9/Gnome theme: https://www.gnome-look.org/p/1960539
  - Rectify11 shell32 icons (thanks @ojask and @WinExperiments!)
+ - Wallpaper used on the readme banner: Maxim Berg, Unsplash, https://unsplash.com/it/foto/uno-sfondo-blu-e-viola-con-linee-verticali-ANuuRuCRRAc?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash
 
 For the best experience, it's better to run it on Windows 11 running Rectify11 (for full theming support, which includes built-in accent colorization and built-in light/dark mode).
 
