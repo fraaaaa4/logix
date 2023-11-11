@@ -7,38 +7,255 @@ using System.Reflection;
 using System.IO;
 using Microsoft.Win32;
 using mshtml;
+using Transitions;
+using System.Collections.Generic;
 
 namespace PrologParsec
 {
     public partial class Settings : Form
     {
-
+        MDIParent1 mdiparent = new MDIParent1();
         private WebBrowser webBrowser; //web browser reference
+        private SplitContainer split1;
+        private ToolStripMenuItem context; private ContextMenuStrip context2; //start page add-remove
+        private ToolStripMenuItem contextWeb; private ToolStripMenuItem contextWeb2; private ContextMenuStrip rightclick; private MenuStrip menubar;
         private int auroraHeight; private FarsiLibrary.Win.FATabStrip startPage; private FarsiLibrary.Win.FATabStripItem startPageTab; //tabs reference
+        private bool Windows9x; private bool resize9x;
 
-        public Settings(WebBrowser webBrowser, FarsiLibrary.Win.FATabStrip startPage, FarsiLibrary.Win.FATabStripItem startPageTab) //constructor
+
+        public Settings(WebBrowser webBrowser, FarsiLibrary.Win.FATabStrip startPage, FarsiLibrary.Win.FATabStripItem startPageTab, SplitContainer split1, ToolStripMenuItem context, ContextMenuStrip context2, ToolStripMenuItem contextWeb, ContextMenuStrip rightclick,ToolStripMenuItem contextWeb2, MenuStrip menubar) //constructor
         {
             InitializeComponent();
+            this.split1 = split1;
             this.webBrowser = webBrowser; //construct reference for aurora web browser
             this.startPage = startPage; this.startPageTab = startPageTab; //construct reference for start page tab
-
+            this.context = context; this.context2 = context2;
             if (Properties.Settings.Default.auroraCustom) //custom aurora handler - if it's custom then load the page in the preview
                 webBrowser1.Navigate(Properties.Settings.Default.auroraCustomURL);
-     
-            check(); //check method
+            this.contextWeb = contextWeb; this.contextWeb2 = contextWeb2; this.rightclick = rightclick; this.menubar = menubar; //search on the internet 
+            
         }
+
+        static string productName; static string currentVersion; static string buildLab;
+        static string GetWindowsVersion()
+        {
+            using (RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion")) //using the registry key
+            {
+                if (key != null)
+                {
+                    productName = key.GetValue("ProductName") as string; //windows product name
+                    currentVersion = key.GetValue("CurrentVersion") as string; //current version
+                    buildLab = key.GetValue("BuildLab") as string; //build number
+
+                    return currentVersion;
+                }
+                else
+                {
+                    return "No.";
+                }
+            }
+        }
+
+        static string GetWindowsProductName()
+        {
+            using (RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion"))
+            {
+                if (key != null)
+                {
+                    productName = key.GetValue("ProductName") as string;
+                    currentVersion = key.GetValue("CurrentVersion") as string;
+                    buildLab = key.GetValue("BuildLab") as string;
+
+                    return productName;
+                }
+                else
+                {
+                    return "No.";
+                }
+            }
+        }
+
+        static string GetBuildLab()
+        {
+            using (RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion"))
+            {
+                if (key != null)
+                {
+                    productName = key.GetValue("ProductName") as string;
+                    currentVersion = key.GetValue("CurrentVersion") as string;
+                    buildLab = key.GetValue("BuildLab") as string;
+
+                    return buildLab;
+                }
+                else
+                {
+                    return "No.";
+                }
+            }
+        }
+/*
+        private void WindowsCheck()
+        {
+            //check windows version
+            string version = GetWindowsVersion();
+            if (version.Equals("5.0") || version.Equals("5.1") || version.Equals("5.2") || version.Equals("6.0") || version.Equals("6.1"))
+            {
+                comboBox1.Enabled = false;
+                label35.Enabled = false;
+                label9.Enabled = false;
+                checkBox2.Checked = true;
+                //webBrowser1.Visible = false;
+                Windows9x = true;
+                checkBox2.Enabled = false;
+                label8.Text = "The Aurora pane is unsupported on this version of Windows.";
+            }
+            else if (version == "6.1" || version == "6.2" || version == "6.3")
+            {
+                checkBox1.Enabled = true;
+                if (checkBox1.Checked)
+                    webBrowser1.Visible = true;
+                else
+                    webBrowser1.Visible = false;
+            }
+            else
+            {
+                checkBox1.Enabled = false;
+                checkBox1.Checked = false;
+                webBrowser1.Visible = false;
+                label8.Text = "The Aurora pane is unsupported on this version of Windows.";
+                Windows9x = true;
+            }
+
+            //transitions problem
+            if (version.Equals("5.0") && !version.Equals("5.1") && !version.Equals("5.2") && !version.Equals("6.0") && !version.Equals("6.1") && !version.Equals("6.2") && !version.Equals("6.3"))
+            {
+                resize9x = true;
+                checkBox2.Enabled = false;
+                MessageBox.Show(resize9x + "2000");
+            }
+            else if (version.Equals("5.1") || version.Equals("5.2") || version.Equals("6.0") || version.Equals("6.1") || version.Equals("6.2") || version.Equals("6.3"))
+            {
+                resize9x = false;
+                MessageBox.Show(resize9x + "XP");
+            }
+            else
+            {
+                resize9x = true;
+                checkBox2.Enabled = false;
+            }
+
+          
+           
+        }
+ * */
 
         public Settings()
         {
             InitializeComponent();
             reloadAurora(webBrowser); //reload the web browser navigation each time the form starts
-
+            Windows9xMode();
+            tabChange();
             
-            check(); //check again
+           
         }
 
+        public void Windows9xMode()
+        {
+            string version = GetWindowsVersion();
+
+            if (version == "4.0" || version == "5.0" || version == "5.1" || version == "5.2" || version == "6.0" || version == "6.1")
+            {
+                checkBox2.Checked = true;
+                checkBox2.Visible = false;
+                comboBox1.Visible = false;
+                label35.Visible = false;
+                label9.Visible = false;
+
+            }
+            else if (version == "6.2" || version == "6.3")
+            {
+                webBrowser1.Visible = true;
+                pictureBox2.Visible = false;
+            }
+            else
+            {
+                checkBox1.Checked = false;
+                checkBox1.Visible = false;
+                checkBox2.Visible = false;
+                checkBox2.Checked = false;
+                checkBox1.Enabled = false;
+                checkBox2.Enabled = false;
+                webBrowser1.Visible = false;
+                comboBox1.Visible = false;
+                label35.Visible = false;
+                label9.Visible = false;
+                resize9x = true; Windows9x = true;
+                MessageBox.Show("9x mode");
+
+            }
+
+            if (version == "5.0" || version == "")
+            {
+                resize9x = true; Windows9x = true; tabControl1.TabPages.Remove(tabPage12);
+            }
+        }
+        
+       
+
+        private void checkWeb()
+        {
+            switch (Properties.Settings.Default.searchWebPathName)
+            {
+                case "Google":
+                    comboBox17.SelectedIndex = 0;
+                    break;
+
+                case "Bing":
+                    comboBox17.SelectedIndex = 1;
+                    break;
+
+                case "DuckDuckGo!":
+                    comboBox17.SelectedIndex = 2;
+                    break;
+
+                case "Yahoo":
+                    comboBox17.SelectedIndex = 3;
+                    break;
+
+                case "StackOverflow":
+                    comboBox17.SelectedIndex = 4;
+                    break;
+
+                case "Ecosia":
+                    comboBox17.SelectedIndex = 5;
+                    break;
+
+                case "Internet Archive":
+                    comboBox17.SelectedIndex = 6;
+                    break;
+
+                case "SWI-Prolog":
+                    comboBox17.SelectedIndex = 7;
+                    break;
+
+                case "Common LISP Wiki":
+                    comboBox17.SelectedIndex = 8;
+                    break;
+            }
+
+            textBox7.Text = Properties.Settings.Default.searchWebPath;
+
+            if (!Properties.Settings.Default.searchWebAuto)
+            {
+                label79.Enabled = true;
+                label78.Enabled = true;
+                comboBox17.Enabled = true;
+            }
+        }
         public void check()
         {
+
+            checkAnimationsBox(); checkAnimationTimeout(); checkWeb();
             // debug MessageBox.Show(Properties.Settings.Default.auroraFile.ToString());
             if (!Properties.Settings.Default.auroraCustom) //if there isn't a custom aurora activated then load the built in auroras
             {
@@ -79,12 +296,23 @@ namespace PrologParsec
                         break;
 
                 }
+
+                
             }
 
-            if (Properties.Settings.Default.auroraStartPage) //verify if the aurora is activated or not
+           
+            if (Properties.Settings.Default.auroraStartPage && !Windows9x){ //verify if the aurora is activated or not
                 checkBox1.Checked = true;
-            else
+                label8.Text = "Personalise the appearance of the Aurora effect in the start page";
+                webBrowser1.Visible = true;
+                }else{
                 checkBox1.Checked = false;
+                label8.Text = "The Aurora effect is disabled. Any change will be applied next time you enable it.";
+                webBrowser1.Visible = false;
+            }
+
+            if (resize9x)
+                checkBox2.Enabled = false;
 
             //if (webBrowser.Visible)
             //    checkBox1.Checked = true;
@@ -96,10 +324,13 @@ namespace PrologParsec
             else
                 checkBox2.Checked = false;
 
-            auroraCustomCheck(); //enable and disable UI elements given the fact it is enabled a custom aurora or not
+            if (!Windows9x)
+            {
+                auroraCustomCheck(); //enable and disable UI elements given the fact it is enabled a custom aurora or not
 
-            textBox1.Text = Properties.Settings.Default.auroraCustomURL; //load the custom aurora url
+                textBox1.Text = Properties.Settings.Default.auroraCustomURL; //load the custom aurora url
 
+            }
             darkModeColors dark = new darkModeColors(); //set up dark mode class
             if (Properties.Settings.Default.appTheme == "dark") //if the theme selected is dark
                 radioButton20.Checked = true;
@@ -117,12 +348,19 @@ namespace PrologParsec
             {
                 checkBox4.Checked = true;
                 checkBox6.Checked = true;
+                checkBox21.Enabled = false;
             }
             else
             {
                 checkBox4.Checked = false;
                 checkBox6.Checked = false;
+                checkBox21.Enabled = true;
             }
+
+            if (Properties.Settings.Default.textPropertiesVisible)
+                checkBox21.Checked = true;
+            else
+                checkBox21.Checked = false;
 
                 if (checkBox4.Checked) //check if the two checkboxes have the same value
                     checkBox6.Checked = true;
@@ -135,23 +373,280 @@ namespace PrologParsec
             else
                 checkBox5.Checked = false;
 
-            
+            Windows9xMode();
 
+            //check custom icons
+            if (Properties.Settings.Default.customIcons)
+            {
+                checkBox11.Checked = true;
+                label63.Text = "Logix will set as its icon pack the one you specify, ignoring your Windows version.";
+                comboBox16.Enabled = true;
+                pictureBox3.Enabled = true;
+                label61.Enabled = true;
+                label62.Enabled = true;
+                label63.Enabled = true;
+                groupBox17.Enabled = true;
+                if (Properties.Settings.Default.fluentStyle)
+                {
+                    comboBox16.SelectedIndex = 0;
+                }
+                else if (Properties.Settings.Default.lunaStyle)
+                {
+                    comboBox16.SelectedIndex = 1;
+                    pictureBox3.Image = Properties.Resources.AeroIcons;
+                }
+                else if (Properties.Settings.Default.classicStyle)
+                {
+                    comboBox16.SelectedIndex = 2;
+                    pictureBox3.Image = Properties.Resources.classicIcons;
+                }
+                else if (Properties.Settings.Default.ClassicNineStyle)
+                {
+                    comboBox16.SelectedIndex = 3;
+                    pictureBox3.Image = Properties.Resources.OS9;
+                }
+            } 
+            else
+            {
+                checkBox11.Checked = false;
+                label63.Text = "Logix will automatically change its icon pack based on the Windows version you're currently running.";
+                comboBox16.Enabled = false;
+                pictureBox3.Enabled = false;
+                label61.Enabled = false;
+                label62.Enabled = false;
+                groupBox17.Enabled = false;
+            }
+
+            //check save file
+            if (Properties.Settings.Default.syntaxFileExtension)
+                checkBox12.Checked = true;
+            else
+                checkBox12.Checked = false;
+
+            if (Properties.Settings.Default.syntaxFileExtensionOpen)
+                checkBox13.Checked = true;
+            else
+                checkBox13.Checked = false;
+
+            //open/save
+            comboBox14.SelectedIndex = Properties.Settings.Default.syntaxFileExtensionIndexOpen - 1;
+            comboBox15.SelectedIndex = Properties.Settings.Default.syntaxFileExtensionIndex - 1;
+
+            //web search
+            if (Properties.Settings.Default.searchWeb)
+                checkBox14.Checked = true;
+            else
+                checkBox14.Checked = false;
+
+            if (Properties.Settings.Default.searchWebCustom)
+                checkBox16.Checked = true;
+            else
+                checkBox16.Checked = false;
+
+
+        //check web search
+            if (Properties.Settings.Default.searchWeb)
+            {
+                checkBox14.Checked = true;
+            }
+            else
+            {
+                checkBox14.Checked = false;
+                checkBox15.Enabled = false;
+                checkBox16.Enabled = false;
+                label80.Enabled = false;
+                label79.Enabled = false;
+                label78.Enabled = false;
+                comboBox17.Enabled = false;
+
+                label77.Enabled = false;
+                label75.Enabled = false;
+                label76.Enabled = false;
+                textBox7.Enabled = false;
+                button29.Enabled = false;
+            }
+
+            if (Properties.Settings.Default.searchWebAuto)
+            {
+                checkBox15.Checked = true;
+                checkBox16.Enabled = false;
+            }
+            else
+            {
+                checkBox15.Checked = false;
+                checkBox16.Enabled = true;
+            }
+            if (Properties.Settings.Default.searchWebCustom)
+            {
+                checkBox16.Checked = true;
+                checkBox15.Enabled = false;
+            }
+            else
+            {
+                checkBox16.Checked = false;
+                checkBox15.Enabled = true;
+            }
+
+            if (!checkBox14.Checked)
+            {
+                checkBox15.Enabled = false;
+                checkBox16.Enabled = false;
+            }
+            else
+            {
+                checkBox15.Enabled = true;
+                checkBox16.Enabled = true;
+            }
             
+            //select syntax open file
+            if (Properties.Settings.Default.syntaxOpenFileAuto)
+                checkBox17.Checked = true;
+            else
+                checkBox17.Checked = false;
+
+            //check default syntax mode
+            switch (Properties.Settings.Default.syntaxOpenDefaultMode)
+            {
+                case "Previous one":
+                    comboBox18.SelectedIndex = 5;
+                    break;
+
+                case "None":
+                    comboBox18.SelectedIndex = 0;
+                    break;
+
+                case "Prolog":
+                    comboBox18.SelectedIndex = 1;
+                    break;
+
+                case "Lisp":
+                    comboBox18.SelectedIndex = 2;
+                    break;
+
+                case "yacc":
+                    comboBox18.SelectedIndex = 3;
+                    break;
+
+                case "jflex":
+                    comboBox18.SelectedIndex = 4;
+                    break;
+            }
+
+            //window states
+            if (Properties.Settings.Default.autoWindowSize)
+            {
+                checkBox19.Checked = true;
+            }
+            else
+            {
+                checkBox19.Checked = false;
+            }
+            textBox8.Text = Properties.Settings.Default.windowLeft.ToString();
+            textBox9.Text = Properties.Settings.Default.windowTop.ToString();
+            textBox10.Text = Properties.Settings.Default.windowHeight.ToString();
+            textBox11.Text = Properties.Settings.Default.windowWidth.ToString();
+
+            if (Properties.Settings.Default.autoWindowPosition)
+            {
+                checkBox18.Checked = true;
+            }
+            else
+            {
+                checkBox18.Checked = false;
+            }
+
+            if (Properties.Settings.Default.autoWindowState)
+            {
+                checkBox20.Checked = true;
+            }
+            else
+            {
+                checkBox20.Checked = false;
+            }
+
+            switch (Properties.Settings.Default.windowState)
+            {
+                case "Normal":
+                    comboBox20.SelectedIndex = 0;
+                    break;
+
+                case "Maximized":
+                    comboBox20.SelectedIndex = 1;
+                    break;
+            }
+
+            switch (Properties.Settings.Default.startWindowPlace)
+            {
+                case "CenterScreen":
+                    comboBox19.SelectedIndex = 0;
+                    break;
+
+                case "WindowsDefaultLocation":
+                    comboBox19.SelectedIndex = 1;
+                    break;
+
+                case "WindowsDefaultBounds":
+                    comboBox19.SelectedIndex = 2;
+                    break;
+
+                case "Manual":
+                    comboBox19.SelectedIndex = 3;
+                    break;
+            }
+
+            //flex
+            if (Properties.Settings.Default.jFlexIntegration)
+                checkBox22.Checked = true;
+            else
+                checkBox22.Checked = false;
+
+            textBox12.Text = Properties.Settings.Default.jFlexPath;
+            if (Properties.Settings.Default.jFlexGUI)
+                checkBox23.Checked = true;
+            else
+                checkBox23.Checked = false;
+
+            //flex
+            if (Properties.Settings.Default.bYaccIntegration)
+                checkBox25.Checked = true;
+            else
+                checkBox25.Checked = false;
+
+            textBox13.Text = Properties.Settings.Default.bYaccPath;
+            if (Properties.Settings.Default.bYaccGUI)
+                checkBox24.Checked = true;
+            else
+                checkBox24.Checked = false;
+
         }
 
+        private void checkColumnLimit(){
+        //check column limit
+            textBox2.Text = Properties.Settings.Default.columnLineLimit.ToString();
+            textBox3.Text = Properties.Settings.Default.antoniottiStandardText;
+            textBox4.Text = Properties.Settings.Default.antoniottiCrazyText;
+            textBox5.Text = Properties.Settings.Default.antoniottiCrazyTitle;
+            textBox6.Text = Properties.Settings.Default.antoniottiCrazyTextDuo;
 
+
+        }
         private void Settings_Load(object sender, EventArgs e)
         {
             auroraHeight = 285; //set the default height for settings form in Aurora tab
-
             //load start page preview text
             label28.Text = Properties.Resources.AppName + " " + Properties.Resources.AppEdition + " " + Properties.Resources.AppVersion;
             label16.Text = Properties.Resources.AppName; label15.Text = Properties.Resources.AppEdition + " Edition"; label14.Text = Properties.Resources.AppDescription;
             //label20.Text = Properties.Settings.Default.startPageStartup.ToString(); //DEBUG - load the property value at runtime
+            if (startPage.Items.Contains(startPageTab) && checkBox3.Checked == true) startPage.RemoveTab(startPageTab);
 
             loadHighlightPrologColors(); //load syntax colors
             loadFontStyleProlog(); //load font styles syntax
+
+            check(); tabChange();
+            checkColumnLimit();
+
+            Windows9xMode();
+
             
             
         }
@@ -169,6 +664,8 @@ namespace PrologParsec
                 webBrowser1.Navigate(textBox1.Text); //show the webpage in settings
                 wb.Navigate(textBox1.Text); //show the webpage in mdiparent
             }
+
+            Windows9xMode();
         }
 
 
@@ -186,6 +683,7 @@ namespace PrologParsec
                 webBrowser.Show();
                 Properties.Settings.Default.auroraStartPage = true;
                 Properties.Settings.Default.Save();
+                split1.Panel2Collapsed = false;
             }
             else
             {
@@ -193,7 +691,11 @@ namespace PrologParsec
                 webBrowser.Hide();
                 Properties.Settings.Default.auroraStartPage = false;
                 Properties.Settings.Default.Save();
+                split1.Panel2Collapsed = true;
             }
+
+
+            Windows9xMode();
         }
 
 
@@ -361,6 +863,7 @@ namespace PrologParsec
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
             auroraCustomCheck(); //enable custom aurora
+            
         }
 
         public void auroraCustomCheck()
@@ -373,10 +876,11 @@ namespace PrologParsec
                 button4.Enabled = true;
                 button1.Enabled = true;
                 comboBox1.Enabled = false;
-                label7.Enabled = false;
+                label35.Enabled = false;
                 label9.Enabled = false;
                 Properties.Settings.Default.auroraCustom = true; //save the property
                 Properties.Settings.Default.Save();
+                
             }
             else //if not, disable them
             {
@@ -386,11 +890,14 @@ namespace PrologParsec
                 button4.Enabled = false;
                 button1.Enabled = false;
                 comboBox1.Enabled = true;
-                label7.Enabled = true;
+                label35.Enabled = true;
                 label9.Enabled = true;
                 Properties.Settings.Default.auroraCustom = false; //save the property
                 Properties.Settings.Default.Save();
+               
             }
+
+           
         }
 
         private void auroraOpen()
@@ -459,20 +966,23 @@ namespace PrologParsec
         {
             Properties.Settings.Default.auroraCustomURL = textBox1.Text; //save the custom url
             Properties.Settings.Default.auroraCustom = checkBox2.Checked; //save if you've set up a custom aurora
+
+            Properties.Settings.Default.animationEnable = checkBox10.Checked;
+            Properties.Settings.Default.animationResizeEnable = checkBox7.Checked;
+            Properties.Settings.Default.animationDockBottomEnable = checkBox8.Checked;
+            Properties.Settings.Default.animationSettingResizeEnable = checkBox9.Checked;
+
+            applyAnimationTimeout();
             Properties.Settings.Default.Save(); //fallback method - always save
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (tabControl1.SelectedIndex == 3)
-            {
-                Settings.ActiveForm.Height = 506; //change the height to be the one for the start page appearance
-            }
-            else
-            {
-                Settings.ActiveForm.Height = 285; //change the height to be the one for the aurora appearance
-            }
+            tabChange();
+            
+
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -488,13 +998,17 @@ namespace PrologParsec
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox3.Checked){ //if start page is enabled
-                startPage.AddTab(startPageTab); //add it as a tab in mdiparent
+              //if (!startPage.Items.Contains(startPageTab)) startPage.AddTab(startPageTab); //add it as a tab in mdiparent
+              //if (startPage.Items.Contains(startPageTab) && checkBox3.Checked == true) startPage.RemoveTab(startPageTab);
+                context.Visible = true;
+              
                 Properties.Settings.Default.startPageVisible = true; //set the property
                 Properties.Settings.Default.Save();
             }
             else
             {
                 startPage.RemoveTab(startPageTab); //else remove the page in mdiparent
+                context.Visible = false;
                 Properties.Settings.Default.startPageVisible = false; //set the property
             Properties.Settings.Default.Save();
             }
@@ -521,11 +1035,17 @@ namespace PrologParsec
 
         private void checkBox5_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox5.Checked) //save if you want an untitled file on startup or not
+            if (checkBox5.Checked && checkBox6.Checked == false)
+            {//save if you want an untitled file on startup or not
                 Properties.Settings.Default.untitledFileStartup = true;
+                checkBox21.Enabled = true;
+            }
             else
+            {
                 Properties.Settings.Default.untitledFileStartup = false;
-            Properties.Settings.Default.Save();
+                checkBox21.Enabled = false;
+                checkBox21.Checked = false;
+            } Properties.Settings.Default.Save();
         }
 
         private void checkBox6_CheckedChanged(object sender, EventArgs e)
@@ -536,34 +1056,92 @@ namespace PrologParsec
                 Properties.Settings.Default.startPageStartup = true; //set the property
                 Properties.Settings.Default.Save();
                 checkBox4.Checked = true;
+                checkBox21.Enabled = false;
+                checkBox21.Checked = false;
             }
             else
             {
                 Properties.Settings.Default.startPageStartup = false; //set the property
                 Properties.Settings.Default.Save();
                 checkBox4.Checked = false;
+               if (checkBox5.Checked) checkBox21.Enabled = true;
             }
         }
 
         private void tabControl2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tabControl1.SelectedIndex == 3 && tabControl2.SelectedIndex == 0)
+            tabChange();
+            
+        }
+
+        private void tabChange()
+        {
+            int iformwidth; int iformheight;
+            //check();
+
+            if (tabControl1.SelectedIndex == 4 && tabControl2.SelectedIndex == 0)
             {
-                Settings.ActiveForm.Height = 506; //change the height to be the one for the start page appearance
-                Settings.ActiveForm.Width = 606;
+                iformheight = 506; //change the height to be the one for the start page appearance
+                iformwidth = 606;
+
             }
             else if (tabControl2.SelectedIndex == 1 && tabControl3.SelectedIndex == 1)
             {
-                Settings.ActiveForm.Width = 535;
-                Settings.ActiveForm.Height = 479;
+                iformwidth = 535; //change the height to be the one for highlight
+                iformheight = 479;
+            }
+            else if (tabControl2.SelectedIndex == 0 && tabControl1.SelectedIndex == 1)
+            {
+                iformheight = 433; //theming
+                iformwidth = 600;
+            }
+            else if (tabControl2.SelectedIndex == 1 && tabControl3.SelectedIndex == 4)
+            {
+                iformwidth = 449; //column limit
+                iformheight = 380;
+            }
+            else if (tabControl2.SelectedIndex == 1 && tabControl3.SelectedIndex == 3)
+            {
+                iformwidth = 413; //open/save
+                iformheight = 471;
+            }
+            else if (tabControl2.SelectedIndex == 1 && tabControl3.SelectedIndex == 5)
+            {
+                iformwidth = 552; //web search
+                iformheight = 307;
+            }
+            else if (tabControl2.SelectedIndex == 1 && tabControl3.SelectedIndex == 0)
+            {
+                iformheight = 681; //startup
+                iformwidth = 434;
+            }
+            else if (tabControl2.SelectedIndex == 2 && tabControl3.SelectedIndex == 0)
+            {
+                iformheight = 256;  //jflex
+                iformwidth = 516;
+            }
+            else if (tabControl2.SelectedIndex == 2 && tabControl3.SelectedIndex == 1)
+            {
+                iformheight = 256;  //byacc
+                iformwidth = 516;
+            } else
+            {
+                iformheight = 285; //change the height to be the one for the aurora appearance
+                iformwidth = 606;
+            }
+
+            // We animate it with an ease-in-ease-out transition...
+            if (Properties.Settings.Default.animationSettingResizeEnable && !resize9x)
+            {
+                Transition.run(this, "Width", iformwidth, new TransitionType_EaseInEaseOut(Properties.Settings.Default.animationSettingResize));
+                Transition.run(this, "Height", iformheight, new TransitionType_EaseInEaseOut(Properties.Settings.Default.animationSettingResize));
             }
             else
             {
-                Settings.ActiveForm.Height = 285; //change the height to be the one for the aurora appearance
-                Settings.ActiveForm.Width = 606;
+                this.Size = new Size(iformwidth, iformheight);
             }
-        }
 
+        }
         private Color colorChoose()
         {
             Color c;
@@ -614,7 +1192,7 @@ namespace PrologParsec
             button11.BackColor = Properties.Settings.Default.commaBackColor;
             //dash: 22 and 21
             button22.BackColor = Properties.Settings.Default.keywordForeColor;
-            button22.BackColor = Properties.Settings.Default.keywordBackColor;
+            button21.BackColor = Properties.Settings.Default.keywordBackColor;
 
             //underscore: 8 and 7
             button8.BackColor = Properties.Settings.Default.anonForeColor;
@@ -1452,6 +2030,1020 @@ namespace PrologParsec
             loadFontStyleProlog();
             loadHighlightPrologColors();
         }
+
+        private void domainUpDown1_SelectedItemChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void checkAnimationsBox()
+        {
+            checkBox10.Checked = Properties.Settings.Default.animationEnable; //enable or disable all animations
+            checkBox7.Checked = Properties.Settings.Default.animationResizeEnable; //enable or disable resizing animations
+            checkBox8.Checked = Properties.Settings.Default.animationDockBottomEnable;
+            checkBox9.Checked = Properties.Settings.Default.animationSettingResizeEnable;
+            //MessageBox.Show("Animation + " +Properties.Settings.Default.animationSettingResize.ToString() + " resize + " + Properties.Settings.Default.animationResizeLeft.ToString() + " resize setting + " + Properties.Settings.Default.animationDockBottom.ToString());
+        }
+
+        private void checkAnimationTimeout()
+        {
+            numericUpDown1.Value = Properties.Settings.Default.animationResizeTop; // resize timing
+            numericUpDown2.Value = Properties.Settings.Default.animationDockBottom; // resize timing
+            numericUpDown3.Value = Properties.Settings.Default.animationSettingResize;//animationSettingResize; // resize setting timing
+        }
+
+        private void applyAnimationTimeout()
+        {
+            Properties.Settings.Default.animationResizeTop = (int)numericUpDown1.Value; // assign value to the correct NumericUpDown
+           Properties.Settings.Default.animationDockBottom = (int)numericUpDown2.Value; // assign value to the correct NumericUpDown
+            Properties.Settings.Default.animationSettingResize = (int)numericUpDown3.Value; // assign value to the correct NumericUpDown
+            Properties.Settings.Default.Save();
+
+        }
+
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
+          
+            
+        }
+
+        private void numericUpDown3_ValueChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void checkBox7_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!checkBox7.Checked)
+            {
+                Properties.Settings.Default.animationResizeEnable = false;
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                Properties.Settings.Default.animationResizeEnable = true;
+                Properties.Settings.Default.Save();
+            }
+          
+            
+        }
+
+        private void checkBox8_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!checkBox8.Checked)
+            {
+                Properties.Settings.Default.animationDockBottomEnable = false;
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                Properties.Settings.Default.animationDockBottomEnable = true;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        private void checkBox9_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!checkBox9.Checked)
+            {
+                Properties.Settings.Default.animationSettingResizeEnable = false;
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                Properties.Settings.Default.animationSettingResizeEnable = true;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        private void checkBox10_CheckedChanged(object sender, EventArgs e)
+        {
+            
+            if (!checkBox10.Checked)
+            {
+                groupBox14.Enabled = false;
+                checkBox7.Checked = false;
+                groupBox15.Enabled = false;
+                checkBox8.Checked = false;
+                groupBox16.Enabled = false;
+                checkBox9.Checked = false;
+            }
+            else
+            {
+                groupBox14.Enabled = true;
+                groupBox15.Enabled = true;
+                groupBox16.Enabled = true;
+            }
+           /*
+                if (checkBox7.Checked)
+                {
+                    Properties.Settings.Default.animationResizeEnable = true;
+                }
+                else
+                {
+                    Properties.Settings.Default.animationResizeEnable = false;
+                }
+
+                if (!checkBox8.Checked)
+                {
+                    Properties.Settings.Default.animationDockBottomEnable = false;
+                }
+                else
+                {
+                    Properties.Settings.Default.animationDockBottomEnable = true;
+                }
+
+                if (!checkBox9.Checked)
+                {
+                    Properties.Settings.Default.animationSettingResizeEnable = false;
+                }
+                else
+                {
+                    Properties.Settings.Default.animationSettingResizeEnable = true;
+               }
+            * */
+               Properties.Settings.Default.Save();
+            
+            
+        }
+
+        private void button26_Click(object sender, EventArgs e)
+        {
+            applyAnimationTimeout();
+            checkAnimationTimeout();
+        }
+
+        private void numericUpDown2_ValueChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+       
+
+        private void checkBox11_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox11.Checked)
+            {
+                Properties.Settings.Default.customIcons = true;
+                label63.Text = "Logix will set as its icon pack the one you specify, ignoring your Windows version.";
+                comboBox16.Enabled = true;
+                label64.Enabled = true;
+                pictureBox3.Enabled = true;
+                label61.Enabled = true;
+                label62.Enabled = true;
+                label63.Enabled = true;
+                groupBox17.Enabled = true;
+
+            }
+            else
+            {
+                Properties.Settings.Default.customIcons = false;
+                label63.Text = "Logix will automatically change its icon pack based on the Windows version you're currently running.";
+                comboBox16.Enabled = false;
+                label64.Enabled = false;
+                pictureBox3.Enabled = false;
+                label61.Enabled = false;
+                label62.Enabled = false;
+                label63.Enabled = false;
+                groupBox17.Enabled = false;
+            }
+            Properties.Settings.Default.Save();
+            mdiparent.WindowsCheck();
+        }
+
+        
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void button27_Click(object sender, EventArgs e)
+        {
+            try
+            {
+               
+                    //go to line manager
+                    if (System.Text.RegularExpressions.Regex.IsMatch(textBox2.Text, "[^0-9]"))
+                    {
+                        //roundedPanel1.Height = 56;
+                        ToolTip hint = new ToolTip();
+                        hint.IsBalloon = true;
+                        hint.ToolTipTitle = "Please enter only numbers";
+                        hint.ToolTipIcon = ToolTipIcon.Error;
+                        hint.Show(string.Empty, textBox2, -10, -10, 0);
+                        hint.Show("Letters and symbols are not allowed.", textBox2);
+                        //label15.Text = "Please enter only numbers";
+                        //label15.Left = (this.roundedPanel1.Width - label15.Width) / 2;
+                        textBox1.Text = textBox2.Text.Remove(textBox2.Text.Length - 1);
+                        //check if the number of lines inserted is right
+                    }
+                    else
+                        Properties.Settings.Default.columnLineLimit = int.Parse(textBox2.Text);
+                
+            }
+            catch (Exception ea)
+            {
+
+                ToolTip hint = new ToolTip();
+                hint.IsBalloon = true;
+                hint.ToolTipTitle = "Please enter only numbers";
+                hint.ToolTipIcon = ToolTipIcon.Error;
+                hint.Show(string.Empty, textBox2, 0);
+                    hint.Show("Letters and symbols are not allowed.", textBox2, 15, 17);
+
+            }
+
+
+            Properties.Settings.Default.antoniottiCrazyTextDuo = textBox6.Text;
+            Properties.Settings.Default.antoniottiCrazyTitle = textBox5.Text;
+            Properties.Settings.Default.antoniottiCrazyText = textBox4.Text;
+            Properties.Settings.Default.antoniottiStandardText = textBox3.Text;
+            Properties.Settings.Default.Save();
+        }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                if (e.KeyChar == (char)Keys.Enter)
+                {
+                    //go to line manager
+                    if (System.Text.RegularExpressions.Regex.IsMatch(textBox2.Text, "[^0-9]"))
+                    {
+                        //roundedPanel1.Height = 56;
+                        ToolTip hint = new ToolTip();
+                        hint.IsBalloon = true;
+                        hint.ToolTipTitle = "Please enter only numbers";
+                        hint.ToolTipIcon = ToolTipIcon.Error;
+                        hint.Show(string.Empty, textBox2, -10, -10, 0);
+                        hint.Show("Letters and symbols are not allowed.", textBox2);
+                        //label15.Text = "Please enter only numbers";
+                        //label15.Left = (this.roundedPanel1.Width - label15.Width) / 2;
+                        textBox1.Text = textBox2.Text.Remove(textBox2.Text.Length - 1);
+                        //check if the number of lines inserted is right
+                    }
+                    else
+                        Properties.Settings.Default.columnLineLimit = int.Parse(textBox2.Text);
+                }
+            }
+            catch (Exception ea)
+            {
+
+                ToolTip hint = new ToolTip();
+                hint.IsBalloon = true;
+                hint.ToolTipTitle = "Please enter only numbers";
+                hint.ToolTipIcon = ToolTipIcon.Error;
+                hint.Show(string.Empty, textBox2, 0);
+                    hint.Show("Letters and symbols are not allowed.", textBox2, 15, 17);
+                
+
+            }
+
+            Properties.Settings.Default.Save();
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.antoniottiStandardText = textBox3.Text;
+            Properties.Settings.Default.Save();
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.antoniottiCrazyText = textBox4.Text;
+            Properties.Settings.Default.Save();
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.antoniottiCrazyTitle = textBox5.Text;
+            Properties.Settings.Default.Save();
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.antoniottiCrazyTextDuo = textBox6.Text;
+            Properties.Settings.Default.Save();
+        }
+
+        private void button28_Click(object sender, EventArgs e)
+        {
+            string statusBarText = "Exceeded column limit";
+            string crazystatusText = "HERESY!!!";
+            string crazytitleText = "Thou hast sinned.";
+            string crazytextText = "Thou hast traspassed the holy limit.";
+
+            Properties.Settings.Default.antoniottiStandardText = statusBarText;
+            Properties.Settings.Default.antoniottiCrazyText = crazystatusText;
+            Properties.Settings.Default.antoniottiCrazyTitle = crazytitleText;
+            Properties.Settings.Default.antoniottiCrazyTextDuo = crazytextText;
+            Properties.Settings.Default.Save();
+        }
+
+        private void checkBox12_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox12.Checked)
+            {
+                Properties.Settings.Default.syntaxFileExtension = true;
+                label69.Enabled = false;
+                comboBox15.Enabled = false;
+            }
+            else
+            {
+                Properties.Settings.Default.syntaxFileExtension = false;
+                label69.Enabled = true;
+                comboBox15.Enabled = true;
+            }
+            Properties.Settings.Default.Save();
+        }
+
+        private void comboBox15_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.syntaxFileExtensionIndex = comboBox15.SelectedIndex + 1;
+            Properties.Settings.Default.Save();
+        }
+
+        private void comboBox14_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.syntaxFileExtensionIndexOpen = comboBox14.SelectedIndex + 1;
+            Properties.Settings.Default.Save();
+        }
+
+        private void checkBox13_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox13.Checked)
+            {
+                Properties.Settings.Default.syntaxFileExtensionOpen = true;
+                label70.Enabled = false;
+                comboBox14.Enabled = false;
+            }
+            else
+            {
+                Properties.Settings.Default.syntaxFileExtensionOpen = false;
+                label70.Enabled = true;
+                comboBox14.Enabled = true;
+            }
+            Properties.Settings.Default.Save();
+        }
+
+        private void comboBox16_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (comboBox16.Text){
+                case "Fluent Set":
+                Properties.Settings.Default.fluentStyle = true;
+                Properties.Settings.Default.lunaStyle = false;
+                Properties.Settings.Default.classicStyle = false;
+                Properties.Settings.Default.ClassicNineStyle = false;
+                pictureBox3.Image = Properties.Resources.fluentIcons;
+
+                label73.Text = "This icon set uses Segoe Fluent Icons for its icons. Suits best Windows 11.";
+                break;
+
+                case "Aero/Luna Icons":
+                Properties.Settings.Default.fluentStyle = false;
+                Properties.Settings.Default.lunaStyle = true;
+                Properties.Settings.Default.classicStyle = false;
+                Properties.Settings.Default.ClassicNineStyle = false;
+                pictureBox3.Image = Properties.Resources.AeroIcons;
+                label73.Text = "This icon set uses Office 2010 icons for its icon set. Suits best Windows XP/Vista/7.";
+                break;
+
+                case "Classic Style":
+                Properties.Settings.Default.fluentStyle = false;
+                Properties.Settings.Default.lunaStyle = false;
+                Properties.Settings.Default.classicStyle = true;
+                Properties.Settings.Default.ClassicNineStyle = false;
+                pictureBox3.Image = Properties.Resources.classicIcons;
+                label73.Text = "This icon set mimicks the 9x Explorer bar look. Suits best Windows 2000.";
+
+                break;
+
+                case "Mac OS 9/Gnome Classic":
+                Properties.Settings.Default.fluentStyle = false;
+                Properties.Settings.Default.lunaStyle = false;
+                Properties.Settings.Default.classicStyle = false;
+                Properties.Settings.Default.ClassicNineStyle = true;
+                pictureBox3.Image = Properties.Resources.OS9;
+                label73.Text = "This icon set uses icons from the nineicons-redux Gnome theme. Suits best Linux and/or Windows 2000.";
+                break;
+            }
+            Properties.Settings.Default.Save();
+        }
+
+        private void checkBox14_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox14.Checked)
+            {
+                context.Visible = true;
+                contextWeb.Visible = true;
+                contextWeb2.Visible = true;
+                Properties.Settings.Default.searchWeb = true;
+                checkBox15.Enabled = true;
+                checkBox16.Enabled = true;
+                    label80.Enabled = true;
+                    if (Properties.Settings.Default.searchWebAuto && Properties.Settings.Default.searchWeb)
+                    {
+                        label79.Enabled = false;
+                        label78.Enabled = false;
+                        comboBox17.Enabled = false;
+                        checkBox16.Enabled = false;
+                        label77.Enabled = false;
+                        label76.Enabled = false;
+                        label75.Enabled = false;
+                        textBox7.Enabled = false;
+                        button29.Enabled = false;
+                    }
+                    else
+                    {
+                        label79.Enabled = true;
+                        label78.Enabled = true;
+                        comboBox17.Enabled = true;
+                        checkBox16.Enabled = true;
+                        
+                    }
+
+
+                    if (Properties.Settings.Default.searchWebCustom && Properties.Settings.Default.searchWeb)
+                    {
+                        label77.Enabled = true;
+                        label75.Enabled = true;
+                        label76.Enabled = true;
+                        textBox7.Enabled = true;
+                        button29.Enabled = true;
+                        checkBox15.Enabled = false;
+                        label80.Enabled = false;
+                        label79.Enabled = false;
+                        label78.Enabled = false;
+                        comboBox17.Enabled = false;
+                    }
+                    else
+                    {
+                        label77.Enabled = false;
+                        label75.Enabled = false;
+                        label76.Enabled = false;
+                        textBox7.Enabled = false;
+                        button29.Enabled = false;
+                    }
+
+            }
+            else if (!checkBox14.Checked)
+            {
+                context.Visible = false;
+                contextWeb.Visible = false;
+                contextWeb2.Visible = false;
+                Properties.Settings.Default.searchWeb = false;
+                checkBox15.Enabled = false;
+                checkBox16.Enabled = false;
+                label80.Enabled = false;
+                label79.Enabled = false;
+                label78.Enabled = false;
+                comboBox17.Enabled = false;
+                
+                label77.Enabled = false;
+                label75.Enabled = false;
+                label76.Enabled = false;
+                textBox7.Enabled = false;
+                button29.Enabled = false;
+            }
+            Properties.Settings.Default.Save();
+        }
+
+        private void checkBox16_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox16.Checked && Properties.Settings.Default.searchWeb)
+            {
+                Properties.Settings.Default.searchWebCustom = true;
+                label77.Enabled = true;
+                label75.Enabled = true;
+                label76.Enabled = true;
+                textBox7.Enabled = true;
+                button29.Enabled = true;
+                label80.Enabled = false;
+                checkBox15.Enabled = false;
+                label79.Enabled = false;
+                label78.Enabled = false;
+                comboBox17.Enabled = false;
+            }
+            else if (!checkBox16.Checked || !Properties.Settings.Default.searchWeb)
+            {
+                Properties.Settings.Default.searchWebCustom = false;
+                label77.Enabled = false;
+                label75.Enabled = false;
+                label76.Enabled = false;
+                textBox7.Enabled = false;
+                button29.Enabled = false;
+                label80.Enabled = true;
+                checkBox15.Enabled = true;
+                label79.Enabled = true;
+                label78.Enabled = true;
+                comboBox17.Enabled = true;
+            }
+        }
+
+        private void checkBox15_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!checkBox15.Checked && Properties.Settings.Default.searchWeb)
+            {
+                Properties.Settings.Default.searchWebAuto = false;
+                label79.Enabled = true;
+                label78.Enabled = true;
+                comboBox17.Enabled = true;
+                checkBox16.Enabled = true;
+                if (Properties.Settings.Default.searchWebCustom)
+                {
+                    label77.Enabled = true;
+                    label75.Enabled = true;
+                    label76.Enabled = true;
+                    textBox7.Enabled = true;
+                    button29.Enabled = true;
+                    checkBox16.Checked = true;
+                  
+                }
+                else
+                {
+                    label77.Enabled = false;
+                    label75.Enabled = false;
+                    label76.Enabled = false;
+                    textBox7.Enabled = false;
+                    button29.Enabled = false;
+                }
+            }
+            else if (checkBox15.Checked || !Properties.Settings.Default.searchWeb)
+            {
+                label79.Enabled = false;
+                Properties.Settings.Default.searchWebAuto = true;
+                label78.Enabled = false;
+                comboBox17.Enabled = false;
+                checkBox16.Enabled = false;
+                label77.Enabled = false;
+                label75.Enabled = false;
+                label76.Enabled = false;
+                textBox7.Enabled = false;
+                button29.Enabled = false;
+            }
+        }
+
+        private void comboBox17_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (comboBox17.Text)
+            {
+                case "Google":
+                    Properties.Settings.Default.searchWebPath = "https://www.google.com/search?q=";
+                    Properties.Settings.Default.searchWebPathName = "Google";
+                    break;
+
+                case "Bing":
+                    Properties.Settings.Default.searchWebPath = "https://www.bing.com/search?form=&q=";
+                    Properties.Settings.Default.searchWebPathName = "Bing";
+                    break;
+
+                case "DuckDuckGo!":
+                    Properties.Settings.Default.searchWebPath = "https://duckduckgo.com/?t=h_&q=";
+                    Properties.Settings.Default.searchWebPathName = "DuckDuckGo!";
+                    break;
+
+                case "Yahoo":
+                    Properties.Settings.Default.searchWebPath = "https://search.yahoo.com/search?p=";
+                    Properties.Settings.Default.searchWebPathName = "Yahoo";
+                    break;
+
+                case "StackOverflow":
+                    Properties.Settings.Default.searchWebPath = "https://stackoverflow.com/search?q=";
+                    Properties.Settings.Default.searchWebPathName = "StackOverflow";
+                    break;
+
+                case "Ecosia":
+                    Properties.Settings.Default.searchWebPath = "https://www.ecosia.org/search?method=index&q=";
+                    Properties.Settings.Default.searchWebPathName = "Ecosia";
+                    break;
+
+                case "Internet Archive":
+                    Properties.Settings.Default.searchWebPath = "https://web.archive.org/web/";
+                    Properties.Settings.Default.searchWebPathName = "Internet Archive";
+                    break;
+
+                case "SWI-Prolog":
+                    Properties.Settings.Default.searchWebPath = "https://www.swi-prolog.org/search?for=";
+                    Properties.Settings.Default.searchWebPathName = "SWI-Prolog";
+                    break;
+
+                case "Common LISP Wiki":
+                    Properties.Settings.Default.searchWebPath = "https://www.cliki.net/site/search?query=";
+                    Properties.Settings.Default.searchWebPathName = "Common LISP Wiki";
+                    break;
+
+                default:
+                    Properties.Settings.Default.Save();
+                    break;
+            }
+        }
+
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+           
+
+            
+            try
+            {
+               
+                    //internet address manager
+                    if (System.Text.RegularExpressions.Regex.IsMatch(textBox7.Text, "^(http|https)://"))
+                    {
+                        //roundedPanel1.Height = 56;
+                        ToolTip hint = new ToolTip();
+                        hint.IsBalloon = true;
+                        hint.ToolTipTitle = "Not a valid Internet address";
+                        hint.ToolTipIcon = ToolTipIcon.Error;
+                        hint.Show(string.Empty, textBox7, -10, -10, 0);
+                        hint.Show("Enter a web address (must start with either http:// or https://.", textBox2);
+                        //label15.Text = "Please enter only numbers";
+                        //label15.Left = (this.roundedPanel1.Width - label15.Width) / 2;
+                        textBox1.Text = textBox2.Text.Remove(textBox2.Text.Length - 1);
+                        //check if the number of lines inserted is right
+                    }
+                    else
+                         Properties.Settings.Default.searchWebPath = textBox7.Text;
+                
+            }
+            catch (Exception ea)
+            {
+
+                ToolTip hint = new ToolTip();
+                hint.IsBalloon = true;
+                hint.ToolTipTitle = "Not a valid Internet address";
+                hint.ToolTipIcon = ToolTipIcon.Error;
+                hint.Show(string.Empty, textBox7, 0);
+                    hint.Show("Enter a web address (must start with either http:// or https://.", textBox7, -15, -17);
+
+            }
+            Properties.Settings.Default.Save();
+        }
+
+        private void checkBox17_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox17.Checked)
+            {
+                Properties.Settings.Default.syntaxOpenFileAuto = true;
+                label82.Enabled = false;
+                label83.Enabled = false;
+                comboBox18.Enabled = false;
+            }
+            else
+            {
+                Properties.Settings.Default.syntaxOpenFileAuto = false;
+                label82.Enabled = true;
+                label83.Enabled = true;
+                comboBox18.Enabled = true;
+            }
+            Properties.Settings.Default.Save();
+        }
+
+        private void comboBox18_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (comboBox18.Text)
+            {
+                case "plain text":
+                    Properties.Settings.Default.syntaxOpenDefaultMode = "None";
+                    break;
+
+                case "Prolog":
+                    Properties.Settings.Default.syntaxOpenDefaultMode = "Prolog";
+                    break;
+
+                case "LISP":
+                    Properties.Settings.Default.syntaxOpenDefaultMode = "Lisp";
+                    break;
+
+                case "Yacc/J":
+                    Properties.Settings.Default.syntaxOpenDefaultMode = "yacc";
+                    break;
+
+                case "JFlex":
+                    Properties.Settings.Default.syntaxOpenDefaultMode = "jflex";
+                    break;
+
+                case "previous one":
+                    Properties.Settings.Default.syntaxOpenDefaultMode = "Previous one";
+                    break;
+            }
+
+            Properties.Settings.Default.Save();
+        }
+
+        private void checkBox18_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!checkBox18.Checked)
+            {
+                Properties.Settings.Default.autoWindowPosition = false;
+                label85.Enabled = true; label86.Enabled = true; label87.Enabled = true; comboBox19.Enabled = true; textBox8.Enabled = true; textBox9.Enabled = true; button30.Enabled = true;
+            }
+            else if (checkBox18.Checked)
+            {
+                Properties.Settings.Default.autoWindowPosition = true;
+                label85.Enabled = true; label86.Enabled = false; label87.Enabled = false; comboBox19.Enabled = false; textBox8.Enabled = false; textBox9.Enabled = false; button30.Enabled = false;
+            }
+            Properties.Settings.Default.Save();
+        }
+
+        private void comboBox19_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (comboBox19.Text)
+            {
+                case "Center to the screen":
+                    Properties.Settings.Default.startWindowPlace = "CenterScreen";
+                    label86.Enabled = false; label87.Enabled = false; textBox8.Enabled = false; textBox9.Enabled = false; button30.Enabled = false;
+                    break;
+
+                    case "Windows default position (top left)":
+                    Properties.Settings.Default.startWindowPlace = "WindowsDefaultLocation";
+                    label86.Enabled = false; label87.Enabled = false; textBox8.Enabled = false; textBox9.Enabled = false; button30.Enabled = false;
+                    break;
+
+                case "Windows default bounds":
+                    Properties.Settings.Default.startWindowPlace = "WindowsDefaultBounds";
+                    label86.Enabled = false; label87.Enabled = false; textBox8.Enabled = false; textBox9.Enabled = false; button30.Enabled = false;
+                    break;
+
+                case "Manual (specify location)":
+                    Properties.Settings.Default.startWindowPlace = "Manual";
+                    label86.Enabled = true; label87.Enabled = true; textBox8.Enabled = true; textBox9.Enabled = true; button30.Enabled = true;
+                    break;
+            }
+
+            Properties.Settings.Default.Save();
+        }
+
+        private void textBox8_TextChanged(object sender, EventArgs e)
+        {
+            //screen dimensions
+            int screenWidth = int.Parse(getScreenWidth());
+            try
+            {
+
+                //go to line manager
+                if (int.Parse(textBox8.Text) > screenWidth)
+                {
+                    ToolTip hint = new ToolTip();
+                    hint.IsBalloon = true;
+                    hint.ToolTipTitle = "You're positioning your window outside your monitor";
+                    hint.ToolTipIcon = ToolTipIcon.Error;
+                    hint.Show(string.Empty, textBox8, -10, -10, 0);
+                    hint.Show("Please enter a number lower than " + screenWidth + 1 + ".", textBox8);
+                }
+                else
+                    Properties.Settings.Default.windowLeft = int.Parse(textBox8.Text);
+                Properties.Settings.Default.Save();
+
+            }
+            catch (Exception ea)
+            {
+
+                ToolTip hint = new ToolTip();
+                hint.IsBalloon = true;
+                hint.ToolTipTitle = "You're positioning your window outside your monitor";
+                hint.ToolTipIcon = ToolTipIcon.Error;
+                hint.Show(string.Empty, textBox8, 0);
+                hint.Show("Please enter a number lower than " + screenWidth + 1 + ".", textBox8, 15, 17);
+
+            }
+
+     
+        }
+
+        private void textBox9_TextChanged(object sender, EventArgs e)
+        {
+            //screen dimensions
+            int screenHeight = int.Parse(getScreenHeight());
+            try
+            {
+
+                //go to line manager
+                if (int.Parse(textBox9.Text) > screenHeight)
+                {
+                    ToolTip hint = new ToolTip();
+                    hint.IsBalloon = true;
+                    hint.ToolTipTitle = "You're positioning your window outside your monitor";
+                    hint.ToolTipIcon = ToolTipIcon.Error;
+                    hint.Show(string.Empty, textBox9, -10, -10, 0);
+                    hint.Show("Please enter a number lower than " + (screenHeight + 1) + ".", textBox9);
+                }
+                else 
+                    Properties.Settings.Default.windowTop = int.Parse(textBox9.Text);
+                Properties.Settings.Default.Save();
+
+            }
+            catch (Exception ea)
+            {
+
+                ToolTip hint = new ToolTip();
+                hint.IsBalloon = true;
+                hint.ToolTipTitle = "You're positioning your window outside your monitor";
+                hint.ToolTipIcon = ToolTipIcon.Error;
+                hint.Show(string.Empty, textBox9, 0);
+                hint.Show("Please enter a number lower than " + (screenHeight + 1) + ".", textBox9, 15, 17);
+
+            }
+
+           
+        }
+
+        private void checkBox19_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!checkBox19.Checked)
+            {
+                Properties.Settings.Default.autoWindowSize = false;
+                label89.Enabled = true; label88.Enabled = true; textBox11.Enabled = true; textBox10.Enabled = true; button31.Enabled = true;
+            }
+            else if (checkBox19.Checked)
+            {
+                Properties.Settings.Default.autoWindowSize = true;
+                label89.Enabled = false; label88.Enabled = false; textBox11.Enabled = false; textBox10.Enabled = false; button31.Enabled = false;
+            }
+            Properties.Settings.Default.Save();
+        }
+
+        private string getScreenWidth()
+        {
+            return Screen.PrimaryScreen.Bounds.Width.ToString();
+        }
+
+        private string getScreenHeight()
+        {
+            return Screen.PrimaryScreen.Bounds.Height.ToString();
+        }
+        private void textBox11_TextChanged(object sender, EventArgs e)
+        {
+         
+            //screen dimensions
+            int screenWidth = int.Parse(getScreenWidth());
+            try
+            {
+
+                //go to line manager
+                if (int.Parse(textBox11.Text) > screenWidth)
+                {
+                    ToolTip hint = new ToolTip();
+                    hint.IsBalloon = true;
+                    hint.ToolTipTitle = "Your window might be wider than your monitor";
+                    hint.ToolTipIcon = ToolTipIcon.Error;
+                    hint.Show(string.Empty, textBox11, -10, -10, 0);
+                    hint.Show("Please enter a number lower than " + (screenWidth+1) + ".", textBox11);
+                }
+                else
+                    Properties.Settings.Default.windowWidth = int.Parse(textBox11.Text);
+                Properties.Settings.Default.Save();
+            }
+            catch (Exception ea)
+            {
+
+                ToolTip hint = new ToolTip();
+                hint.IsBalloon = true;
+                hint.ToolTipTitle = "Your window might be wider than your monitor";
+                hint.ToolTipIcon = ToolTipIcon.Error;
+                hint.Show(string.Empty, textBox11, 0);
+                hint.Show("Please enter a number lower than " + (screenWidth + 1) + ".", textBox11, 15, 17);
+
+            }
+            
+            
+        }
+
+        private void textBox10_TextChanged(object sender, EventArgs e)
+        {
+            //screen dimensions
+            int screenHeight = int.Parse(getScreenHeight());
+            try
+            {
+
+                //go to line manager
+                if (int.Parse(textBox10.Text) > screenHeight)
+                {
+                    ToolTip hint = new ToolTip();
+                    hint.IsBalloon = true;
+                    hint.ToolTipTitle = "Your window might be taller than your monitor";
+                    hint.ToolTipIcon = ToolTipIcon.Error;
+                    hint.Show(string.Empty, textBox10, -10, -10, 0);
+                    hint.Show("Please enter a number lower than " + (screenHeight + 1) + ".", textBox10);
+                }
+                else
+                    Properties.Settings.Default.windowHeight = int.Parse(textBox10.Text);
+                Properties.Settings.Default.Save();
+
+            }
+            catch (Exception ea)
+            {
+
+                ToolTip hint = new ToolTip();
+                hint.IsBalloon = true;
+                hint.ToolTipTitle = "Your window might be taller than your monitor";
+                hint.ToolTipIcon = ToolTipIcon.Error;
+                hint.Show(string.Empty, textBox10, 0);
+                hint.Show("Please enter a number lower than " + (screenHeight + 1) + ".", textBox10, 15, 17);
+
+            }
+
+            
+        }
+
+        private void checkBox20_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!checkBox20.Checked)
+            {
+                Properties.Settings.Default.autoWindowState = false;
+                label91.Enabled = true; comboBox20.Enabled = true;
+            }
+            else if (checkBox20.Checked)
+            {
+                Properties.Settings.Default.autoWindowState = true;
+                label91.Enabled = false; comboBox20.Enabled = false;
+            }
+        }
+
+        private void comboBox20_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (comboBox20.Text)
+            {
+                case "Normal":
+                    Properties.Settings.Default.windowState = "Normal";
+                    break;
+
+                case "Maximized":
+                    Properties.Settings.Default.windowState = "Maximized";
+                    break;
+            }
+        }
+
+        private void checkBox21_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox21.Checked)
+                Properties.Settings.Default.textPropertiesVisible = true;
+            else
+                Properties.Settings.Default.textPropertiesVisible = false;
+            Properties.Settings.Default.Save();
+        }
+
+        private void checkBox23_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox23.Checked)
+                label98.Text = "You'll be able to interact with JFlex through a graphical user interface.";
+            else
+                label98.Text = "JFlex will start in a Command Prompt window without a graphical user interface.";
+        }
+
+        private void checkBox24_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox24.Checked)
+                label99.Text = "You'll be able to interact with ByaccJ through a graphical user interface (recommended).";
+            else
+                label99.Text = "ByaccJ will start in a Command Prompt window without a graphical user interface.";
+        }
+
+        private void checkBox22_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!checkBox22.Checked)
+            {
+                Properties.Settings.Default.jFlexIntegration = false;
+                label95.Enabled = true; label96.Enabled = false; label97.Enabled = false;
+                textBox12.Enabled = false; button33.Enabled = false; button32.Enabled = false;
+                checkBox23.Enabled = false; label98.Enabled = false;
+            }
+            else
+            {
+                Properties.Settings.Default.jFlexIntegration = true;
+                label95.Enabled = true; label96.Enabled = true; label97.Enabled = true;
+                textBox12.Enabled = true; button33.Enabled = true; button32.Enabled = true;
+                checkBox23.Enabled = true; label98.Enabled = true;
+            }
+        }
+
+        private void checkBox25_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!checkBox25.Checked)
+            {
+                Properties.Settings.Default.bYaccIntegration = false;
+                label100.Enabled = false; label101.Enabled = false;
+                textBox13.Enabled = false; button35.Enabled = false; button34.Enabled = false;
+                checkBox24.Enabled = false; label99.Enabled = false;
+            }
+            else
+            {
+                Properties.Settings.Default.bYaccIntegration = true;
+                label100.Enabled = true; label101.Enabled = true;
+                textBox13.Enabled = true; button35.Enabled = true; button34.Enabled = true;
+                checkBox24.Enabled = true; label99.Enabled = true;
+            }
+        }
+
+     
+
+
         
         }
     

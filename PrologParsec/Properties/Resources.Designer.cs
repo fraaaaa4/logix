@@ -60,8 +60,50 @@ namespace PrologParsec.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap _7_about {
+            get {
+                object obj = ResourceManager.GetObject("_7_about", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap _8_about {
+            get {
+                object obj = ResourceManager.GetObject("_8_about", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap add {
+            get {
+                object obj = ResourceManager.GetObject("add", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap add2000 {
+            get {
+                object obj = ResourceManager.GetObject("add2000", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap addB {
+            get {
+                object obj = ResourceManager.GetObject("addB", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap AeroIcons {
+            get {
+                object obj = ResourceManager.GetObject("AeroIcons", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         /// <summary>
-        ///   Looks up a localized string similar to October 27th, 2023.
+        ///   Looks up a localized string similar to November 11th, 2023.
         /// </summary>
         internal static string AppDate {
             get {
@@ -70,7 +112,7 @@ namespace PrologParsec.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A simple and modern Prolog/Lisp editor.
+        ///   Looks up a localized string similar to A modern and light Prolog/Lisp editor.
         /// </summary>
         internal static string AppDescription {
             get {
@@ -106,7 +148,7 @@ namespace PrologParsec.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 0.2.230.1.tf/p-231027.
+        ///   Looks up a localized string similar to 0.2.243.0.tf/p-231111.
         /// </summary>
         internal static string AppVersion {
             get {
@@ -114,9 +156,58 @@ namespace PrologParsec.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap auroraStatic {
+            get {
+                object obj = ResourceManager.GetObject("auroraStatic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap bacjB {
+            get {
+                object obj = ResourceManager.GetObject("bacjB", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Back {
+            get {
+                object obj = ResourceManager.GetObject("Back", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap back2000 {
+            get {
+                object obj = ResourceManager.GetObject("back2000", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap bookmark {
             get {
                 object obj = ResourceManager.GetObject("bookmark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap bookmark2000 {
+            get {
+                object obj = ResourceManager.GetObject("bookmark2000", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap bookmarkB {
+            get {
+                object obj = ResourceManager.GetObject("bookmarkB", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap classicIcons {
+            get {
+                object obj = ResourceManager.GetObject("classicIcons", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -135,9 +226,51 @@ namespace PrologParsec.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Copy1 {
+            get {
+                object obj = ResourceManager.GetObject("Copy1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap copy2000 {
+            get {
+                object obj = ResourceManager.GetObject("copy2000", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap copyB {
+            get {
+                object obj = ResourceManager.GetObject("copyB", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap cut {
             get {
                 object obj = ResourceManager.GetObject("cut", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Cut1 {
+            get {
+                object obj = ResourceManager.GetObject("Cut1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap cut2000 {
+            get {
+                object obj = ResourceManager.GetObject("cut2000", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap cutB {
+            get {
+                object obj = ResourceManager.GetObject("cutB", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -156,6 +289,20 @@ namespace PrologParsec.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap delete2000 {
+            get {
+                object obj = ResourceManager.GetObject("delete2000", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap deleteB {
+            get {
+                object obj = ResourceManager.GetObject("deleteB", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap find {
             get {
                 object obj = ResourceManager.GetObject("find", resourceCulture);
@@ -163,9 +310,65 @@ namespace PrologParsec.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap find2000 {
+            get {
+                object obj = ResourceManager.GetObject("find2000", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap findB {
+            get {
+                object obj = ResourceManager.GetObject("findB", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap fluentIcons {
+            get {
+                object obj = ResourceManager.GetObject("fluentIcons", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Font {
+            get {
+                object obj = ResourceManager.GetObject("Font", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Font2000 {
+            get {
+                object obj = ResourceManager.GetObject("Font2000", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap fontB {
+            get {
+                object obj = ResourceManager.GetObject("fontB", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap go_to {
             get {
                 object obj = ResourceManager.GetObject("go_to", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap go_to2000 {
+            get {
+                object obj = ResourceManager.GetObject("go_to2000", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap go_toB {
+            get {
+                object obj = ResourceManager.GetObject("go_toB", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -184,9 +387,289 @@ namespace PrologParsec.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap link {
+            get {
+                object obj = ResourceManager.GetObject("link", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap link2000 {
+            get {
+                object obj = ResourceManager.GetObject("link2000", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap linkB {
+            get {
+                object obj = ResourceManager.GetObject("linkB", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap macAdd {
+            get {
+                object obj = ResourceManager.GetObject("macAdd", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap macBack {
+            get {
+                object obj = ResourceManager.GetObject("macBack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap macBookmark {
+            get {
+                object obj = ResourceManager.GetObject("macBookmark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap macCopy {
+            get {
+                object obj = ResourceManager.GetObject("macCopy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap macCut {
+            get {
+                object obj = ResourceManager.GetObject("macCut", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap macDelete {
+            get {
+                object obj = ResourceManager.GetObject("macDelete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap macFind {
+            get {
+                object obj = ResourceManager.GetObject("macFind", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap macFont {
+            get {
+                object obj = ResourceManager.GetObject("macFont", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap macForward {
+            get {
+                object obj = ResourceManager.GetObject("macForward", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap macGo_to {
+            get {
+                object obj = ResourceManager.GetObject("macGo_to", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap macLink {
+            get {
+                object obj = ResourceManager.GetObject("macLink", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap macNew {
+            get {
+                object obj = ResourceManager.GetObject("macNew", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap macOpen {
+            get {
+                object obj = ResourceManager.GetObject("macOpen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap macPaste {
+            get {
+                object obj = ResourceManager.GetObject("macPaste", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap macRedo {
+            get {
+                object obj = ResourceManager.GetObject("macRedo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap macRemove {
+            get {
+                object obj = ResourceManager.GetObject("macRemove", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap macRename {
+            get {
+                object obj = ResourceManager.GetObject("macRename", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap macSave {
+            get {
+                object obj = ResourceManager.GetObject("macSave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap macSelect {
+            get {
+                object obj = ResourceManager.GetObject("macSelect", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap macUndo {
+            get {
+                object obj = ResourceManager.GetObject("macUndo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap ME_about {
+            get {
+                object obj = ResourceManager.GetObject("ME_about", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap New {
+            get {
+                object obj = ResourceManager.GetObject("New", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap new2000 {
+            get {
+                object obj = ResourceManager.GetObject("new2000", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap newB {
+            get {
+                object obj = ResourceManager.GetObject("newB", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap next {
+            get {
+                object obj = ResourceManager.GetObject("next", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap next2000 {
+            get {
+                object obj = ResourceManager.GetObject("next2000", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap nextB {
+            get {
+                object obj = ResourceManager.GetObject("nextB", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Open {
+            get {
+                object obj = ResourceManager.GetObject("Open", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap open2000 {
+            get {
+                object obj = ResourceManager.GetObject("open2000", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap open200032 {
+            get {
+                object obj = ResourceManager.GetObject("open200032", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Open32 {
+            get {
+                object obj = ResourceManager.GetObject("Open32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap openB {
+            get {
+                object obj = ResourceManager.GetObject("openB", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap OS9 {
+            get {
+                object obj = ResourceManager.GetObject("OS9", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap paste {
             get {
                 object obj = ResourceManager.GetObject("paste", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Paste1 {
+            get {
+                object obj = ResourceManager.GetObject("Paste1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap paste2000 {
+            get {
+                object obj = ResourceManager.GetObject("paste2000", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap pasteB {
+            get {
+                object obj = ResourceManager.GetObject("pasteB", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap plebeo {
+            get {
+                object obj = ResourceManager.GetObject("plebeo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -198,9 +681,114 @@ namespace PrologParsec.Properties {
             }
         }
         
+        internal static System.Drawing.Icon question {
+            get {
+                object obj = ResourceManager.GetObject("question", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Redo1 {
+            get {
+                object obj = ResourceManager.GetObject("Redo1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap redo2000 {
+            get {
+                object obj = ResourceManager.GetObject("redo2000", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap redoB {
+            get {
+                object obj = ResourceManager.GetObject("redoB", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap remove {
+            get {
+                object obj = ResourceManager.GetObject("remove", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap remove2000 {
+            get {
+                object obj = ResourceManager.GetObject("remove2000", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap removeB {
+            get {
+                object obj = ResourceManager.GetObject("removeB", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap rename {
+            get {
+                object obj = ResourceManager.GetObject("rename", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap rename2000 {
+            get {
+                object obj = ResourceManager.GetObject("rename2000", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap renameB {
+            get {
+                object obj = ResourceManager.GetObject("renameB", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Save {
+            get {
+                object obj = ResourceManager.GetObject("Save", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap save2000 {
+            get {
+                object obj = ResourceManager.GetObject("save2000", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap saveB {
+            get {
+                object obj = ResourceManager.GetObject("saveB", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap select {
             get {
                 object obj = ResourceManager.GetObject("select", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap select2000 {
+            get {
+                object obj = ResourceManager.GetObject("select2000", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap selectB {
+            get {
+                object obj = ResourceManager.GetObject("selectB", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -221,9 +809,58 @@ namespace PrologParsec.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Tab_Sheet_New {
+            get {
+                object obj = ResourceManager.GetObject("Tab_Sheet_New", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap tab2000 {
+            get {
+                object obj = ResourceManager.GetObject("tab2000", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap tabB {
+            get {
+                object obj = ResourceManager.GetObject("tabB", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap undo {
             get {
                 object obj = ResourceManager.GetObject("undo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Undo1 {
+            get {
+                object obj = ResourceManager.GetObject("Undo1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap undo2000 {
+            get {
+                object obj = ResourceManager.GetObject("undo2000", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap undoB {
+            get {
+                object obj = ResourceManager.GetObject("undoB", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap vista_about {
+            get {
+                object obj = ResourceManager.GetObject("vista_about", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -239,6 +876,13 @@ namespace PrologParsec.Properties {
             get {
                 object obj = ResourceManager.GetObject("xml_file_icon_8", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap XP_about {
+            get {
+                object obj = ResourceManager.GetObject("XP_about", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

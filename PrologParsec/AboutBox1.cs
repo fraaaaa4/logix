@@ -12,17 +12,56 @@ namespace PrologParsec
 {
     partial class AboutBox1 : Form
     {
+        static string productName; static string currentVersion; static string buildLab;
         static string GetWindowsVersion()
         {
             using (RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion"))
             {
                 if (key != null)
                 {
-                    string productName = key.GetValue("ProductName") as string;
-                    string currentVersion = key.GetValue("CurrentVersion") as string;
-                    string buildLab = key.GetValue("BuildLab") as string;
+                    productName = key.GetValue("ProductName") as string;
+                    currentVersion = key.GetValue("CurrentVersion") as string;
+                    buildLab = key.GetValue("BuildLab") as string;
 
                     return currentVersion;
+                }
+                else
+                {
+                    return "No.";
+                }
+            }
+        }
+
+        static string GetWindowsProductName()
+        {
+            using (RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion"))
+            {
+                if (key != null)
+                {
+                    productName = key.GetValue("ProductName") as string;
+                    currentVersion = key.GetValue("CurrentVersion") as string;
+                    buildLab = key.GetValue("BuildLab") as string;
+
+                    return productName;
+                }
+                else
+                {
+                    return "No.";
+                }
+            }
+        }
+
+        static string GetBuildLab()
+        {
+            using (RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion"))
+            {
+                if (key != null)
+                {
+                    productName = key.GetValue("ProductName") as string;
+                    currentVersion = key.GetValue("CurrentVersion") as string;
+                    buildLab = key.GetValue("BuildLab") as string;
+
+                    return buildLab;
                 }
                 else
                 {
@@ -41,10 +80,74 @@ namespace PrologParsec
             //  - AssemblyInfo.cs
             this.Text = String.Format("About {0}", Properties.Resources.AppName + " " + Properties.Resources.AppEdition);
 
+            WindowsCheck();
+            
+        }
+
+        private void WindowsCheck()
+        {
             //check windows version
             string version = GetWindowsVersion();
             if (version == "4.0" || version == "5.0" || version == "5.1" || version == "6.0")
+            {
                 webBrowser1.Visible = false;
+                pictureBox2.Visible = true;
+            }
+            else if (version == "6.2" || version == "6.3")
+            {
+                webBrowser1.Visible = true;
+                pictureBox2.Visible = false;
+            }
+            else
+            {
+                webBrowser1.Visible = false;
+                pictureBox2.Visible = true;
+            }
+
+            //debugging Windows version
+            label7.Text = GetWindowsProductName();
+            label9.Text = "Windows NT " + GetWindowsVersion();
+
+            //Windows 9x check
+            if (label7.Text.Equals(string.Empty) || label9.Text.Equals(string.Empty))
+            {
+                label7.Text = "Windows 9x/2000";
+                label9.Text = "4.10 or 4.90/NT 5.0";
+            }
+
+            //windows version check
+            if (version == "5.0")
+            {
+                pictureBox3.Image = Properties.Resources.ME_about;
+            } else if (version == "5.1")
+            {
+                pictureBox3.Image = Properties.Resources.XP_about;
+            }
+            else if (version == "6.0")
+            {
+                pictureBox3.Image = Properties.Resources.vista_about;
+            }
+            else if (version == "6.1")
+            {
+                pictureBox3.Image = Properties.Resources._7_about;
+            }
+            else if (version == "6.2")
+            {
+                pictureBox3.Image = Properties.Resources._8_about;
+            }
+            else if (version == "6.3" || version == "6.4")
+            {
+                pictureBox3.Image = Properties.Resources._8_about;
+            }
+            else if (version == "5.2")
+            {
+                pictureBox3.Image = Properties.Resources.XP_about;
+            }
+            else
+            {
+                pictureBox3.Image = Properties.Resources.ME_about;
+            }
+
         }
 
         #region Assembly Attribute Accessors

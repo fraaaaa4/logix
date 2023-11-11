@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Threading;
 
 
 namespace PrologParsec
@@ -17,7 +18,9 @@ namespace PrologParsec
             Application.SetCompatibleTextRenderingDefault(false);
             try
             {
-                Application.Run(new MDIParent1());
+                Thread thread = new Thread(OpenForm);
+                thread.SetApartmentState(ApartmentState.STA);
+                thread.Start();
                 
             }
             catch (ArgumentException ex)
@@ -26,6 +29,13 @@ namespace PrologParsec
             }
 
 
+        }
+
+        public static void OpenForm()
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new MDIParent1());
         }
     }
 }

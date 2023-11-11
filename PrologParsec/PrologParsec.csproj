@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PrologParsec</RootNamespace>
     <AssemblyName>PrologLogix</AssemblyName>
-    <ApplicationIcon>Resources\prolog.ico</ApplicationIcon>
+    <ApplicationIcon>logix3.ico</ApplicationIcon>
     <StartupObject>PrologParsec.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -86,6 +86,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\Downloads\FastColoredTextBoxDemo\TabStrip.dll</HintPath>
     </Reference>
+    <Reference Include="Transitions, Version=1.2.2.0, Culture=neutral, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AboutBox1.cs">
@@ -166,31 +167,10 @@
     <None Include="Resources\undo.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\bookmark.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\word.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\go to.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\find.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\clear.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\delete.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\paste.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\copy.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\cut.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\select.png" />
@@ -213,6 +193,345 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\question.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\auroraStatic.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7_about.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8_about.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ME_about.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vista_about.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\XP_about.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cutB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Font2000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fontB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new2000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\next2000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nextB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\open2000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\openB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paste2000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pasteB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\redo2000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\redoB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save2000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\undo2000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\undoB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bacjB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back2000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copy2000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copyB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cut2000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tabB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tab2000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tab Sheet-New.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cut1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Paste1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Undo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Redo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Font.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Open32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\open200032.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\open200032.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fluentIcons.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AeroIcons.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\classicIcons.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plebeo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new20001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newB1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-rinominare-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-aggiungi-94.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-meno-94.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document-new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document-open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document-save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit-cut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit-copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit-paste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit-undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\font-x-generic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\media-skip-backward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\media-skip-forward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoom-next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OS9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-collegamento-94.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\go_to.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bookmark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rename.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete2000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deleteB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user-trash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit-select-text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\select2000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\selectB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\macFind.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\find2000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search-Replace.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\go_to2000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Go To Line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\text-x-generic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bookmark2000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bookmarkB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder-bookmark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\list-add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\list-remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete20001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rename2000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add2000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\renameB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\accessories-text-editor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\internet-web-browser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Internet Link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\link2000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit-redo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copy1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logix2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\test1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logix2.ico" />
+    <Content Include="logix3.ico" />
+    <None Include="Resources\Group 3.png" />
+    <None Include="Resources\logix3.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
