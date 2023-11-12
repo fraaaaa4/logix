@@ -1,6 +1,8 @@
 
 ![testfire1](https://github.com/fraaaaa4/logix/assets/87281326/2f8e67ec-76cd-4c54-a39d-20ea1e7a6bf0)
 
+-REMINDER- Logix's repo contains also the repo for Gramlex under the Gramlex branch. If you want to use Gramlex for now, download the latest version of Logix. 
+
 Logix is a simple and easy to use Prolog/LISP/etc. text editor with syntax highlighting and many other features.
 
 # Current version
