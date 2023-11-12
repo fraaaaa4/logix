@@ -13,6 +13,7 @@ It features the following (but not only) features:
 - **Bookmarks**
 - **AutoComplete**: automatically add header, footer of the source file, or automatically add comments
 - **Document map**
+- **Gramlex**: GUI front-end for JFlex and ByaccJ, all integrated into one application. Does everything for you, including mantaining settings between sessions, so it's even faster/easier!
 
   ## Roadmap
   Check out the wiki for more information.
@@ -24,6 +25,7 @@ It features the following (but not only) features:
  - nineiconsredux for OS 9/Gnome theme: https://www.gnome-look.org/p/1960539
  - Rectify11 shell32 icons (thanks @ojask and @WinExperiments!)
  - Wallpaper used on the readme banner: Maxim Berg, Unsplash, https://unsplash.com/it/foto/uno-sfondo-blu-e-viola-con-linee-verticali-ANuuRuCRRAc?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash
+ - Rtl_GetVersion + wrapper class : https://github.com/dotnet/maui/
 
 For the best experience, it's better to run it on Windows 11 running Rectify11 (for full theming support, which includes built-in accent colorization and built-in light/dark mode).
 
