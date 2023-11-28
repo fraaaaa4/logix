@@ -48,9 +48,10 @@ C:\Users\Asain\Documents\linguaggi\prolog\PrologParsec - Copia\PrologParsec\obj\
 C:\Users\Asain\Documents\linguaggi\prolog\PrologParsec - Copia\PrologParsec\obj\Debug\PrologParsec.AboutBox1.resources
 C:\Users\Asain\Documents\linguaggi\prolog\PrologParsec - Copia\PrologParsec\obj\Debug\PrologParsec.MDIParent1.resources
 C:\Users\Asain\Documents\linguaggi\prolog\PrologParsec - Copia\PrologParsec\obj\Debug\PrologParsec.Properties.Resources.resources
-C:\Users\Asain\Documents\linguaggi\prolog\PrologParsec - Copia\PrologParsec\obj\Debug\PrologParsec.xmlDetails.resources
 C:\Users\Asain\Documents\linguaggi\prolog\PrologParsec - Copia\PrologParsec\obj\Debug\PrologParsec.csproj.GenerateResource.Cache
 C:\Users\Asain\Documents\linguaggi\prolog\PrologParsec - Copia\PrologParsec\obj\Debug\PrologLogix.exe
 C:\Users\Asain\Documents\linguaggi\prolog\PrologParsec - Copia\PrologParsec\obj\Debug\PrologLogix.pdb
 C:\Users\Asain\Documents\linguaggi\prolog\PrologParsec - Copia\PrologParsec\obj\Debug\PrologParsec.Settings.resources
 C:\Users\Asain\Documents\linguaggi\prolog\PrologParsec - Copia\PrologParsec\obj\Debug\PrologParsec.csproj.ResolveComReference.cache
+C:\Users\Asain\Documents\linguaggi\prolog\PrologParsec - Copia\PrologParsec\obj\Debug\PrologParsec.LogixPE.resources
+C:\Users\Asain\Documents\linguaggi\prolog\PrologParsec - Copia\PrologParsec\obj\Debug\PrologParsec.LogixPEHelp.resources
