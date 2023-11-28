@@ -103,7 +103,7 @@ namespace PrologParsec.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to November 11th, 2023.
+        ///   Looks up a localized string similar to November 28th, 2023.
         /// </summary>
         internal static string AppDate {
             get {
@@ -148,7 +148,7 @@ namespace PrologParsec.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 0.2.243.0.tf/p-231111.
+        ///   Looks up a localized string similar to 0.2.256.0.tf/p-231128.
         /// </summary>
         internal static string AppVersion {
             get {
@@ -205,6 +205,13 @@ namespace PrologParsec.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Class {
+            get {
+                object obj = ResourceManager.GetObject("Class", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap classicIcons {
             get {
                 object obj = ResourceManager.GetObject("classicIcons", resourceCulture);
@@ -247,6 +254,13 @@ namespace PrologParsec.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap copyEW {
+            get {
+                object obj = ResourceManager.GetObject("copyEW", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap cut {
             get {
                 object obj = ResourceManager.GetObject("cut", resourceCulture);
@@ -271,6 +285,13 @@ namespace PrologParsec.Properties {
         internal static System.Drawing.Bitmap cutB {
             get {
                 object obj = ResourceManager.GetObject("cutB", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap cutEW {
+            get {
+                object obj = ResourceManager.GetObject("cutEW", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -303,6 +324,27 @@ namespace PrologParsec.Properties {
             }
         }
         
+        internal static System.Drawing.Icon emacs {
+            get {
+                object obj = ResourceManager.GetObject("emacs", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap emacsIcon {
+            get {
+                object obj = ResourceManager.GetObject("emacsIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Event {
+            get {
+                object obj = ResourceManager.GetObject("Event", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap find {
             get {
                 object obj = ResourceManager.GetObject("find", resourceCulture);
@@ -320,6 +362,20 @@ namespace PrologParsec.Properties {
         internal static System.Drawing.Bitmap findB {
             get {
                 object obj = ResourceManager.GetObject("findB", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap findEW {
+            get {
+                object obj = ResourceManager.GetObject("findEW", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap flatMetro {
+            get {
+                object obj = ResourceManager.GetObject("flatMetro", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -373,9 +429,58 @@ namespace PrologParsec.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap gramlex {
+            get {
+                object obj = ResourceManager.GetObject("gramlex", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap gramlex2000 {
+            get {
+                object obj = ResourceManager.GetObject("gramlex2000", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap gramlexAero {
+            get {
+                object obj = ResourceManager.GetObject("gramlexAero", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap gramlexB {
+            get {
+                object obj = ResourceManager.GetObject("gramlexB", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Immagine1 {
             get {
                 object obj = ResourceManager.GetObject("Immagine1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap lc_list_add {
+            get {
+                object obj = ResourceManager.GetObject("lc_list_add", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap lc_open {
+            get {
+                object obj = ResourceManager.GetObject("lc_open", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap lc_zoomtoolbox {
+            get {
+                object obj = ResourceManager.GetObject("lc_zoomtoolbox", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -404,6 +509,153 @@ namespace PrologParsec.Properties {
         internal static System.Drawing.Bitmap linkB {
             get {
                 object obj = ResourceManager.GetObject("linkB", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap lunaAdd {
+            get {
+                object obj = ResourceManager.GetObject("lunaAdd", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap lunaBack {
+            get {
+                object obj = ResourceManager.GetObject("lunaBack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap lunaBookMark {
+            get {
+                object obj = ResourceManager.GetObject("lunaBookMark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap lunaCopy {
+            get {
+                object obj = ResourceManager.GetObject("lunaCopy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap lunaCut {
+            get {
+                object obj = ResourceManager.GetObject("lunaCut", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap lunaDelete1 {
+            get {
+                object obj = ResourceManager.GetObject("lunaDelete1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap lunaFind {
+            get {
+                object obj = ResourceManager.GetObject("lunaFind", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap lunaFont {
+            get {
+                object obj = ResourceManager.GetObject("lunaFont", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap lunaGoTo {
+            get {
+                object obj = ResourceManager.GetObject("lunaGoTo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap lunaGramlex {
+            get {
+                object obj = ResourceManager.GetObject("lunaGramlex", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap lunaIcons {
+            get {
+                object obj = ResourceManager.GetObject("lunaIcons", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap lunaLink {
+            get {
+                object obj = ResourceManager.GetObject("lunaLink", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap lunaNew {
+            get {
+                object obj = ResourceManager.GetObject("lunaNew", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap lunaNext {
+            get {
+                object obj = ResourceManager.GetObject("lunaNext", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap lunaOpen {
+            get {
+                object obj = ResourceManager.GetObject("lunaOpen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap lunaPaste {
+            get {
+                object obj = ResourceManager.GetObject("lunaPaste", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap lunaRedo {
+            get {
+                object obj = ResourceManager.GetObject("lunaRedo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap lunaRemove {
+            get {
+                object obj = ResourceManager.GetObject("lunaRemove", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap lunaSave {
+            get {
+                object obj = ResourceManager.GetObject("lunaSave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap lunaSelect {
+            get {
+                object obj = ResourceManager.GetObject("lunaSelect", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap lunaUndo {
+            get {
+                object obj = ResourceManager.GetObject("lunaUndo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -474,6 +726,13 @@ namespace PrologParsec.Properties {
         internal static System.Drawing.Bitmap macGo_to {
             get {
                 object obj = ResourceManager.GetObject("macGo_to", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap macGramlex {
+            get {
+                object obj = ResourceManager.GetObject("macGramlex", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -555,6 +814,13 @@ namespace PrologParsec.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Method {
+            get {
+                object obj = ResourceManager.GetObject("Method", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap New {
             get {
                 object obj = ResourceManager.GetObject("New", resourceCulture);
@@ -572,6 +838,13 @@ namespace PrologParsec.Properties {
         internal static System.Drawing.Bitmap newB {
             get {
                 object obj = ResourceManager.GetObject("newB", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap newEW {
+            get {
+                object obj = ResourceManager.GetObject("newEW", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -632,9 +905,142 @@ namespace PrologParsec.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap openEW {
+            get {
+                object obj = ResourceManager.GetObject("openEW", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap OS9 {
             get {
                 object obj = ResourceManager.GetObject("OS9", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap pantherBookmark {
+            get {
+                object obj = ResourceManager.GetObject("pantherBookmark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap pantherCopy {
+            get {
+                object obj = ResourceManager.GetObject("pantherCopy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap pantherCut {
+            get {
+                object obj = ResourceManager.GetObject("pantherCut", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap pantherFind {
+            get {
+                object obj = ResourceManager.GetObject("pantherFind", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap pantherFont {
+            get {
+                object obj = ResourceManager.GetObject("pantherFont", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap pantherGoTo {
+            get {
+                object obj = ResourceManager.GetObject("pantherGoTo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap pantherIcon {
+            get {
+                object obj = ResourceManager.GetObject("pantherIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap pantherLink {
+            get {
+                object obj = ResourceManager.GetObject("pantherLink", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap pantherMenu {
+            get {
+                object obj = ResourceManager.GetObject("pantherMenu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap pantherNew {
+            get {
+                object obj = ResourceManager.GetObject("pantherNew", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap pantherNew16 {
+            get {
+                object obj = ResourceManager.GetObject("pantherNew16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap pantherOpen {
+            get {
+                object obj = ResourceManager.GetObject("pantherOpen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap pantherOpen16 {
+            get {
+                object obj = ResourceManager.GetObject("pantherOpen16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap pantherPaste {
+            get {
+                object obj = ResourceManager.GetObject("pantherPaste", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap pantherRedo {
+            get {
+                object obj = ResourceManager.GetObject("pantherRedo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap pantherSave {
+            get {
+                object obj = ResourceManager.GetObject("pantherSave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap pantherSelect {
+            get {
+                object obj = ResourceManager.GetObject("pantherSelect", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap pantherUndo {
+            get {
+                object obj = ResourceManager.GetObject("pantherUndo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -667,6 +1073,58 @@ namespace PrologParsec.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap pasteEW {
+            get {
+                object obj = ResourceManager.GetObject("pasteEW", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An easy-to-use GUI for JFlex and ByaccJ.
+        /// </summary>
+        internal static string PEDescription {
+            get {
+                return ResourceManager.GetString("PEDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Built using Visual Studio 2005 and C#. JFlex is a program built by the JFlex team on jflex.de. ByaccJ is a program built by Tomas Hurka on byaccj.sourceforge.net.  Built by fraaa3.
+        /// </summary>
+        internal static string PEDescription2 {
+            get {
+                return ResourceManager.GetString("PEDescription2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hyperdemo (Logix).
+        /// </summary>
+        internal static string PEEdition {
+            get {
+                return ResourceManager.GetString("PEEdition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gramlex.
+        /// </summary>
+        internal static string PEName {
+            get {
+                return ResourceManager.GetString("PEName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 0.5.543.0.lx/p-231128.
+        /// </summary>
+        internal static string PEVersion {
+            get {
+                return ResourceManager.GetString("PEVersion", resourceCulture);
+            }
+        }
+        
         internal static System.Drawing.Bitmap plebeo {
             get {
                 object obj = ResourceManager.GetObject("plebeo", resourceCulture);
@@ -678,6 +1136,13 @@ namespace PrologParsec.Properties {
             get {
                 object obj = ResourceManager.GetObject("prolog", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Property {
+            get {
+                object obj = ResourceManager.GetObject("Property", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -765,9 +1230,156 @@ namespace PrologParsec.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap save2EW {
+            get {
+                object obj = ResourceManager.GetObject("save2EW", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap saveB {
             get {
                 object obj = ResourceManager.GetObject("saveB", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap saveEW {
+            get {
+                object obj = ResourceManager.GetObject("saveEW", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap sc_closedoc {
+            get {
+                object obj = ResourceManager.GetObject("sc_closedoc", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap sc_copy {
+            get {
+                object obj = ResourceManager.GetObject("sc_copy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap sc_cut {
+            get {
+                object obj = ResourceManager.GetObject("sc_cut", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap sc_delete {
+            get {
+                object obj = ResourceManager.GetObject("sc_delete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap sc_fontdialog {
+            get {
+                object obj = ResourceManager.GetObject("sc_fontdialog", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap sc_gotoendofdoc {
+            get {
+                object obj = ResourceManager.GetObject("sc_gotoendofdoc", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap sc_gotopage {
+            get {
+                object obj = ResourceManager.GetObject("sc_gotopage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap sc_gotostartoftable {
+            get {
+                object obj = ResourceManager.GetObject("sc_gotostartoftable", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap sc_gramlex {
+            get {
+                object obj = ResourceManager.GetObject("sc_gramlex", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap sc_newdoc {
+            get {
+                object obj = ResourceManager.GetObject("sc_newdoc", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap sc_open {
+            get {
+                object obj = ResourceManager.GetObject("sc_open", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap sc_paste {
+            get {
+                object obj = ResourceManager.GetObject("sc_paste", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap sc_redo {
+            get {
+                object obj = ResourceManager.GetObject("sc_redo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap sc_rename {
+            get {
+                object obj = ResourceManager.GetObject("sc_rename", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap sc_save {
+            get {
+                object obj = ResourceManager.GetObject("sc_save", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap sc_selectall {
+            get {
+                object obj = ResourceManager.GetObject("sc_selectall", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap sc_star {
+            get {
+                object obj = ResourceManager.GetObject("sc_star", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap sc_undo {
+            get {
+                object obj = ResourceManager.GetObject("sc_undo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap sc_webhtml {
+            get {
+                object obj = ResourceManager.GetObject("sc_webhtml", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -858,9 +1470,23 @@ namespace PrologParsec.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap undoEW {
+            get {
+                object obj = ResourceManager.GetObject("undoEW", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap vista_about {
             get {
                 object obj = ResourceManager.GetObject("vista_about", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap warning {
+            get {
+                object obj = ResourceManager.GetObject("warning", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -138,10 +138,10 @@
     <value>Built using Visual Studio 2005 and C#. Credits to Pavel Torgashov for "Fast Colored Textbox" and "Autocomplete Menu". Prolog is a logic-based programming language. Built by fraaa3</value>
   </data>
   <data name="AppVersion" xml:space="preserve">
-    <value>0.2.243.0.tf/p-231111</value>
+    <value>0.2.256.0.tf/p-231128</value>
   </data>
   <data name="AppDate" xml:space="preserve">
-    <value>November 11th, 2023</value>
+    <value>November 28th, 2023</value>
   </data>
   <data name="select" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\select.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -466,5 +466,269 @@
   </data>
   <data name="prolog" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logix3.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gramlex" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Group 6.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PEDescription" xml:space="preserve">
+    <value>An easy-to-use GUI for JFlex and ByaccJ</value>
+  </data>
+  <data name="PEDescription2" xml:space="preserve">
+    <value>Built using Visual Studio 2005 and C#. JFlex is a program built by the JFlex team on jflex.de. ByaccJ is a program built by Tomas Hurka on byaccj.sourceforge.net.  Built by fraaa3</value>
+  </data>
+  <data name="PEEdition" xml:space="preserve">
+    <value>Hyperdemo (Logix)</value>
+  </data>
+  <data name="PEName" xml:space="preserve">
+    <value>Gramlex</value>
+  </data>
+  <data name="PEVersion" xml:space="preserve">
+    <value>0.5.543.0.lx/p-231128</value>
+  </data>
+  <data name="flatMetro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\flatMetro.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lc_list_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lc_list-add.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lc_open" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lc_open.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lc_zoomtoolbox" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lc_zoomtoolbox.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sc_closedoc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sc_closedoc.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sc_copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sc_copy.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sc_cut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sc_cut.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sc_delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sc_delete.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sc_fontdialog" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sc_fontdialog.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sc_gotoendofdoc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sc_gotoendofdoc.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sc_gotopage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sc_gotopage.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sc_gotostartoftable" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sc_gotostartoftable.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sc_newdoc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sc_newdoc.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sc_open" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sc_open.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sc_paste" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sc_paste.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sc_redo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sc_redo.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sc_rename" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sc20245.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sc_save" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sc_save.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sc_selectall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sc_selectall.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sc_star" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon-set-stars-full.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sc_undo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sc_undo.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sc_webhtml" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sc_webhtml.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\warning.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lunaAdd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lunaAdd.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lunaBack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lunaBack.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lunaBookMark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lunaBookMark.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lunaCopy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lunaCopy.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lunaCut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lunaCut.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lunaDelete1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lunaDelete1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lunaFind" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lunaFind.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lunaFont" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lunaFont.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lunaGoTo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lunaGoTo.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lunaIcons" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lunaIcons.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lunaLink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lunaLink.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lunaNew" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lunaNew.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lunaNext" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lunaNext.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lunaOpen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lunaOpen.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lunaPaste" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lunaPaste.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lunaRedo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lunaRedo.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lunaRemove" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lunaRemove.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lunaSave" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lunaSave.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lunaSelect" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lunaSelect.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lunaUndo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lunaUndo.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pantherBookmark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pantherBookmark.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pantherCopy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pantherCopy.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pantherCut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pantherCut.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pantherFind" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pantherFind.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pantherFont" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pantherFont.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pantherGoTo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pantherGoTo.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pantherIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pantherIcon.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pantherLink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pantherLink.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pantherMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pantherMenu.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pantherNew" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pantherNew.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pantherNew16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pantherNew16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pantherOpen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pantherOpen.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pantherOpen16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pantherOpen16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pantherPaste" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pantherPaste.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pantherRedo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pantherRedo.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pantherSave" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pantherSave.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pantherSelect" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pantherSelect.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pantherUndo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pantherUndo.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gramlex2000" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gramlex2000.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gramlexAero" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Document-Auto Format.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gramlexB" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gramlexB.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lunaGramlex" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lunaGramlex.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="macGramlex" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\document-share.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sc_gramlex" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sc_duplicatepage.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="copyEW" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\copyEW.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cutEW" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cutEW.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="emacs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\emacs.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="emacsIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\emacsIcon.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="findEW" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\findEW.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="newEW" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\newEW.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="openEW" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\openEW.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pasteEW" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pasteEW.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="save2EW" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\save2EW.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="saveEW" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\saveEW.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="undoEW" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\undoEW.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Event" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Event.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Method" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Method.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Property" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Property.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

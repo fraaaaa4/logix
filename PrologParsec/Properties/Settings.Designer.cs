@@ -2336,5 +2336,1121 @@ namespace PrologParsec.Properties {
                 this["bYaccGUI"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool gramlexIntegration {
+            get {
+                return ((bool)(this["gramlexIntegration"]));
+            }
+            set {
+                this["gramlexIntegration"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string gramlexLexical {
+            get {
+                return ((string)(this["gramlexLexical"]));
+            }
+            set {
+                this["gramlexLexical"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string gramlexParser {
+            get {
+                return ((string)(this["gramlexParser"]));
+            }
+            set {
+                this["gramlexParser"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool gramlexJavaRun {
+            get {
+                return ((bool)(this["gramlexJavaRun"]));
+            }
+            set {
+                this["gramlexJavaRun"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool gramlexSkeleton {
+            get {
+                return ((bool)(this["gramlexSkeleton"]));
+            }
+            set {
+                this["gramlexSkeleton"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool gramlexEncoding {
+            get {
+                return ((bool)(this["gramlexEncoding"]));
+            }
+            set {
+                this["gramlexEncoding"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool gramlexDefaultCode {
+            get {
+                return ((bool)(this["gramlexDefaultCode"]));
+            }
+            set {
+                this["gramlexDefaultCode"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool gramlexJLEX {
+            get {
+                return ((bool)(this["gramlexJLEX"]));
+            }
+            set {
+                this["gramlexJLEX"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool gramlexMinimization {
+            get {
+                return ((bool)(this["gramlexMinimization"]));
+            }
+            set {
+                this["gramlexMinimization"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool gramlexLegacyDot {
+            get {
+                return ((bool)(this["gramlexLegacyDot"]));
+            }
+            set {
+                this["gramlexLegacyDot"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool gramlexBackup {
+            get {
+                return ((bool)(this["gramlexBackup"]));
+            }
+            set {
+                this["gramlexBackup"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool gramlexTransition {
+            get {
+                return ((bool)(this["gramlexTransition"]));
+            }
+            set {
+                this["gramlexTransition"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool gramlexAutomata {
+            get {
+                return ((bool)(this["gramlexAutomata"]));
+            }
+            set {
+                this["gramlexAutomata"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string gramlexSkeletonFile {
+            get {
+                return ((string)(this["gramlexSkeletonFile"]));
+            }
+            set {
+                this["gramlexSkeletonFile"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string gramlexEncodingCustom {
+            get {
+                return ((string)(this["gramlexEncodingCustom"]));
+            }
+            set {
+                this["gramlexEncodingCustom"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string gramlexOutput {
+            get {
+                return ((string)(this["gramlexOutput"]));
+            }
+            set {
+                this["gramlexOutput"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string gramlexJFlexArguments {
+            get {
+                return ((string)(this["gramlexJFlexArguments"]));
+            }
+            set {
+                this["gramlexJFlexArguments"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string gramlexByaccArguments {
+            get {
+                return ((string)(this["gramlexByaccArguments"]));
+            }
+            set {
+                this["gramlexByaccArguments"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool gramlexExclusive {
+            get {
+                return ((bool)(this["gramlexExclusive"]));
+            }
+            set {
+                this["gramlexExclusive"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string byaccPathName {
+            get {
+                return ((string)(this["byaccPathName"]));
+            }
+            set {
+                this["byaccPathName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool rulerVisible {
+            get {
+                return ((bool)(this["rulerVisible"]));
+            }
+            set {
+                this["rulerVisible"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Blue")]
+        public global::System.Drawing.Color hyperlinkForeColor {
+            get {
+                return ((global::System.Drawing.Color)(this["hyperlinkForeColor"]));
+            }
+            set {
+                this["hyperlinkForeColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Underline")]
+        public global::System.Drawing.FontStyle hyperlinkFontStyle {
+            get {
+                return ((global::System.Drawing.FontStyle)(this["hyperlinkFontStyle"]));
+            }
+            set {
+                this["hyperlinkFontStyle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Transparent")]
+        public global::System.Drawing.Color hyperlinkBackColor {
+            get {
+                return ((global::System.Drawing.Color)(this["hyperlinkBackColor"]));
+            }
+            set {
+                this["hyperlinkBackColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool wordWrapTab {
+            get {
+                return ((bool)(this["wordWrapTab"]));
+            }
+            set {
+                this["wordWrapTab"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool logixTabsClose {
+            get {
+                return ((bool)(this["logixTabsClose"]));
+            }
+            set {
+                this["logixTabsClose"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool syntaxTabChange {
+            get {
+                return ((bool)(this["syntaxTabChange"]));
+            }
+            set {
+                this["syntaxTabChange"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool documentMapNewTab {
+            get {
+                return ((bool)(this["documentMapNewTab"]));
+            }
+            set {
+                this["documentMapNewTab"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool micaVariant {
+            get {
+                return ((bool)(this["micaVariant"]));
+            }
+            set {
+                this["micaVariant"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool flat8Style {
+            get {
+                return ((bool)(this["flat8Style"]));
+            }
+            set {
+                this["flat8Style"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string syntaxTabNew {
+            get {
+                return ((string)(this["syntaxTabNew"]));
+            }
+            set {
+                this["syntaxTabNew"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool lunaXPStyle {
+            get {
+                return ((bool)(this["lunaXPStyle"]));
+            }
+            set {
+                this["lunaXPStyle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool micaVariantForce {
+            get {
+                return ((bool)(this["micaVariantForce"]));
+            }
+            set {
+                this["micaVariantForce"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool PantherStyle {
+            get {
+                return ((bool)(this["PantherStyle"]));
+            }
+            set {
+                this["PantherStyle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool PantherToolbarBackground {
+            get {
+                return ((bool)(this["PantherToolbarBackground"]));
+            }
+            set {
+                this["PantherToolbarBackground"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool syntaxTabNewChange {
+            get {
+                return ((bool)(this["syntaxTabNewChange"]));
+            }
+            set {
+                this["syntaxTabNewChange"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("%% Mode: Prolog %%")]
+        public string headerProlog {
+            get {
+                return ((string)(this["headerProlog"]));
+            }
+            set {
+                this["headerProlog"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("%% End of file")]
+        public string footerProlog {
+            get {
+                return ((string)(this["footerProlog"]));
+            }
+            set {
+                this["footerProlog"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(";;End of file")]
+        public string footerLisp {
+            get {
+                return ((string)(this["footerLisp"]));
+            }
+            set {
+                this["footerLisp"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("//end of file")]
+        public string footerjflex {
+            get {
+                return ((string)(this["footerjflex"]));
+            }
+            set {
+                this["footerjflex"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("/* end of file")]
+        public string footeryacc {
+            get {
+                return ((string)(this["footeryacc"]));
+            }
+            set {
+                this["footeryacc"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("///// Mode: plain text")]
+        public string headernone {
+            get {
+                return ((string)(this["headernone"]));
+            }
+            set {
+                this["headernone"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("///// End")]
+        public string footernone {
+            get {
+                return ((string)(this["footernone"]));
+            }
+            set {
+                this["footernone"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool customHeaderFooter {
+            get {
+                return ((bool)(this["customHeaderFooter"]));
+            }
+            set {
+                this["customHeaderFooter"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool footerPath {
+            get {
+                return ((bool)(this["footerPath"]));
+            }
+            set {
+                this["footerPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        public int saveTimer {
+            get {
+                return ((int)(this["saveTimer"]));
+            }
+            set {
+                this["saveTimer"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool caseSensitive {
+            get {
+                return ((bool)(this["caseSensitive"]));
+            }
+            set {
+                this["caseSensitive"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool wholeWordsFind {
+            get {
+                return ((bool)(this["wholeWordsFind"]));
+            }
+            set {
+                this["wholeWordsFind"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool emacsStyle {
+            get {
+                return ((bool)(this["emacsStyle"]));
+            }
+            set {
+                this["emacsStyle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("DimGray")]
+        public global::System.Drawing.Color cCommentForeColor {
+            get {
+                return ((global::System.Drawing.Color)(this["cCommentForeColor"]));
+            }
+            set {
+                this["cCommentForeColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Transparent")]
+        public global::System.Drawing.Color cCommentBackColor {
+            get {
+                return ((global::System.Drawing.Color)(this["cCommentBackColor"]));
+            }
+            set {
+                this["cCommentBackColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("MediumSeaGreen")]
+        public global::System.Drawing.Color cStringForeColor {
+            get {
+                return ((global::System.Drawing.Color)(this["cStringForeColor"]));
+            }
+            set {
+                this["cStringForeColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Transparent")]
+        public global::System.Drawing.Color cStringBackColor {
+            get {
+                return ((global::System.Drawing.Color)(this["cStringBackColor"]));
+            }
+            set {
+                this["cStringBackColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("IndianRed")]
+        public global::System.Drawing.Color cNumberForeColor {
+            get {
+                return ((global::System.Drawing.Color)(this["cNumberForeColor"]));
+            }
+            set {
+                this["cNumberForeColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Transparent")]
+        public global::System.Drawing.Color cNumberBackColor {
+            get {
+                return ((global::System.Drawing.Color)(this["cNumberBackColor"]));
+            }
+            set {
+                this["cNumberBackColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("SkyBlue")]
+        public global::System.Drawing.Color cAttributeForeColor {
+            get {
+                return ((global::System.Drawing.Color)(this["cAttributeForeColor"]));
+            }
+            set {
+                this["cAttributeForeColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Transparent")]
+        public global::System.Drawing.Color cAttributeBackColor {
+            get {
+                return ((global::System.Drawing.Color)(this["cAttributeBackColor"]));
+            }
+            set {
+                this["cAttributeBackColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Coral")]
+        public global::System.Drawing.Color cClassForeColor {
+            get {
+                return ((global::System.Drawing.Color)(this["cClassForeColor"]));
+            }
+            set {
+                this["cClassForeColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Transparent")]
+        public global::System.Drawing.Color cClassBackColor {
+            get {
+                return ((global::System.Drawing.Color)(this["cClassBackColor"]));
+            }
+            set {
+                this["cClassBackColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("CornflowerBlue")]
+        public global::System.Drawing.Color cKeywordForeColor {
+            get {
+                return ((global::System.Drawing.Color)(this["cKeywordForeColor"]));
+            }
+            set {
+                this["cKeywordForeColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Transparent")]
+        public global::System.Drawing.Color cKeywordBackColor {
+            get {
+                return ((global::System.Drawing.Color)(this["cKeywordBackColor"]));
+            }
+            set {
+                this["cKeywordBackColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Gray")]
+        public global::System.Drawing.Color cCommentTagForeColor {
+            get {
+                return ((global::System.Drawing.Color)(this["cCommentTagForeColor"]));
+            }
+            set {
+                this["cCommentTagForeColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Transparent")]
+        public global::System.Drawing.Color cCommentTagBackColor {
+            get {
+                return ((global::System.Drawing.Color)(this["cCommentTagBackColor"]));
+            }
+            set {
+                this["cCommentTagBackColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Italic")]
+        public global::System.Drawing.FontStyle cCommentTagFontStyle {
+            get {
+                return ((global::System.Drawing.FontStyle)(this["cCommentTagFontStyle"]));
+            }
+            set {
+                this["cCommentTagFontStyle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Bold")]
+        public global::System.Drawing.FontStyle cKeywordFontStyle {
+            get {
+                return ((global::System.Drawing.FontStyle)(this["cKeywordFontStyle"]));
+            }
+            set {
+                this["cKeywordFontStyle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Regular")]
+        public global::System.Drawing.FontStyle cClassFontStyle {
+            get {
+                return ((global::System.Drawing.FontStyle)(this["cClassFontStyle"]));
+            }
+            set {
+                this["cClassFontStyle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Regular")]
+        public global::System.Drawing.FontStyle cAttributeFontStyle {
+            get {
+                return ((global::System.Drawing.FontStyle)(this["cAttributeFontStyle"]));
+            }
+            set {
+                this["cAttributeFontStyle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Regular")]
+        public global::System.Drawing.FontStyle cNumberFontStyle {
+            get {
+                return ((global::System.Drawing.FontStyle)(this["cNumberFontStyle"]));
+            }
+            set {
+                this["cNumberFontStyle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Regular")]
+        public global::System.Drawing.FontStyle cStringFontStyle {
+            get {
+                return ((global::System.Drawing.FontStyle)(this["cStringFontStyle"]));
+            }
+            set {
+                this["cStringFontStyle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Italic")]
+        public global::System.Drawing.FontStyle cCommentFontStyle {
+            get {
+                return ((global::System.Drawing.FontStyle)(this["cCommentFontStyle"]));
+            }
+            set {
+                this["cCommentFontStyle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Regular")]
+        public global::System.Drawing.FontStyle cBracketsFontStyle {
+            get {
+                return ((global::System.Drawing.FontStyle)(this["cBracketsFontStyle"]));
+            }
+            set {
+                this["cBracketsFontStyle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("DarkCyan")]
+        public global::System.Drawing.Color cBracketsForeColor {
+            get {
+                return ((global::System.Drawing.Color)(this["cBracketsForeColor"]));
+            }
+            set {
+                this["cBracketsForeColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Transparent")]
+        public global::System.Drawing.Color cBracketsBackColor {
+            get {
+                return ((global::System.Drawing.Color)(this["cBracketsBackColor"]));
+            }
+            set {
+                this["cBracketsBackColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Transparent")]
+        public global::System.Drawing.Color cOperatorBackColor {
+            get {
+                return ((global::System.Drawing.Color)(this["cOperatorBackColor"]));
+            }
+            set {
+                this["cOperatorBackColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Regular")]
+        public global::System.Drawing.FontStyle cOperatorFontStyle {
+            get {
+                return ((global::System.Drawing.FontStyle)(this["cOperatorFontStyle"]));
+            }
+            set {
+                this["cOperatorFontStyle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Orchid")]
+        public global::System.Drawing.Color cOperatorForeColor {
+            get {
+                return ((global::System.Drawing.Color)(this["cOperatorForeColor"]));
+            }
+            set {
+                this["cOperatorForeColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool objectBrowser {
+            get {
+                return ((bool)(this["objectBrowser"]));
+            }
+            set {
+                this["objectBrowser"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool objectBrowserSort {
+            get {
+                return ((bool)(this["objectBrowserSort"]));
+            }
+            set {
+                this["objectBrowserSort"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("// Mode: C")]
+        public string headerC {
+            get {
+                return ((string)(this["headerC"]));
+            }
+            set {
+                this["headerC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("// End of file")]
+        public string footerC {
+            get {
+                return ((string)(this["footerC"]));
+            }
+            set {
+                this["footerC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("WhiteSmoke")]
+        public global::System.Drawing.Color newFluentColor {
+            get {
+                return ((global::System.Drawing.Color)(this["newFluentColor"]));
+            }
+            set {
+                this["newFluentColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Goldenrod")]
+        public global::System.Drawing.Color openFluentColor {
+            get {
+                return ((global::System.Drawing.Color)(this["openFluentColor"]));
+            }
+            set {
+                this["openFluentColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("DeepSkyBlue")]
+        public global::System.Drawing.Color saveFluentColor {
+            get {
+                return ((global::System.Drawing.Color)(this["saveFluentColor"]));
+            }
+            set {
+                this["saveFluentColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Brown")]
+        public global::System.Drawing.Color cutFluentColor {
+            get {
+                return ((global::System.Drawing.Color)(this["cutFluentColor"]));
+            }
+            set {
+                this["cutFluentColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("LightSeaGreen")]
+        public global::System.Drawing.Color copyFluentColor {
+            get {
+                return ((global::System.Drawing.Color)(this["copyFluentColor"]));
+            }
+            set {
+                this["copyFluentColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("SteelBlue")]
+        public global::System.Drawing.Color undoFluentColor {
+            get {
+                return ((global::System.Drawing.Color)(this["undoFluentColor"]));
+            }
+            set {
+                this["undoFluentColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("RoyalBlue")]
+        public global::System.Drawing.Color redoFluentColor {
+            get {
+                return ((global::System.Drawing.Color)(this["redoFluentColor"]));
+            }
+            set {
+                this["redoFluentColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Indigo")]
+        public global::System.Drawing.Color fontFluentColor {
+            get {
+                return ((global::System.Drawing.Color)(this["fontFluentColor"]));
+            }
+            set {
+                this["fontFluentColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("PaleGreen")]
+        public global::System.Drawing.Color backFluentColor {
+            get {
+                return ((global::System.Drawing.Color)(this["backFluentColor"]));
+            }
+            set {
+                this["backFluentColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("PaleGreen")]
+        public global::System.Drawing.Color nextFluentColor {
+            get {
+                return ((global::System.Drawing.Color)(this["nextFluentColor"]));
+            }
+            set {
+                this["nextFluentColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Orange")]
+        public global::System.Drawing.Color pasteFluentColor {
+            get {
+                return ((global::System.Drawing.Color)(this["pasteFluentColor"]));
+            }
+            set {
+                this["pasteFluentColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("DarkTurquoise")]
+        public global::System.Drawing.Color gramlexFluentColor {
+            get {
+                return ((global::System.Drawing.Color)(this["gramlexFluentColor"]));
+            }
+            set {
+                this["gramlexFluentColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool fluentColorIcons {
+            get {
+                return ((bool)(this["fluentColorIcons"]));
+            }
+            set {
+                this["fluentColorIcons"] = value;
+            }
+        }
     }
 }

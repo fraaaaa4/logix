@@ -581,5 +581,284 @@
     <Setting Name="bYaccGUI" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="gramlexIntegration" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="gramlexLexical" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="gramlexParser" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="gramlexJavaRun" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="gramlexSkeleton" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="gramlexEncoding" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="gramlexDefaultCode" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="gramlexJLEX" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="gramlexMinimization" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="gramlexLegacyDot" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="gramlexBackup" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="gramlexTransition" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="gramlexAutomata" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="gramlexSkeletonFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="gramlexEncodingCustom" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="gramlexOutput" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="gramlexJFlexArguments" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="gramlexByaccArguments" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="gramlexExclusive" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="byaccPathName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="rulerVisible" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="hyperlinkForeColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Blue</Value>
+    </Setting>
+    <Setting Name="hyperlinkFontStyle" Type="System.Drawing.FontStyle" Scope="User">
+      <Value Profile="(Default)">Underline</Value>
+    </Setting>
+    <Setting Name="hyperlinkBackColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Transparent</Value>
+    </Setting>
+    <Setting Name="wordWrapTab" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="logixTabsClose" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="syntaxTabChange" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="documentMapNewTab" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="micaVariant" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="flat8Style" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="syntaxTabNew" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="lunaXPStyle" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="micaVariantForce" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="PantherStyle" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="PantherToolbarBackground" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="syntaxTabNewChange" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="headerProlog" Type="System.String" Scope="User">
+      <Value Profile="(Default)">%% Mode: Prolog %%</Value>
+    </Setting>
+    <Setting Name="footerProlog" Type="System.String" Scope="User">
+      <Value Profile="(Default)">%% End of file</Value>
+    </Setting>
+    <Setting Name="footerLisp" Type="System.String" Scope="User">
+      <Value Profile="(Default)">;;End of file</Value>
+    </Setting>
+    <Setting Name="footerjflex" Type="System.String" Scope="User">
+      <Value Profile="(Default)">//end of file</Value>
+    </Setting>
+    <Setting Name="footeryacc" Type="System.String" Scope="User">
+      <Value Profile="(Default)">/* end of file</Value>
+    </Setting>
+    <Setting Name="headernone" Type="System.String" Scope="User">
+      <Value Profile="(Default)">///// Mode: plain text</Value>
+    </Setting>
+    <Setting Name="footernone" Type="System.String" Scope="User">
+      <Value Profile="(Default)">///// End</Value>
+    </Setting>
+    <Setting Name="customHeaderFooter" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="footerPath" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="saveTimer" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="caseSensitive" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="wholeWordsFind" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="emacsStyle" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="cCommentForeColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">DimGray</Value>
+    </Setting>
+    <Setting Name="cCommentBackColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Transparent</Value>
+    </Setting>
+    <Setting Name="cStringForeColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">MediumSeaGreen</Value>
+    </Setting>
+    <Setting Name="cStringBackColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Transparent</Value>
+    </Setting>
+    <Setting Name="cNumberForeColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">IndianRed</Value>
+    </Setting>
+    <Setting Name="cNumberBackColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Transparent</Value>
+    </Setting>
+    <Setting Name="cAttributeForeColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">SkyBlue</Value>
+    </Setting>
+    <Setting Name="cAttributeBackColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Transparent</Value>
+    </Setting>
+    <Setting Name="cClassForeColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Coral</Value>
+    </Setting>
+    <Setting Name="cClassBackColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Transparent</Value>
+    </Setting>
+    <Setting Name="cKeywordForeColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">CornflowerBlue</Value>
+    </Setting>
+    <Setting Name="cKeywordBackColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Transparent</Value>
+    </Setting>
+    <Setting Name="cCommentTagForeColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Gray</Value>
+    </Setting>
+    <Setting Name="cCommentTagBackColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Transparent</Value>
+    </Setting>
+    <Setting Name="cCommentTagFontStyle" Type="System.Drawing.FontStyle" Scope="User">
+      <Value Profile="(Default)">Italic</Value>
+    </Setting>
+    <Setting Name="cKeywordFontStyle" Type="System.Drawing.FontStyle" Scope="User">
+      <Value Profile="(Default)">Bold</Value>
+    </Setting>
+    <Setting Name="cClassFontStyle" Type="System.Drawing.FontStyle" Scope="User">
+      <Value Profile="(Default)">Regular</Value>
+    </Setting>
+    <Setting Name="cAttributeFontStyle" Type="System.Drawing.FontStyle" Scope="User">
+      <Value Profile="(Default)">Regular</Value>
+    </Setting>
+    <Setting Name="cNumberFontStyle" Type="System.Drawing.FontStyle" Scope="User">
+      <Value Profile="(Default)">Regular</Value>
+    </Setting>
+    <Setting Name="cStringFontStyle" Type="System.Drawing.FontStyle" Scope="User">
+      <Value Profile="(Default)">Regular</Value>
+    </Setting>
+    <Setting Name="cCommentFontStyle" Type="System.Drawing.FontStyle" Scope="User">
+      <Value Profile="(Default)">Italic</Value>
+    </Setting>
+    <Setting Name="cBracketsFontStyle" Type="System.Drawing.FontStyle" Scope="User">
+      <Value Profile="(Default)">Regular</Value>
+    </Setting>
+    <Setting Name="cBracketsForeColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">DarkCyan</Value>
+    </Setting>
+    <Setting Name="cBracketsBackColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Transparent</Value>
+    </Setting>
+    <Setting Name="cOperatorBackColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Transparent</Value>
+    </Setting>
+    <Setting Name="cOperatorFontStyle" Type="System.Drawing.FontStyle" Scope="User">
+      <Value Profile="(Default)">Regular</Value>
+    </Setting>
+    <Setting Name="cOperatorForeColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Orchid</Value>
+    </Setting>
+    <Setting Name="objectBrowser" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="objectBrowserSort" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="headerC" Type="System.String" Scope="User">
+      <Value Profile="(Default)">// Mode: C</Value>
+    </Setting>
+    <Setting Name="footerC" Type="System.String" Scope="User">
+      <Value Profile="(Default)">// End of file</Value>
+    </Setting>
+    <Setting Name="newFluentColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">WhiteSmoke</Value>
+    </Setting>
+    <Setting Name="openFluentColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Goldenrod</Value>
+    </Setting>
+    <Setting Name="saveFluentColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">DeepSkyBlue</Value>
+    </Setting>
+    <Setting Name="cutFluentColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Brown</Value>
+    </Setting>
+    <Setting Name="copyFluentColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">LightSeaGreen</Value>
+    </Setting>
+    <Setting Name="undoFluentColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">SteelBlue</Value>
+    </Setting>
+    <Setting Name="redoFluentColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">RoyalBlue</Value>
+    </Setting>
+    <Setting Name="fontFluentColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Indigo</Value>
+    </Setting>
+    <Setting Name="backFluentColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">PaleGreen</Value>
+    </Setting>
+    <Setting Name="nextFluentColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">PaleGreen</Value>
+    </Setting>
+    <Setting Name="pasteFluentColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Orange</Value>
+    </Setting>
+    <Setting Name="gramlexFluentColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">DarkTurquoise</Value>
+    </Setting>
+    <Setting Name="fluentColorIcons" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
