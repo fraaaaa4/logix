@@ -95,6 +95,18 @@
     <Compile Include="AboutBox1.Designer.cs">
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </Compile>
+    <Compile Include="LogixPE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogixPE.Designer.cs">
+      <DependentUpon>LogixPE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogixPEHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogixPEHelp.Designer.cs">
+      <DependentUpon>LogixPEHelp.cs</DependentUpon>
+    </Compile>
     <Compile Include="MDIParent1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +121,14 @@
       <SubType>Designer</SubType>
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LogixPE.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>LogixPE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogixPEHelp.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>LogixPEHelp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MDIParent1.resx">
       <SubType>Designer</SubType>
       <DependentUpon>MDIParent1.cs</DependentUpon>
@@ -121,10 +141,6 @@
     <EmbeddedResource Include="Settings.resx">
       <SubType>Designer</SubType>
       <DependentUpon>Settings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="xmlDetails.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>xmlDetails.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -145,12 +161,6 @@
     </Compile>
     <Compile Include="Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
-    </Compile>
-    <Compile Include="xmlDetails.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="xmlDetails.Designer.cs">
-      <DependentUpon>xmlDetails.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -530,6 +540,90 @@
   <ItemGroup>
     <Content Include="logix2.ico" />
     <Content Include="logix3.ico" />
+    <None Include="Resources\Property.png" />
+    <None Include="Resources\Event.png" />
+    <None Include="Resources\Method.png" />
+    <None Include="Resources\Class.png" />
+    <None Include="Resources\emacs.ico" />
+    <None Include="Resources\emacsIcon.png" />
+    <None Include="Resources\undoEW.png" />
+    <None Include="Resources\saveEW.png" />
+    <None Include="Resources\save2EW.png" />
+    <None Include="Resources\pasteEW.png" />
+    <None Include="Resources\openEW.png" />
+    <None Include="Resources\newEW.png" />
+    <None Include="Resources\findEW.png" />
+    <None Include="Resources\cutEW.png" />
+    <None Include="Resources\copyEW.png" />
+    <None Include="Resources\lunaGramlex.png" />
+    <None Include="Resources\document-share.png" />
+    <None Include="Resources\baloo.png" />
+    <None Include="Resources\sc_duplicatepage.png" />
+    <None Include="Resources\Document-Auto Format.png" />
+    <None Include="Resources\gramlex2000.png" />
+    <None Include="Resources\gramlexB.png" />
+    <None Include="Resources\pantherOpen16.png" />
+    <None Include="Resources\pantherNew16.png" />
+    <None Include="Resources\pantherMenu.png" />
+    <None Include="Resources\pantherIcon.png" />
+    <None Include="Resources\pantherUndo.png" />
+    <None Include="Resources\pantherSelect.png" />
+    <None Include="Resources\pantherSave.png" />
+    <None Include="Resources\pantherRedo.png" />
+    <None Include="Resources\pantherPaste.png" />
+    <None Include="Resources\pantherOpen.png" />
+    <None Include="Resources\pantherNew.png" />
+    <None Include="Resources\pantherLink.png" />
+    <None Include="Resources\pantherGoTo.png" />
+    <None Include="Resources\pantherFont.png" />
+    <None Include="Resources\pantherFind.png" />
+    <None Include="Resources\pantherCut.png" />
+    <None Include="Resources\pantherCopy.png" />
+    <None Include="Resources\pantherBookmark.png" />
+    <None Include="Resources\lunaIcons.png" />
+    <None Include="Resources\lunaUndo.png" />
+    <None Include="Resources\lunaSelect.png" />
+    <None Include="Resources\lunaSave.png" />
+    <None Include="Resources\lunaRemove.png" />
+    <None Include="Resources\lunaRedo.png" />
+    <None Include="Resources\lunaPaste.png" />
+    <None Include="Resources\lunaOpen.png" />
+    <None Include="Resources\lunaNext.png" />
+    <None Include="Resources\lunaNew.png" />
+    <None Include="Resources\lunaLink.png" />
+    <None Include="Resources\lunaGoTo.png" />
+    <None Include="Resources\lunaFont.png" />
+    <None Include="Resources\lunaFind.png" />
+    <None Include="Resources\lunaDelete1.png" />
+    <None Include="Resources\lunaCut.png" />
+    <None Include="Resources\lunaCopy.png" />
+    <None Include="Resources\lunaBookMark.png" />
+    <None Include="Resources\lunaBack.png" />
+    <None Include="Resources\lunaAdd.png" />
+    <None Include="Resources\warning.png" />
+    <None Include="Resources\flatMetro.png" />
+    <None Include="Resources\icon-set-stars-full.png" />
+    <None Include="Resources\sc_webhtml.png" />
+    <None Include="Resources\sc_gotopage.png" />
+    <None Include="Resources\lc_zoomtoolbox.png" />
+    <None Include="Resources\sc_closedoc.png" />
+    <None Include="Resources\sc_selectall.png" />
+    <None Include="Resources\lc_open.png" />
+    <None Include="Resources\sc20245.png" />
+    <None Include="Resources\sc_delete.png" />
+    <None Include="Resources\lc_list-add.png" />
+    <None Include="Resources\sc_gotoendofdoc.png" />
+    <None Include="Resources\sc_gotostartoftable.png" />
+    <None Include="Resources\sc_fontdialog.png" />
+    <None Include="Resources\sc_redo.png" />
+    <None Include="Resources\sc_undo.png" />
+    <None Include="Resources\sc_paste.png" />
+    <None Include="Resources\sc_copy.png" />
+    <None Include="Resources\sc_cut.png" />
+    <None Include="Resources\sc_open.png" />
+    <None Include="Resources\sc_newdoc.png" />
+    <None Include="Resources\sc_save.png" />
+    <None Include="Resources\Group 6.png" />
     <None Include="Resources\Group 3.png" />
     <None Include="Resources\logix3.ico" />
   </ItemGroup>

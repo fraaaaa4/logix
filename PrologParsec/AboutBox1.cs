@@ -10,65 +10,11 @@ using Microsoft.Win32;
 
 namespace PrologParsec
 {
+   
+
     partial class AboutBox1 : Form
     {
-        static string productName; static string currentVersion; static string buildLab;
-        static string GetWindowsVersion()
-        {
-            using (RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion"))
-            {
-                if (key != null)
-                {
-                    productName = key.GetValue("ProductName") as string;
-                    currentVersion = key.GetValue("CurrentVersion") as string;
-                    buildLab = key.GetValue("BuildLab") as string;
-
-                    return currentVersion;
-                }
-                else
-                {
-                    return "No.";
-                }
-            }
-        }
-
-        static string GetWindowsProductName()
-        {
-            using (RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion"))
-            {
-                if (key != null)
-                {
-                    productName = key.GetValue("ProductName") as string;
-                    currentVersion = key.GetValue("CurrentVersion") as string;
-                    buildLab = key.GetValue("BuildLab") as string;
-
-                    return productName;
-                }
-                else
-                {
-                    return "No.";
-                }
-            }
-        }
-
-        static string GetBuildLab()
-        {
-            using (RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion"))
-            {
-                if (key != null)
-                {
-                    productName = key.GetValue("ProductName") as string;
-                    currentVersion = key.GetValue("CurrentVersion") as string;
-                    buildLab = key.GetValue("BuildLab") as string;
-
-                    return buildLab;
-                }
-                else
-                {
-                    return "No.";
-                }
-            }
-        }
+        
 
         public AboutBox1()
         {
@@ -87,13 +33,13 @@ namespace PrologParsec
         private void WindowsCheck()
         {
             //check windows version
-            string version = GetWindowsVersion();
-            if (version == "4.0" || version == "5.0" || version == "5.1" || version == "6.0")
+            Version version = NtDll.RtlGetVersion();
+            if (version.Major==  4 || version.Major==  5 && (version.Minor== 0 || version.Minor==  1 || version.Minor==  2) || (version.Major==  6 && (version.Minor==  0 || version.Minor==  1) ))
             {
                 webBrowser1.Visible = false;
                 pictureBox2.Visible = true;
             }
-            else if (version == "6.2" || version == "6.3")
+            else if (version.Major== 6 && (version.Minor==  2 || version.Minor== 3) || version.Major==  10)
             {
                 webBrowser1.Visible = true;
                 pictureBox2.Visible = false;
@@ -105,8 +51,8 @@ namespace PrologParsec
             }
 
             //debugging Windows version
-            label7.Text = GetWindowsProductName();
-            label9.Text = "Windows NT " + GetWindowsVersion();
+            label7.Text = "Windows NT " + version.Major;
+            label9.Text = "Version " + version.Major + "." + version.Minor + " build " + version.Build;
 
             //Windows 9x check
             if (label7.Text.Equals(string.Empty) || label9.Text.Equals(string.Empty))
@@ -116,32 +62,28 @@ namespace PrologParsec
             }
 
             //windows version check
-            if (version == "5.0")
+            if (version.Major ==  5 == true && version.Minor==  0 == true)
             {
                 pictureBox3.Image = Properties.Resources.ME_about;
-            } else if (version == "5.1")
+            } else if (version.Major ==  5 && (version.Minor==  1 || version.Minor==  2))
             {
                 pictureBox3.Image = Properties.Resources.XP_about;
             }
-            else if (version == "6.0")
+            else if (version.Major ==  6 && version.Minor==  0)
             {
                 pictureBox3.Image = Properties.Resources.vista_about;
             }
-            else if (version == "6.1")
+            else if (version.Major==  6 && version.Minor==  1)
             {
                 pictureBox3.Image = Properties.Resources._7_about;
             }
-            else if (version == "6.2")
+            else if (version.Major==  6 && version.Minor==  2)
             {
                 pictureBox3.Image = Properties.Resources._8_about;
             }
-            else if (version == "6.3" || version == "6.4")
+            else if ((version.Major==  6 && version.Minor==  3) || (version.Major==  10))
             {
                 pictureBox3.Image = Properties.Resources._8_about;
-            }
-            else if (version == "5.2")
-            {
-                pictureBox3.Image = Properties.Resources.XP_about;
             }
             else
             {

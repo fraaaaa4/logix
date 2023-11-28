@@ -8,7 +8,6 @@ using System.IO;
 using Microsoft.Win32;
 using mshtml;
 using Transitions;
-using System.Collections.Generic;
 
 namespace PrologParsec
 {
@@ -19,14 +18,40 @@ namespace PrologParsec
         private SplitContainer split1;
         private ToolStripMenuItem context; private ContextMenuStrip context2; //start page add-remove
         private ToolStripMenuItem contextWeb; private ToolStripMenuItem contextWeb2; private ContextMenuStrip rightclick; private MenuStrip menubar;
-        private int auroraHeight; private FarsiLibrary.Win.FATabStrip startPage; private FarsiLibrary.Win.FATabStripItem startPageTab; //tabs reference
-        private bool Windows9x; private bool resize9x;
+        private FarsiLibrary.Win.FATabStrip startPage; private FarsiLibrary.Win.FATabStripItem startPageTab; //tabs reference
+        private int auroraHeight; private bool Windows9x; private bool resize9x;
+        /*
+        // Constants for handling the WM_NCHITTEST message
+        private const int WM_NCHITTEST = 0x84;
+        private const int HTCLIENT = 0x1;
 
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.Style |= 0x840000; // WS_SIZEBOX style
+                return cp;
+            }
+        }
 
-        public Settings(WebBrowser webBrowser, FarsiLibrary.Win.FATabStrip startPage, FarsiLibrary.Win.FATabStripItem startPageTab, SplitContainer split1, ToolStripMenuItem context, ContextMenuStrip context2, ToolStripMenuItem contextWeb, ContextMenuStrip rightclick,ToolStripMenuItem contextWeb2, MenuStrip menubar) //constructor
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == WM_NCHITTEST)
+            {
+                m.Result = (IntPtr)HTCLIENT; // Make the window non-resizable
+            }
+            else
+            {
+                base.WndProc(ref m);
+            }
+        }
+         * */
+
+        public Settings(WebBrowser webBrowser, FarsiLibrary.Win.FATabStrip startPage, FarsiLibrary.Win.FATabStripItem startPageTab, SplitContainer split1, ToolStripMenuItem context, ContextMenuStrip context2, ToolStripMenuItem contextWeb, ContextMenuStrip rightclick,ToolStripMenuItem contextWeb2, MenuStrip menubar, MDIParent1 mdiparent) //constructor
         {
             InitializeComponent();
-            this.split1 = split1;
+            this.split1 = split1; this.mdiparent = mdiparent;
             this.webBrowser = webBrowser; //construct reference for aurora web browser
             this.startPage = startPage; this.startPageTab = startPageTab; //construct reference for start page tab
             this.context = context; this.context2 = context2;
@@ -36,118 +61,7 @@ namespace PrologParsec
             
         }
 
-        static string productName; static string currentVersion; static string buildLab;
-        static string GetWindowsVersion()
-        {
-            using (RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion")) //using the registry key
-            {
-                if (key != null)
-                {
-                    productName = key.GetValue("ProductName") as string; //windows product name
-                    currentVersion = key.GetValue("CurrentVersion") as string; //current version
-                    buildLab = key.GetValue("BuildLab") as string; //build number
 
-                    return currentVersion;
-                }
-                else
-                {
-                    return "No.";
-                }
-            }
-        }
-
-        static string GetWindowsProductName()
-        {
-            using (RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion"))
-            {
-                if (key != null)
-                {
-                    productName = key.GetValue("ProductName") as string;
-                    currentVersion = key.GetValue("CurrentVersion") as string;
-                    buildLab = key.GetValue("BuildLab") as string;
-
-                    return productName;
-                }
-                else
-                {
-                    return "No.";
-                }
-            }
-        }
-
-        static string GetBuildLab()
-        {
-            using (RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion"))
-            {
-                if (key != null)
-                {
-                    productName = key.GetValue("ProductName") as string;
-                    currentVersion = key.GetValue("CurrentVersion") as string;
-                    buildLab = key.GetValue("BuildLab") as string;
-
-                    return buildLab;
-                }
-                else
-                {
-                    return "No.";
-                }
-            }
-        }
-/*
-        private void WindowsCheck()
-        {
-            //check windows version
-            string version = GetWindowsVersion();
-            if (version.Equals("5.0") || version.Equals("5.1") || version.Equals("5.2") || version.Equals("6.0") || version.Equals("6.1"))
-            {
-                comboBox1.Enabled = false;
-                label35.Enabled = false;
-                label9.Enabled = false;
-                checkBox2.Checked = true;
-                //webBrowser1.Visible = false;
-                Windows9x = true;
-                checkBox2.Enabled = false;
-                label8.Text = "The Aurora pane is unsupported on this version of Windows.";
-            }
-            else if (version == "6.1" || version == "6.2" || version == "6.3")
-            {
-                checkBox1.Enabled = true;
-                if (checkBox1.Checked)
-                    webBrowser1.Visible = true;
-                else
-                    webBrowser1.Visible = false;
-            }
-            else
-            {
-                checkBox1.Enabled = false;
-                checkBox1.Checked = false;
-                webBrowser1.Visible = false;
-                label8.Text = "The Aurora pane is unsupported on this version of Windows.";
-                Windows9x = true;
-            }
-
-            //transitions problem
-            if (version.Equals("5.0") && !version.Equals("5.1") && !version.Equals("5.2") && !version.Equals("6.0") && !version.Equals("6.1") && !version.Equals("6.2") && !version.Equals("6.3"))
-            {
-                resize9x = true;
-                checkBox2.Enabled = false;
-                MessageBox.Show(resize9x + "2000");
-            }
-            else if (version.Equals("5.1") || version.Equals("5.2") || version.Equals("6.0") || version.Equals("6.1") || version.Equals("6.2") || version.Equals("6.3"))
-            {
-                resize9x = false;
-                MessageBox.Show(resize9x + "XP");
-            }
-            else
-            {
-                resize9x = true;
-                checkBox2.Enabled = false;
-            }
-
-          
-           
-        }
- * */
 
         public Settings()
         {
@@ -161,9 +75,9 @@ namespace PrologParsec
 
         public void Windows9xMode()
         {
-            string version = GetWindowsVersion();
+            Version version = NtDll.RtlGetVersion();
 
-            if (version == "4.0" || version == "5.0" || version == "5.1" || version == "5.2" || version == "6.0" || version == "6.1")
+            if (version.Major == 4 || version.Major == 5 || (version.Major == 6 && (version.Minor == 0 || version.Minor == 1)))
             {
                 checkBox2.Checked = true;
                 checkBox2.Visible = false;
@@ -172,12 +86,12 @@ namespace PrologParsec
                 label9.Visible = false;
 
             }
-            else if (version == "6.2" || version == "6.3")
+            else if (version.Major == 6 && (version.Minor == 2 || version.Minor == 3))
             {
                 webBrowser1.Visible = true;
                 pictureBox2.Visible = false;
             }
-            else
+            else if (version.Major == 4)
             {
                 checkBox1.Checked = false;
                 checkBox1.Visible = false;
@@ -190,13 +104,26 @@ namespace PrologParsec
                 label35.Visible = false;
                 label9.Visible = false;
                 resize9x = true; Windows9x = true;
-                MessageBox.Show("9x mode");
+
 
             }
 
-            if (version == "5.0" || version == "")
+            if (version.Major == 5)
             {
                 resize9x = true; Windows9x = true; tabControl1.TabPages.Remove(tabPage12);
+            }
+
+            //check mica
+            if (version.Build < 19045)
+            {
+                checkBox29.Checked = false;
+                checkBox29.Enabled = false;
+                label101.Text = "The Mica effect can be enabled only on Windows 11 build 21996 or superior.";
+            }
+            else
+            {
+                checkBox29.Enabled = true;
+                label101.Text = "If checked, Logix will apply the Mica effect on the toolbar and menu bar. In order to work properly, it needs Mica For Everyone to be running.";
             }
         }
         
@@ -240,6 +167,10 @@ namespace PrologParsec
 
                 case "Common LISP Wiki":
                     comboBox17.SelectedIndex = 8;
+                    break;
+
+                case "Microsoft Learn (C/C++)":
+                    comboBox17.SelectedIndex = 9;
                     break;
             }
 
@@ -397,13 +328,33 @@ namespace PrologParsec
                 }
                 else if (Properties.Settings.Default.classicStyle)
                 {
-                    comboBox16.SelectedIndex = 2;
+                    comboBox16.SelectedIndex = 4;
                     pictureBox3.Image = Properties.Resources.classicIcons;
                 }
                 else if (Properties.Settings.Default.ClassicNineStyle)
                 {
-                    comboBox16.SelectedIndex = 3;
+                    comboBox16.SelectedIndex = 5;
                     pictureBox3.Image = Properties.Resources.OS9;
+                }
+                else if (Properties.Settings.Default.PantherStyle)
+                {
+                    comboBox16.SelectedIndex = 6;
+                    pictureBox3.Image = Properties.Resources.pantherIcon;
+                }
+                else if (Properties.Settings.Default.flat8Style)
+                {
+                    comboBox16.SelectedIndex = 3;
+                    pictureBox3.Image = Properties.Resources.flatMetro;
+                }
+                else if (Properties.Settings.Default.lunaXPStyle)
+                {
+                    comboBox16.SelectedIndex = 2;
+                    pictureBox3.Image = Properties.Resources.lunaIcons;
+                }
+                else if (Properties.Settings.Default.emacsStyle)
+                {
+                    comboBox16.SelectedIndex = 7;
+                    pictureBox3.Image = Properties.Resources.emacsIcon;
                 }
             } 
             else
@@ -508,7 +459,7 @@ namespace PrologParsec
             switch (Properties.Settings.Default.syntaxOpenDefaultMode)
             {
                 case "Previous one":
-                    comboBox18.SelectedIndex = 5;
+                    comboBox18.SelectedIndex = 6;
                     break;
 
                 case "None":
@@ -529,6 +480,10 @@ namespace PrologParsec
 
                 case "jflex":
                     comboBox18.SelectedIndex = 4;
+                    break;
+
+                case "C":
+                    comboBox18.SelectedIndex = 5;
                     break;
             }
 
@@ -595,29 +550,148 @@ namespace PrologParsec
             }
 
             //flex
-            if (Properties.Settings.Default.jFlexIntegration)
-                checkBox22.Checked = true;
-            else
-                checkBox22.Checked = false;
+           
 
-            textBox12.Text = Properties.Settings.Default.jFlexPath;
-            if (Properties.Settings.Default.jFlexGUI)
-                checkBox23.Checked = true;
-            else
-                checkBox23.Checked = false;
-
-            //flex
-            if (Properties.Settings.Default.bYaccIntegration)
-                checkBox25.Checked = true;
-            else
-                checkBox25.Checked = false;
-
-            textBox13.Text = Properties.Settings.Default.bYaccPath;
-            if (Properties.Settings.Default.bYaccGUI)
+            //gramlex
+            if (Properties.Settings.Default.gramlexIntegration)
                 checkBox24.Checked = true;
             else
                 checkBox24.Checked = false;
 
+            if (Properties.Settings.Default.gramlexExclusive)
+                checkBox22.Checked = true;
+            else
+                checkBox22.Checked = false;
+
+            //word wrap
+            if (Properties.Settings.Default.wordWrapTab)
+            {
+                checkBox23.Checked = true;
+                checkBox25.Checked = true;
+            }
+            else
+            {
+                checkBox23.Checked = false;
+                checkBox25.Checked = false;
+            }
+
+            //close logix tabs
+            if (Properties.Settings.Default.logixTabsClose)
+                checkBox26.Checked = true;
+            else
+                checkBox26.Checked = false;
+
+            //change syntax automatically when changing tabs
+            if (Properties.Settings.Default.syntaxTabChange)
+                checkBox27.Checked = true;
+            else
+                checkBox27.Checked = false;
+
+            //mica
+            if (Properties.Settings.Default.micaVariant)
+                checkBox29.Checked = true;
+            else
+                checkBox29.Checked = false;
+
+            //document map new tab
+            if (Properties.Settings.Default.documentMapNewTab)
+                checkBox28.Checked = true;
+            else
+                checkBox28.Checked = false;
+
+            //syntax new tab
+            switch (Properties.Settings.Default.syntaxTabNew)
+            {
+                case "Prolog":
+                    comboBox22.SelectedIndex = 0;
+                    break;
+
+                case "Lisp":
+                    comboBox22.SelectedIndex = 1;
+                    break;
+
+                case "jflex":
+                    comboBox22.SelectedIndex = 2;
+                    break;
+
+                case "byacc":
+                    comboBox22.SelectedIndex = 3;
+                    break;
+
+                case "C":
+                    comboBox22.SelectedIndex = 4;
+                    break; 
+
+                case "None":
+                    comboBox22.SelectedIndex = 5;
+                    break;
+            }
+
+            if (Properties.Settings.Default.syntaxTabNewChange)
+            {
+                checkBox31.Checked = true;
+                label113.Enabled = true;
+                comboBox22.Enabled = true;
+                label109.Enabled = true;
+                label110.Enabled = true;
+            }
+            else
+            {
+                checkBox31.Checked = false;
+                label113.Enabled = false;
+                comboBox22.Enabled = false;
+                label109.Enabled = false;
+                label110.Enabled = false;
+            }
+
+            //panther toolbar
+            if (Properties.Settings.Default.PantherToolbarBackground)
+                checkBox30.Checked = true;
+            else
+                checkBox30.Checked = false;
+
+            //header footer
+            if (Properties.Settings.Default.customHeaderFooter)
+            {
+                checkBox32.Checked = true;
+                groupBox29.Enabled = true;
+                groupBox30.Enabled = false;
+                groupBox28.Enabled = false;
+                groupBox31.Enabled = false;
+                groupBox32.Enabled = false;
+                groupBox33.Enabled = false;
+                groupBox34.Enabled = false;
+            }
+            else
+            {
+                checkBox32.Checked = false;
+                groupBox29.Enabled = false;
+                groupBox30.Enabled = true;
+                groupBox28.Enabled = true;
+                groupBox31.Enabled = true;
+                groupBox32.Enabled = true;
+                groupBox33.Enabled = true;
+                groupBox34.Enabled = true;
+            }
+
+            textBox15.Text = Properties.Settings.Default.headerText; textBox14.Text = Properties.Settings.Default.footerText;
+            textBox12.Text = Properties.Settings.Default.headerProlog; textBox13.Text = Properties.Settings.Default.footerProlog;
+            textBox17.Text = Properties.Settings.Default.headerLispText; textBox16.Text = Properties.Settings.Default.footerLisp;
+            textBox19.Text = Properties.Settings.Default.headerJflexText; textBox18.Text = Properties.Settings.Default.footerjflex;
+            textBox21.Text = Properties.Settings.Default.headerYaccText; textBox20.Text = Properties.Settings.Default.footeryacc;
+            textBox23.Text = Properties.Settings.Default.headernone; textBox22.Text = Properties.Settings.Default.footernone;
+            textBox24.Text = Properties.Settings.Default.footerC; textBox25.Text = Properties.Settings.Default.headerC;
+
+            if (Properties.Settings.Default.footerPath)
+                checkBox33.Checked = true;
+            else
+                checkBox33.Checked = false;
+
+            //color fluent
+            if (Properties.Settings.Default.fluentColorIcons)
+                checkBox34.Checked = true;
+            else
+                checkBox34.Checked = false;
         }
 
         private void checkColumnLimit(){
@@ -925,7 +999,7 @@ namespace PrologParsec
                     webBrowser1.Navigate(filePath); //navigate to the custom document 
                     webBrowser.Navigate(filePath);
                 }
-                catch (NullReferenceException e)
+                catch (NullReferenceException)
                 {
                     
                 }
@@ -1085,6 +1159,12 @@ namespace PrologParsec
                 iformwidth = 606;
 
             }
+            else if (tabControl1.SelectedIndex == 3 && tabControl2.SelectedIndex == 0)
+            {
+                iformheight = 316; //change the height to be the one for the start page appearance
+                iformwidth = 603;
+
+            }
             else if (tabControl2.SelectedIndex == 1 && tabControl3.SelectedIndex == 1)
             {
                 iformwidth = 535; //change the height to be the one for highlight
@@ -1095,7 +1175,7 @@ namespace PrologParsec
                 iformheight = 433; //theming
                 iformwidth = 600;
             }
-            else if (tabControl2.SelectedIndex == 1 && tabControl3.SelectedIndex == 4)
+            else if (tabControl2.SelectedIndex == 1 && tabControl3.SelectedIndex == 5)
             {
                 iformwidth = 449; //column limit
                 iformheight = 380;
@@ -1103,16 +1183,16 @@ namespace PrologParsec
             else if (tabControl2.SelectedIndex == 1 && tabControl3.SelectedIndex == 3)
             {
                 iformwidth = 413; //open/save
-                iformheight = 471;
+                iformheight = 521;
             }
-            else if (tabControl2.SelectedIndex == 1 && tabControl3.SelectedIndex == 5)
+            else if (tabControl2.SelectedIndex == 1 && tabControl3.SelectedIndex == 6)
             {
                 iformwidth = 552; //web search
                 iformheight = 307;
             }
             else if (tabControl2.SelectedIndex == 1 && tabControl3.SelectedIndex == 0)
             {
-                iformheight = 681; //startup
+                iformheight = 722; //startup
                 iformwidth = 434;
             }
             else if (tabControl2.SelectedIndex == 2 && tabControl3.SelectedIndex == 0)
@@ -1124,7 +1204,22 @@ namespace PrologParsec
             {
                 iformheight = 256;  //byacc
                 iformwidth = 516;
-            } else
+            }
+            else if (tabControl2.SelectedIndex == 1 && tabControl3.SelectedIndex == 4)
+            {
+                iformheight = 492; //tabs
+                    iformwidth = 440;
+                }
+                else if (tabControl2.SelectedIndex == 1 && tabControl3.SelectedIndex == 2)
+                {
+                    iformheight = 519;
+                    iformwidth = 801;
+                }
+                else if (tabControl2.SelectedIndex == 0 && tabControl1.SelectedIndex == 5)
+                {
+                    iformheight =344; //toolbar
+                    iformwidth = 448;
+                } else
             {
                 iformheight = 285; //change the height to be the one for the aurora appearance
                 iformwidth = 606;
@@ -2133,12 +2228,14 @@ namespace PrologParsec
                 checkBox8.Checked = false;
                 groupBox16.Enabled = false;
                 checkBox9.Checked = false;
+                button26.Enabled = false;
             }
             else
             {
                 groupBox14.Enabled = true;
                 groupBox15.Enabled = true;
                 groupBox16.Enabled = true;
+                button26.Enabled = true;
             }
            /*
                 if (checkBox7.Checked)
@@ -2248,7 +2345,7 @@ namespace PrologParsec
                         Properties.Settings.Default.columnLineLimit = int.Parse(textBox2.Text);
                 
             }
-            catch (Exception ea)
+            catch (Exception)
             {
 
                 ToolTip hint = new ToolTip();
@@ -2293,7 +2390,7 @@ namespace PrologParsec
                         Properties.Settings.Default.columnLineLimit = int.Parse(textBox2.Text);
                 }
             }
-            catch (Exception ea)
+            catch (Exception)
             {
 
                 ToolTip hint = new ToolTip();
@@ -2401,26 +2498,63 @@ namespace PrologParsec
                 Properties.Settings.Default.lunaStyle = false;
                 Properties.Settings.Default.classicStyle = false;
                 Properties.Settings.Default.ClassicNineStyle = false;
+                Properties.Settings.Default.flat8Style = false;
+                Properties.Settings.Default.lunaXPStyle = false;
                 pictureBox3.Image = Properties.Resources.fluentIcons;
-
+                Properties.Settings.Default.PantherStyle = false;
+                Properties.Settings.Default.emacsStyle = false;
                 label73.Text = "This icon set uses Segoe Fluent Icons for its icons. Suits best Windows 11.";
                 break;
 
-                case "Aero/Luna Icons":
+                case "Aero Icons":
                 Properties.Settings.Default.fluentStyle = false;
                 Properties.Settings.Default.lunaStyle = true;
                 Properties.Settings.Default.classicStyle = false;
                 Properties.Settings.Default.ClassicNineStyle = false;
+                Properties.Settings.Default.flat8Style = false;
                 pictureBox3.Image = Properties.Resources.AeroIcons;
+                Properties.Settings.Default.lunaXPStyle = false;
+                Properties.Settings.Default.PantherStyle = false;
+                Properties.Settings.Default.emacsStyle = false;
                 label73.Text = "This icon set uses Office 2010 icons for its icon set. Suits best Windows XP/Vista/7.";
                 break;
+
+            case "Luna Icons":
+                Properties.Settings.Default.fluentStyle = false;
+                Properties.Settings.Default.lunaStyle = false;
+                Properties.Settings.Default.classicStyle = false;
+                Properties.Settings.Default.ClassicNineStyle = false;
+                Properties.Settings.Default.flat8Style = false;
+                pictureBox3.Image = Properties.Resources.lunaIcons;
+                Properties.Settings.Default.lunaXPStyle = true;
+                Properties.Settings.Default.PantherStyle = false;
+                Properties.Settings.Default.emacsStyle = false;
+                label73.Text = "This icon set uses Office 2003 icons for its icon set. Suits best Windows XP.";
+                break;
+
+                case "Metro Icons":
+                    Properties.Settings.Default.fluentStyle = false;
+                    Properties.Settings.Default.lunaStyle = false;
+                    Properties.Settings.Default.classicStyle = false;
+                    Properties.Settings.Default.ClassicNineStyle = false;
+                    Properties.Settings.Default.flat8Style = true;
+                    pictureBox3.Image = Properties.Resources.flatMetro;
+                    Properties.Settings.Default.lunaXPStyle = false;
+                    Properties.Settings.Default.PantherStyle = false;
+                    Properties.Settings.Default.emacsStyle = false;
+                    label73.Text = "This icon set uses Office 2013 icons for its icon set. Suits best Windows 8/8.1/10.";
+                    break;
 
                 case "Classic Style":
                 Properties.Settings.Default.fluentStyle = false;
                 Properties.Settings.Default.lunaStyle = false;
                 Properties.Settings.Default.classicStyle = true;
                 Properties.Settings.Default.ClassicNineStyle = false;
+                Properties.Settings.Default.flat8Style = false;
                 pictureBox3.Image = Properties.Resources.classicIcons;
+                Properties.Settings.Default.lunaXPStyle = false;
+                Properties.Settings.Default.PantherStyle = false;
+                Properties.Settings.Default.emacsStyle = false;
                 label73.Text = "This icon set mimicks the 9x Explorer bar look. Suits best Windows 2000.";
 
                 break;
@@ -2430,11 +2564,42 @@ namespace PrologParsec
                 Properties.Settings.Default.lunaStyle = false;
                 Properties.Settings.Default.classicStyle = false;
                 Properties.Settings.Default.ClassicNineStyle = true;
+                Properties.Settings.Default.flat8Style = false;
                 pictureBox3.Image = Properties.Resources.OS9;
+                Properties.Settings.Default.lunaXPStyle = false;
+                Properties.Settings.Default.PantherStyle = false;
+                Properties.Settings.Default.emacsStyle = false;
                 label73.Text = "This icon set uses icons from the nineicons-redux Gnome theme. Suits best Linux and/or Windows 2000.";
+                break;
+
+            case "Aqua (OS X Panther) Style":
+                Properties.Settings.Default.fluentStyle = false;
+                Properties.Settings.Default.lunaStyle = false;
+                Properties.Settings.Default.classicStyle = false;
+                Properties.Settings.Default.ClassicNineStyle = false;
+                Properties.Settings.Default.flat8Style = false;
+                pictureBox3.Image = Properties.Resources.pantherIcon;
+                Properties.Settings.Default.lunaXPStyle = false;
+                Properties.Settings.Default.PantherStyle = true;
+                Properties.Settings.Default.emacsStyle = false;
+                label73.Text = "This icon set uses Office X icons (PowerPC) for Mac OS X 10.0. Suits best Linux and/or custom OS X themes.";
+                break;
+
+                case "Emacs Style":
+                Properties.Settings.Default.fluentStyle = false;
+                Properties.Settings.Default.lunaStyle = false;
+                Properties.Settings.Default.classicStyle = false;
+                Properties.Settings.Default.ClassicNineStyle = false;
+                Properties.Settings.Default.flat8Style = false;
+                pictureBox3.Image = Properties.Resources.emacsIcon;
+                Properties.Settings.Default.lunaXPStyle = false;
+                Properties.Settings.Default.PantherStyle = false;
+                Properties.Settings.Default.emacsStyle = true;
+                label73.Text = "This style mimicks Emacs to hide Logix from crazy people who want to only use emacs ever. Not all features are available in this mode.";
                 break;
             }
             Properties.Settings.Default.Save();
+            mdiparent.iconChange();
         }
 
         private void checkBox14_CheckedChanged(object sender, EventArgs e)
@@ -2639,6 +2804,11 @@ namespace PrologParsec
                     Properties.Settings.Default.searchWebPathName = "Common LISP Wiki";
                     break;
 
+                case "Microsoft Learn (C/C++)":
+                    Properties.Settings.Default.searchWebPath = "https://learn.microsoft.com/en-us/search/?scope=C%252B%252B&view=msvc-170&terms=";
+                    Properties.Settings.Default.searchWebPathName = "Microsoft Learn (C/C++)";
+                    break;
+
                 default:
                     Properties.Settings.Default.Save();
                     break;
@@ -2672,7 +2842,7 @@ namespace PrologParsec
                          Properties.Settings.Default.searchWebPath = textBox7.Text;
                 
             }
-            catch (Exception ea)
+            catch (Exception)
             {
 
                 ToolTip hint = new ToolTip();
@@ -2727,6 +2897,10 @@ namespace PrologParsec
 
                 case "JFlex":
                     Properties.Settings.Default.syntaxOpenDefaultMode = "jflex";
+                    break;
+
+                case "C/C++":
+                    Properties.Settings.Default.syntaxOpenDefaultMode = "C";
                     break;
 
                 case "previous one":
@@ -2802,7 +2976,7 @@ namespace PrologParsec
                 Properties.Settings.Default.Save();
 
             }
-            catch (Exception ea)
+            catch (Exception)
             {
 
                 ToolTip hint = new ToolTip();
@@ -2839,7 +3013,7 @@ namespace PrologParsec
                 Properties.Settings.Default.Save();
 
             }
-            catch (Exception ea)
+            catch (Exception)
             {
 
                 ToolTip hint = new ToolTip();
@@ -2900,7 +3074,7 @@ namespace PrologParsec
                     Properties.Settings.Default.windowWidth = int.Parse(textBox11.Text);
                 Properties.Settings.Default.Save();
             }
-            catch (Exception ea)
+            catch (Exception)
             {
 
                 ToolTip hint = new ToolTip();
@@ -2937,7 +3111,7 @@ namespace PrologParsec
                 Properties.Settings.Default.Save();
 
             }
-            catch (Exception ea)
+            catch (Exception)
             {
 
                 ToolTip hint = new ToolTip();
@@ -2991,10 +3165,7 @@ namespace PrologParsec
 
         private void checkBox23_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox23.Checked)
-                label98.Text = "You'll be able to interact with JFlex through a graphical user interface.";
-            else
-                label98.Text = "JFlex will start in a Command Prompt window without a graphical user interface.";
+           
         }
 
         private void checkBox24_CheckedChanged(object sender, EventArgs e)
@@ -3007,38 +3178,311 @@ namespace PrologParsec
 
         private void checkBox22_CheckedChanged(object sender, EventArgs e)
         {
-            if (!checkBox22.Checked)
-            {
-                Properties.Settings.Default.jFlexIntegration = false;
-                label95.Enabled = true; label96.Enabled = false; label97.Enabled = false;
-                textBox12.Enabled = false; button33.Enabled = false; button32.Enabled = false;
-                checkBox23.Enabled = false; label98.Enabled = false;
-            }
-            else
-            {
-                Properties.Settings.Default.jFlexIntegration = true;
-                label95.Enabled = true; label96.Enabled = true; label97.Enabled = true;
-                textBox12.Enabled = true; button33.Enabled = true; button32.Enabled = true;
-                checkBox23.Enabled = true; label98.Enabled = true;
-            }
+           
         }
 
         private void checkBox25_CheckedChanged(object sender, EventArgs e)
         {
-            if (!checkBox25.Checked)
+          
+        }
+
+        private void checkBox24_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (!checkBox24.Checked)
             {
-                Properties.Settings.Default.bYaccIntegration = false;
-                label100.Enabled = false; label101.Enabled = false;
-                textBox13.Enabled = false; button35.Enabled = false; button34.Enabled = false;
-                checkBox24.Enabled = false; label99.Enabled = false;
+                Properties.Settings.Default.gramlexIntegration = false;
             }
             else
             {
-                Properties.Settings.Default.bYaccIntegration = true;
-                label100.Enabled = true; label101.Enabled = true;
-                textBox13.Enabled = true; button35.Enabled = true; button34.Enabled = true;
-                checkBox24.Enabled = true; label99.Enabled = true;
+                Properties.Settings.Default.gramlexIntegration = true;
             }
+        }
+
+        private void checkBox22_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (checkBox22.Checked)
+                Properties.Settings.Default.gramlexExclusive = true;
+            else
+                Properties.Settings.Default.gramlexExclusive = false;
+            Properties.Settings.Default.Save();
+        }
+
+        private void checkBox23_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (checkBox23.Checked)
+            {
+                Properties.Settings.Default.wordWrapTab = true;
+            }
+            else
+            {
+                Properties.Settings.Default.wordWrapTab = false;
+            }
+            Properties.Settings.Default.Save();
+        }
+
+        private void checkBox25_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (checkBox25.Checked)
+            {
+                Properties.Settings.Default.wordWrapTab = true;
+            }
+            else
+            {
+                Properties.Settings.Default.wordWrapTab = false;
+            }
+            Properties.Settings.Default.Save();
+        }
+
+        private void checkBox26_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox26.Checked)
+                Properties.Settings.Default.logixTabsClose = true;
+            else
+                Properties.Settings.Default.logixTabsClose = false;
+            Properties.Settings.Default.Save();
+        }
+
+        private void checkBox27_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox27.Checked)
+                Properties.Settings.Default.syntaxTabChange = true;
+            else
+                Properties.Settings.Default.syntaxTabChange = false;
+            Properties.Settings.Default.Save();
+        }
+
+        private void checkBox29_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox29.Checked)
+            {
+                Properties.Settings.Default.micaVariant = true;
+            }
+            else
+            {
+                Properties.Settings.Default.micaVariant = false;
+                Properties.Settings.Default.micaVariantForce = false;
+            } 
+            Properties.Settings.Default.Save();
+            mdiparent.micaSupport();
+        }
+
+        private void checkBox28_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox28.Checked)
+            {
+                Properties.Settings.Default.documentMapNewTab = true;
+            }
+            else
+            {
+                Properties.Settings.Default.documentMapNewTab = false;
+            }
+            Properties.Settings.Default.Save();
+        }
+
+        private void comboBox22_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (comboBox22.SelectedIndex)
+            {
+                case 0:
+                    Properties.Settings.Default.syntaxTabNew = "Prolog";
+                    break;
+
+                case 1:
+                    Properties.Settings.Default.syntaxTabNew = "Lisp";
+                    break;
+
+                case 2:
+                    Properties.Settings.Default.syntaxTabNew = "jflex";
+                    break;
+
+                case 3:
+                    Properties.Settings.Default.syntaxTabNew = "yacc";
+                    break;
+
+                case 4:
+                    Properties.Settings.Default.syntaxTabNew = "C";
+                    break;
+
+                case 5:
+                    Properties.Settings.Default.syntaxTabNew = "None";
+                    break;
+
+                default:
+                    Properties.Settings.Default.Save();
+                    break;
+            }
+            Properties.Settings.Default.Save();
+        }
+
+        private void button32_Click(object sender, EventArgs e)
+        {
+            checkBox29.Enabled = true; checkBox29.Checked = true;
+            Properties.Settings.Default.micaVariant = true;
+            Properties.Settings.Default.micaVariantForce = true;
+            Properties.Settings.Default.Save();
+        }
+
+        private void checkBox30_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox30.Checked)
+                Properties.Settings.Default.PantherToolbarBackground = true;
+            else
+                Properties.Settings.Default.PantherToolbarBackground = false;
+            Properties.Settings.Default.Save();
+            mdiparent.pantherBackground();
+        }
+
+        private void checkBox31_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!checkBox31.Checked)
+            {
+                Properties.Settings.Default.syntaxTabNewChange = false;
+                label113.Enabled = false;
+                comboBox22.Enabled = false;
+                label109.Enabled = false;
+                label110.Enabled = false;
+            }
+            else
+            {
+                Properties.Settings.Default.syntaxTabNewChange = true;
+                label113.Enabled = true;
+                comboBox22.Enabled = true;
+                label109.Enabled = true;
+                label110.Enabled = true;
+            }
+            Properties.Settings.Default.Save();
+        }
+
+        private void checkBox32_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox32.Checked)
+            {
+                Properties.Settings.Default.customHeaderFooter = true;
+                groupBox29.Enabled = true;
+                groupBox30.Enabled = false;
+                groupBox28.Enabled = false;
+                groupBox31.Enabled = false;
+                groupBox32.Enabled = false;
+                groupBox33.Enabled = false;
+            }
+            else {
+                Properties.Settings.Default.customHeaderFooter = false;
+                groupBox29.Enabled = false;
+                groupBox30.Enabled = true;
+                groupBox28.Enabled = true;
+                groupBox31.Enabled = true;
+                groupBox32.Enabled = true;
+                groupBox33.Enabled = true;
+            }
+            Properties.Settings.Default.Save();
+        }
+
+        private void textBox15_TextChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.headerText = textBox15.Text;
+            Properties.Settings.Default.Save();
+        }
+
+        private void textBox14_TextChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.footerText = textBox14.Text;
+            Properties.Settings.Default.Save();
+        }
+
+        private void textBox12_TextChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.headerProlog = textBox12.Text;
+            Properties.Settings.Default.Save();
+        }
+
+        private void textBox13_TextChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.footerProlog = textBox13.Text;
+            Properties.Settings.Default.Save();
+        }
+
+        private void textBox17_TextChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.headerLispText = textBox17.Text;
+            Properties.Settings.Default.Save();
+        }
+
+        private void textBox16_TextChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.footerLisp = textBox16.Text;
+            Properties.Settings.Default.Save();
+        }
+
+        private void textBox19_TextChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.headerJflexText = textBox19.Text;
+            Properties.Settings.Default.Save();
+        }
+
+        private void textBox18_TextChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.footerjflex = textBox18.Text;
+            Properties.Settings.Default.Save();
+        }
+
+        private void textBox21_TextChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.headerYaccText = textBox21.Text;
+            Properties.Settings.Default.Save();
+        }
+
+        private void textBox20_TextChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.footeryacc = textBox20.Text;
+            Properties.Settings.Default.Save();
+        }
+
+        private void textBox23_TextChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.headernone = textBox23.Text;
+            Properties.Settings.Default.Save();
+        }
+
+        private void textBox22_TextChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.footernone = textBox22.Text;
+            Properties.Settings.Default.Save();
+        }
+
+        private void checkBox33_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox33.Checked)
+                Properties.Settings.Default.footerPath = true;
+            else
+                Properties.Settings.Default.footerPath = false;
+            Properties.Settings.Default.Save();
+        }
+
+        private void textBox25_TextChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.headerC = textBox25.Text;
+            Properties.Settings.Default.Save();
+        }
+
+        private void textBox24_TextChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.footerC = textBox24.Text;
+            Properties.Settings.Default.Save();
+        }
+
+        private void checkBox34_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox34.Checked)
+            {
+                mdiparent.colorFluentIcons();
+                Properties.Settings.Default.fluentColorIcons = true;
+            }
+            else
+            {
+                mdiparent.uncolorFluentIcons();
+                Properties.Settings.Default.fluentColorIcons = false;
+            }
+            Properties.Settings.Default.Save();
         }
 
      

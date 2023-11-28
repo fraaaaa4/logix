@@ -23,7 +23,7 @@ namespace PrologParsec
                 thread.Start();
                 
             }
-            catch (ArgumentException ex)
+            catch (ArgumentException)
             {
                 
             }
@@ -35,7 +35,10 @@ namespace PrologParsec
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MDIParent1());
+            if (Properties.Settings.Default.gramlexExclusive == false)
+                Application.Run(new MDIParent1());
+            else
+                Application.Run(new LogixPE());
         }
     }
 }
