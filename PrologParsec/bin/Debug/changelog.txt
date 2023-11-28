@@ -1,5 +1,72 @@
-﻿November 11th Version
+﻿November 28th Version
+- Gramlex: now you need to only point to the jar of jflex rather than its bat file.
+- new help for Gramlex, will be moved (probably) in a later version to the HTML help.
+- on the Fluent theme you have the option to make your toolbar icons coloured
+
+November 26th Version
+- now based on what you've written, selected, the toolbar buttons that didn't do anything get disabled anyway. E.g. if you don't have anything selected, cut and copy is disabled
+- finished implementing C as syntax
+
+November 25th Version
+- emacs theme now available. Bear in mind that it disables lots of Logix features, in favor of the cumbersome, way too old, not user friendly, way too complex and way too disorganised interface of emacs. It mimicks the useless toolbar, the overly engineered menus, and the useless double status bar.
+- improved titlebar look - now the text changes according to the tab you've opened
+- added C\C++ syntax highlighting and code folding
+- added basic object browser for C - need to disable it on other syntaxes, and finish implementing C.
+
+November 22nd Version
+- finished the entire coding refactoring of MDIParent1.cs at 1pm! Next up is Settings.cs
+- fixed a few bugs here and there: checkboxes not working correctly, stuff not displaying properly, methods repeating themselves, methods declarated and then left there, etc etc now it only uses 13% CPU/35MB on start page, and 1% CPU/34MB on any other file.
+
+November 21st Version
+- added new custom headers and footers for each syntax - choose a different one for each one of those, or choose a custom one for each one of them
+- Gramlex: now it automatically opens the cmd for you, and you can just paste in and you can run the program directly.
+- Gramlex: you have now a button to open a new cmd window if you need about it.
+- fixed an issue in the toolbar where you could make the buttons as big as you wished
+- Gramlex: now there's a new button in Logix which can automatically send the file you've chosen directly to Gramlex, and automatically sorts out if it's a lexer or a parser
+- new popups for saving and adding a thing to Gramlex for better visibility - can be turned off in favor of just using the status bar too.
+- code refactoring: cleaned up lots of methods, unused variables, unused methods, etc. should now run slightly faster and occupy slightly less.
+- new toolbar code: now the View Toolbar option works, works correctly with all the icon packs, and the icon change itself should now be easier to maintain, and now works correctly
+
+November 19th Version
+- added new Metro flat style for 8.x
+- fixed a few grouping issues
+- added a warning sign in pages that are empty, thanks Jevil
+- added Luna icons to work on XP
+- added a new OS X Panther look with Office X icons and a new toolbar background
+- now you can set to set up a predetermined syntax every time you open a new tab
+- you don't need anymore to restart Logix to apply icon themes, they get applied on the fly.
+
+November 18th Version
+- fixed tooltips, now they do work
+- when closing all your tabs, you can choose to close Logix 
+- now you can print your documents
+- save question works - you can open and modify as many tabs you want, and will ask you to save them or not. This system is now implemented in all the app.
+- changed Settings window frame to be sizable instead of FixedDialog
+- line number control, toolbar and menu bar now have Mica effect on 11 (require MFE to be installed)
+- navigate backward and forward now works between tabs
+- you can automatically open the document map when creating a new tab, and it automatically disables on the start page
+
+November 16th Version
+- finished full tooltip support for Prolog - doesn't fully work yet.
+- setting to automatically disable/enable word wrapping when creating a new tab
+
+November 14th Version
+- Gramlex alerts you when your file paths aren't correct.
+- You can specify what's the name of your byaccj executable.
+- You can now decide to start Gramlex instead of Logix at startup.
+- added ruler
+- added hyperlink support
+- added basic tooltip support: need to do an entire dictionary for everything that is in there, for prolog and all the others.
+
+November 12th Version
+- introduced Gramlex, the new GUI interface for ByaccJ and JFlex, both integrated into one app. The options for jflex and byaccj aren't made yet, but it can already generate everything up until even javac, all with one click. Remember that your byacc executable must be called byaccj.exe in order to work. Next update I'll fix this.
+- thanks to @Splitwirez, changed the method to verify your version in all Logix to Ntdll.RtlGetVersion(). Much easier to use, much more reliable, much less prone to errors, and can detect if you're running Windows 10/11/any other NT version.
+- fixed the Apply button in Animations settings.
+- implemented only MonoSpace fonts in the font dialog, since the control couldn't load the others anyway.
+
+November 11th Version
 - designed a new icon more akin to Fluent Design - it features a more recognizable overall silhouette, it's more colorful and better represents what it does.
+- introduced keybinds for all menu items
 
 November 9th Version
 - started a basic implementation of JFlex and ByaccJ - will have GUI-based frameworks too

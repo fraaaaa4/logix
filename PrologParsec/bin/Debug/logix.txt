@@ -1,0 +1,59 @@
+TabLength intf
+ShowScrollBars bool
+WordWrapIndent int 
+
+Brackets:
+AutoCompleteBrackets    
+leftbracket leftbracket2 rightbracket rightbracket2 char/string
+Opening bracket for brackets highlighting - set \x0 for none
+
+Lines:
+lineInterval int - Interval between line in pixels
+LineNumberStartValue int - Start value of first line number
+SelectionHighlightingForLineBreaksEnabled bool - if enabled then line ends included into the selection will be selected too. Then line ends will be shown as selected blank caracter
+
+Indentation:
+autoIndent bool
+autoIndentChars bool
+autoIndentExistingLines bool
+ShowFoldingLines
+
+Enable
+Enable (half)
+Disable
+Alpha
+Alpha (full)
+Hangul
+Hangul (full)
+Hiragana
+Inherit
+Katakana
+Katakana (full)
+
+
+  private void panel6_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDownPanelTopBottom(sender, e, panel6);
+            
+        }
+
+        private void panel6_MouseMove(object sender, MouseEventArgs e)
+        {
+            mouseMovePanelTopBottom(sender, e, panel6);
+        }
+
+        private void panel6_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseUpPanelTopBottom(sender, e, panel6);
+        }
+        
+        
+
+label61.Text = "The caret used on your document will be the default Windows one.";
+                        label62.Text = "Your document will wrap words based on the single characters of them.";
+                                   label62.Text = "Your document will wrap words entirely, making the entire document more readable.";
+label61.Text = "The caret used on your document will be a wider one, more akin to old terminals and editors.";
+
+left1 = textbox2; left2 = textbox5; right1 = textbox3; right2 = textbox4
+
+size: 586 221
