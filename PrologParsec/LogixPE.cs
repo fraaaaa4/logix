@@ -13,6 +13,7 @@ using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
 using System.Windows;
 using System.Threading;
+using System.Text.RegularExpressions;
 
 namespace PrologParsec
 {
@@ -79,7 +80,9 @@ namespace PrologParsec
         {
             int iformwidth; int iformheight;
             if (!generateFinished)
-                antoniotti80Panel.Visible = false;
+            {
+                antoniotti80Panel.Visible = false; panel3.Hide();
+            }
             //check();
 
             if (tabControl1.SelectedIndex == 0)
@@ -130,6 +133,8 @@ namespace PrologParsec
             }
         }
 
+        System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer(); //timer to manage panels
+
         public static void OpenForm()
         {
             Application.EnableVisualStyles();
@@ -140,7 +145,14 @@ namespace PrologParsec
         private void LogixPE_Load(object sender, EventArgs e)
         {
             check();
+            timer.Interval = Properties.Settings.Default.saveTimer * 1000;
+            timer.Tick += Timer_Tick; //timer events to manage panels disappearing
 
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            timer.Stop(); antoniotti80Panel.Hide(); panel3.Hide(); //panel9: save - panel10: gramlex
         }
 
         private void check()
@@ -622,42 +634,85 @@ namespace PrologParsec
 
         public void generate()
         {
-            antoniotti80Panel.Visible = false;
+            antoniotti80Panel.Visible = false; panel3.Hide();
             generateFinished = false;
             richTextBox1.Clear();
-            StartCmdProcess("java -Xmx128m -jar \x22" + Properties.Settings.Default.jFlexPath + "\x22 " + Properties.Settings.Default.gramlexJFlexArguments + " \x22" + Properties.Settings.Default.gramlexLexical + "\x22", richTextBox1);
-            StartCmdProcess("cd " + Properties.Settings.Default.bYaccPath + " && " + Properties.Settings.Default.byaccPathName + " -J" + Properties.Settings.Default.gramlexByaccArguments + " " + Properties.Settings.Default.gramlexParser, richTextBox1);
-            StartCmdProcess("cd " + Properties.Settings.Default.gramlexOutput + " && " + " del Parser.java " + " && " + " del ParserVal.java", richTextBox1);
-            StartCmdProcess(" cd " + Properties.Settings.Default.bYaccPath + " && " + "move " + Properties.Settings.Default.bYaccPath + "\\parser.java " + Properties.Settings.Default.gramlexOutput + " && " + "move " + Properties.Settings.Default.bYaccPath + "\\ParserVal.java " + Properties.Settings.Default.gramlexOutput, richTextBox1);
-            if (Properties.Settings.Default.gramlexJavaRun)
-                StartCmdProcess(" cd " + Properties.Settings.Default.gramlexOutput + " && " + "javac Parser.java", richTextBox1);
-            centerPanel(antoniotti80Panel);
-            antoniotti80Panel.Visible = true;
-            generateFinished = true;
-           Clipboard.SetText("java Parser");
-           if (runCmd)
-           {
-               Process processcmd = startCmd(Properties.Settings.Default.gramlexOutput);
-           }
-            runCmd = false;
+            regexValidation(textBox1, "lexer");
+            regexValidation(textBox5, "parser");
+            regexValidation(textBox12, "java");
+
+            if (lexerValid == false || parserValid == false || jflexValid == false)
+            {
+                panelRegexValidation(); timer.Start(); centerPanel(panel3);
+                generateFinished = true;
+            }
+            else if (lexerValid == true && parserValid == true && jflexValid == true)
+            {
+                StartCmdProcess("java -Xmx128m -jar \x22" + Properties.Settings.Default.jFlexPath + "\x22 " + Properties.Settings.Default.gramlexJFlexArguments + " \x22" + Properties.Settings.Default.gramlexLexical + "\x22", richTextBox1);
+                StartCmdProcess("cd " + Properties.Settings.Default.bYaccPath + " && " + Properties.Settings.Default.byaccPathName + " -J" + Properties.Settings.Default.gramlexByaccArguments + " " + Properties.Settings.Default.gramlexParser, richTextBox1);
+                StartCmdProcess("cd " + Properties.Settings.Default.gramlexOutput + " && " + " del Parser.java " + " && " + " del ParserVal.java", richTextBox1);
+                StartCmdProcess(" cd " + Properties.Settings.Default.bYaccPath + " && " + "move " + Properties.Settings.Default.bYaccPath + "\\parser.java " + Properties.Settings.Default.gramlexOutput + " && " + "move " + Properties.Settings.Default.bYaccPath + "\\ParserVal.java " + Properties.Settings.Default.gramlexOutput, richTextBox1);
+                if (Properties.Settings.Default.gramlexJavaRun)
+                    StartCmdProcess(" cd " + Properties.Settings.Default.gramlexOutput + " && " + "javac Parser.java", richTextBox1);
+                centerPanel(antoniotti80Panel); 
+                antoniotti80Panel.Visible = true;
+                timer.Start();
+                generateFinished = true;
+                Clipboard.SetText("java Parser");
+                if (runCmd)
+                {
+                    Process processcmd = startCmd(Properties.Settings.Default.gramlexOutput);
+                }
+                runCmd = false;
+            }
            // sendCmd(processcmd, "java Parser");
         }
 
+        Regex regexL = new Regex(@"^[a-zA-Z]:\\(?:[^\\/:*?\x22<>|\r\n]+\\)*[^\\/:*?\x22<>|\r\n]+\.l$"); bool lexerValid;
+        Regex regexY = new Regex(@"^[a-zA-Z]:\\(?:[^\\/:*?\x22<>|\r\n]+\\)*[^\\/:*?\x22<>|\r\n]+\.y$"); bool parserValid;
+        Regex regexJAR = new Regex(@"^[a-zA-Z]:\\(?:[^\\/:*?\x22<>|\r\n]+\\)*[^\\/:*?\x22<>|\r\n]+\.jar$"); bool jflexValid;
+        //Regex regexJAR = new Regex(@"^[a-zA-Z]:\\(?:[^\\/:*?\x22<>|\r\n]+\\)*[^\\/:*?\x22<>|\r\n]+\.exe$"); bool yaccValid;
+
+        private void regexValidation(TextBox textbox, string method)
+        {
+            if (method == "lexer") { if (regexL.IsMatch(textbox.Text)) lexerValid = true; else lexerValid = false; }
+            if (method == "parser") { if (regexY.IsMatch(textbox.Text)) parserValid = true; else parserValid = false; }
+            if (method == "java") { if (regexJAR.IsMatch(textbox.Text)) jflexValid = true; else jflexValid = false; }
+        }
+
+        private void panelRegexValidation()
+        {
+            String error = "";
+            if (lexerValid == false) error = error + "Lexer ";
+            if (parserValid == false) error = error + "Parser ";
+            if (jflexValid == false) error = error + "Jflex ";
+
+            
+            error = error + " path not valid.";
+
+            label30.Text = error;
+            panel3.Show();
+        }
         private Process startCmd(string directoryPath)
         {
-            ProcessStartInfo psi = new ProcessStartInfo("cmd.exe");
-            psi.WorkingDirectory = directoryPath;
-
-            psi.UseShellExecute = false;
-            Process processCmd = new Process();
-            processCmd.StartInfo = psi;
-
-            processCmd.Start();
-
-            if (processCmd.StartInfo.RedirectStandardInput)
+            Process processCmd = null;
+            try
             {
-                processCmd.StandardInput.AutoFlush = true;
+                ProcessStartInfo psi = new ProcessStartInfo("cmd.exe");
+                psi.WorkingDirectory = directoryPath;
+
+                psi.UseShellExecute = false;
+               processCmd = new Process();
+                processCmd.StartInfo = psi;
+
+                processCmd.Start();
+
+                if (processCmd.StartInfo.RedirectStandardInput)
+                {
+                    processCmd.StandardInput.AutoFlush = true;
+                }
             }
+            catch (Exception ex) { richTextBox1.AppendText("\n " + ex.ToString());  }
             return processCmd;
         }
 
