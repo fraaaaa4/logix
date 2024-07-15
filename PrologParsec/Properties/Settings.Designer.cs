@@ -3452,5 +3452,305 @@ namespace PrologParsec.Properties {
                 this["fluentColorIcons"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("DimGray")]
+        public global::System.Drawing.Color yaccCommentForeColor {
+            get {
+                return ((global::System.Drawing.Color)(this["yaccCommentForeColor"]));
+            }
+            set {
+                this["yaccCommentForeColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Italic")]
+        public global::System.Drawing.FontStyle yaccCommentFontStyle {
+            get {
+                return ((global::System.Drawing.FontStyle)(this["yaccCommentFontStyle"]));
+            }
+            set {
+                this["yaccCommentFontStyle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Transparent")]
+        public global::System.Drawing.Color yaccCommentBackColor {
+            get {
+                return ((global::System.Drawing.Color)(this["yaccCommentBackColor"]));
+            }
+            set {
+                this["yaccCommentBackColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool intelligentCopy {
+            get {
+                return ((bool)(this["intelligentCopy"]));
+            }
+            set {
+                this["intelligentCopy"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool selectedLineColumn {
+            get {
+                return ((bool)(this["selectedLineColumn"]));
+            }
+            set {
+                this["selectedLineColumn"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int tab1Index {
+            get {
+                return ((int)(this["tab1Index"]));
+            }
+            set {
+                this["tab1Index"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int tab2Index {
+            get {
+                return ((int)(this["tab2Index"]));
+            }
+            set {
+                this["tab2Index"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int tab3Index {
+            get {
+                return ((int)(this["tab3Index"]));
+            }
+            set {
+                this["tab3Index"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int tab4Index {
+            get {
+                return ((int)(this["tab4Index"]));
+            }
+            set {
+                this["tab4Index"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool maintainTabPage {
+            get {
+                return ((bool)(this["maintainTabPage"]));
+            }
+            set {
+                this["maintainTabPage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("%")]
+        public string prologComments {
+            get {
+                return ((string)(this["prologComments"]));
+            }
+            set {
+                this["prologComments"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(";")]
+        public string lispComments {
+            get {
+                return ((string)(this["lispComments"]));
+            }
+            set {
+                this["lispComments"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("/*")]
+        public string yaccComments {
+            get {
+                return ((string)(this["yaccComments"]));
+            }
+            set {
+                this["yaccComments"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("//")]
+        public string jflexComments {
+            get {
+                return ((string)(this["jflexComments"]));
+            }
+            set {
+                this["jflexComments"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("//")]
+        public string CComments {
+            get {
+                return ((string)(this["CComments"]));
+            }
+            set {
+                this["CComments"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string prologCommentEnd {
+            get {
+                return ((string)(this["prologCommentEnd"]));
+            }
+            set {
+                this["prologCommentEnd"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string lispCommentEnd {
+            get {
+                return ((string)(this["lispCommentEnd"]));
+            }
+            set {
+                this["lispCommentEnd"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string yaccCommentEnd {
+            get {
+                return ((string)(this["yaccCommentEnd"]));
+            }
+            set {
+                this["yaccCommentEnd"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string jflexCommentEnd {
+            get {
+                return ((string)(this["jflexCommentEnd"]));
+            }
+            set {
+                this["jflexCommentEnd"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string CCommentEnd {
+            get {
+                return ((string)(this["CCommentEnd"]));
+            }
+            set {
+                this["CCommentEnd"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Example")]
+        public string defaultMailSubject {
+            get {
+                return ((string)(this["defaultMailSubject"]));
+            }
+            set {
+                this["defaultMailSubject"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("example@domain.com")]
+        public string defaultMailDest {
+            get {
+                return ((string)(this["defaultMailDest"]));
+            }
+            set {
+                this["defaultMailDest"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("example")]
+        public string defaultMailBody {
+            get {
+                return ((string)(this["defaultMailBody"]));
+            }
+            set {
+                this["defaultMailBody"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool defaultMailLayout {
+            get {
+                return ((bool)(this["defaultMailLayout"]));
+            }
+            set {
+                this["defaultMailLayout"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool defaultMailSelect {
+            get {
+                return ((bool)(this["defaultMailSelect"]));
+            }
+            set {
+                this["defaultMailSelect"] = value;
+            }
+        }
     }
 }

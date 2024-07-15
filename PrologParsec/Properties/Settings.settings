@@ -860,5 +860,80 @@
     <Setting Name="fluentColorIcons" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="yaccCommentForeColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">DimGray</Value>
+    </Setting>
+    <Setting Name="yaccCommentFontStyle" Type="System.Drawing.FontStyle" Scope="User">
+      <Value Profile="(Default)">Italic</Value>
+    </Setting>
+    <Setting Name="yaccCommentBackColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Transparent</Value>
+    </Setting>
+    <Setting Name="intelligentCopy" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="selectedLineColumn" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="tab1Index" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="tab2Index" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="tab3Index" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="tab4Index" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="maintainTabPage" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="prologComments" Type="System.String" Scope="User">
+      <Value Profile="(Default)">%</Value>
+    </Setting>
+    <Setting Name="lispComments" Type="System.String" Scope="User">
+      <Value Profile="(Default)">;</Value>
+    </Setting>
+    <Setting Name="yaccComments" Type="System.String" Scope="User">
+      <Value Profile="(Default)">/*</Value>
+    </Setting>
+    <Setting Name="jflexComments" Type="System.String" Scope="User">
+      <Value Profile="(Default)">//</Value>
+    </Setting>
+    <Setting Name="CComments" Type="System.String" Scope="User">
+      <Value Profile="(Default)">//</Value>
+    </Setting>
+    <Setting Name="prologCommentEnd" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="lispCommentEnd" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="yaccCommentEnd" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="jflexCommentEnd" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="CCommentEnd" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="defaultMailSubject" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Example</Value>
+    </Setting>
+    <Setting Name="defaultMailDest" Type="System.String" Scope="User">
+      <Value Profile="(Default)">example@domain.com</Value>
+    </Setting>
+    <Setting Name="defaultMailBody" Type="System.String" Scope="User">
+      <Value Profile="(Default)">example</Value>
+    </Setting>
+    <Setting Name="defaultMailLayout" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="defaultMailSelect" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

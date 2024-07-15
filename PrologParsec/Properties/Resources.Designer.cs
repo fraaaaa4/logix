@@ -103,7 +103,7 @@ namespace PrologParsec.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to November 28th, 2023.
+        ///   Looks up a localized string similar to May 6th, 2024.
         /// </summary>
         internal static string AppDate {
             get {
@@ -148,7 +148,7 @@ namespace PrologParsec.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 0.2.256.0.tf/p-231128.
+        ///   Looks up a localized string similar to 0.2.273.0.tf/p-240506.
         /// </summary>
         internal static string AppVersion {
             get {
@@ -1117,7 +1117,7 @@ namespace PrologParsec.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 0.5.543.0.lx/p-231128.
+        ///   Looks up a localized string similar to 0.5.544.0.lx/p-231129.
         /// </summary>
         internal static string PEVersion {
             get {
@@ -1136,6 +1136,33 @@ namespace PrologParsec.Properties {
             get {
                 object obj = ResourceManager.GetObject("prolog", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An integrated launcher for SWI-Prolog.
+        /// </summary>
+        internal static string PrologDescription {
+            get {
+                return ResourceManager.GetString("PrologDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Built using Visual Studio 2005 and C#. Prolog is a logic-based programming language. Built by fraaa3.
+        /// </summary>
+        internal static string PrologDescription2 {
+            get {
+                return ResourceManager.GetString("PrologDescription2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hyperdemo (Logix).
+        /// </summary>
+        internal static string PrologEdition {
+            get {
+                return ResourceManager.GetString("PrologEdition", resourceCulture);
             }
         }
         

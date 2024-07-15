@@ -138,10 +138,10 @@
     <value>Built using Visual Studio 2005 and C#. Credits to Pavel Torgashov for "Fast Colored Textbox" and "Autocomplete Menu". Prolog is a logic-based programming language. Built by fraaa3</value>
   </data>
   <data name="AppVersion" xml:space="preserve">
-    <value>0.2.256.0.tf/p-231128</value>
+    <value>0.2.273.0.tf/p-240506</value>
   </data>
   <data name="AppDate" xml:space="preserve">
-    <value>November 28th, 2023</value>
+    <value>May 6th, 2024</value>
   </data>
   <data name="select" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\select.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -483,7 +483,7 @@
     <value>Gramlex</value>
   </data>
   <data name="PEVersion" xml:space="preserve">
-    <value>0.5.543.0.lx/p-231128</value>
+    <value>0.5.544.0.lx/p-231129</value>
   </data>
   <data name="flatMetro" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\flatMetro.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -730,5 +730,14 @@
   </data>
   <data name="Property" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Property.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PrologDescription" xml:space="preserve">
+    <value>An integrated launcher for SWI-Prolog</value>
+  </data>
+  <data name="PrologDescription2" xml:space="preserve">
+    <value>Built using Visual Studio 2005 and C#. Prolog is a logic-based programming language. Built by fraaa3</value>
+  </data>
+  <data name="PrologEdition" xml:space="preserve">
+    <value>Hyperdemo (Logix)</value>
   </data>
 </root>
