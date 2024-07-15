@@ -1,4 +1,46 @@
-﻿November 28th Version
+﻿May 1st Version
+- new fonts toolbar which lets you quickly change the font of your editor directly from a toolbar
+- now when moving a toolbar outside the window, it animates the fact it re-enters inside.
+- changed the look of the Find and Replace and Go To toolbars to match the new design
+- improved tab navigation in all controls so the interface can be better navigated with the keyboard only
+- Send Via Mail: now you can choose to send files (or part of files) via your default mail client. You can choose your destination address by default, verify it, default subject, default body message, and also where to place it. All the settings for this are there.
+
+April 30th Version
+- When loading the app, now it doesn't incorrectly load Text Properties too
+- new comment settings where you can personalise how comments are automatically completed
+- now autocompiling comments changes the symbol used for comments based on syntax, and you can choose to make the line finish with a certain symbol too
+- the Settings form is now opened in a separate thread
+- new AutoCompile toolbar - can be moved across the screen, features all the AutoCompile features easily accessible
+- now when moving the panels outside of the window they get repositioned inside the window
+- when opening Settings it would remove the Start Page if you had it enabled; now it's fixed
+- now, when loading Settings, rather than creating a new object each time, it just shows it, and also doesn't create another form object in Settings referencing the main form, saving around 40MB of RAM each time. With Settings open, it now runs at a max. of 64MB of RAM, as opposed to before which would run at even 100MB of RAM.
+- now when changing back to the Start Page, all the panels which edit text get hidden, and then show again once you switch back to a tab with text.
+- Gramlex is now ran on a different thread for better performance on multicore processors.
+
+April 29th Version
+- Fixed a visual bug in Header/Footer in Settings
+- Made the search engine textbox wider to fit more text
+- Added under Editor > Misc. an option to browse for an help file
+- Now when opening the Themes page, it automatically loads the correct theme pictures
+
+December 12th Version
+- added better keyword syntax for Lisp - aggiungi anche append e list, char, length, string, subseq, funcall
+
+December 5th Version
+- Fixed closing and opening start pages - it now all works
+- Intelligent Copy - automatically removes useless empty lines and spaces, works from the menu and from the keyboard too
+- now when selecting a text, it tells you how many columns you've selected
+- in LISP, when writing the name of a function, it can intelligently highlight it
+
+December 4th Version
+- added code folding on JFlex syntax
+
+November 29th Version
+- fixed a bit of JFlex and Yacc syntax, for comments and brackets
+- Gramlex: added VS errors inside the Output for wrong directories and such
+- Gramlex: added new "Review your settings" panel for when you enter a wrong filename
+
+November 28th Version
 - Gramlex: now you need to only point to the jar of jflex rather than its bat file.
 - new help for Gramlex, will be moved (probably) in a later version to the HTML help.
 - on the Fluent theme you have the option to make your toolbar icons coloured
